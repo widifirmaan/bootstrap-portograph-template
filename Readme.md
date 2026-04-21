@@ -15,9 +15,9 @@ Explore the elegant design of **Portograph** through our showcase gallery.
 
 | | |
 |:---:|:---:|
-| ![Screenshot 1](screenshots/shot_01.png)<br>**Hero Section** | ![Screenshot 2](screenshots/shot_02.png)<br>**Portfolio Gallery** |
-| ![Screenshot 3](screenshots/shot_03.png)<br>**Pricing & Packages** | ![Screenshot 4](screenshots/shot_04.png)<br>**WhatsApp Order Form** |
-| ![Screenshot 5](screenshots/shot_05.png)<br>**Mobile Responsive View** | **High Performance** |
+| ![Screenshot 1](screenshots/Hero%20Desktop%20Page.png)<br>**Hero Section** | ![Screenshot 2](screenshots/Porto%20Desktop%20Page.png)<br>**Main Portfolio Showcase** |
+| ![Screenshot 3](screenshots/Package%20Desktop%20Page.png)<br>**Pricing & Packages** | ![Screenshot 4](screenshots/Footer%20Desktop%20Page.png)<br>**Contact Section with WhatsApp** |
+| ![Screenshot 5](screenshots/Hero%20Mobile%20Page.png)<br>**Mobile Responsive View** | ![Screenshot 6](screenshots/Sidebar%20Mobile%20Page.png)<br>**Mobile Navigation Menu** |
 
 ---
 
@@ -78,7 +78,7 @@ Explore the elegant design of **Portograph** through our showcase gallery.
 ### Installation
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/widifirmaan/Portograph-Template.git
+    git clone https://github.com/widifirmaan/bootstrap-portograph-template.git
     ```
 2.  **Run Locally**
     *   Simply open `index.html` in your browser.

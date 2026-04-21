@@ -1,6 +1,0 @@
-[17-Aug-2021 11:30:24 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/arunapic/public_html/wp-includes/compat.php on line 333
-[17-Aug-2021 11:30:24 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/arunapic/public_html/wp-includes/compat.php on line 333
-[17-Aug-2021 11:30:24 UTC] PHP Warning:  require(ABSPATHWPINC/sodium_compat/autoload.php): failed to open stream: No such file or directory in /home/arunapic/public_html/wp-includes/compat.php on line 333
-[17-Aug-2021 11:30:24 UTC] PHP Warning:  require(ABSPATHWPINC/sodium_compat/autoload.php): failed to open stream: No such file or directory in /home/arunapic/public_html/wp-includes/compat.php on line 333
-[17-Aug-2021 11:30:24 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/sodium_compat/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/arunapic/public_html/wp-includes/compat.php on line 333
-[03-Nov-2021 15:09:09 UTC] PHP Fatal error:  Cannot declare class WP_Importer, because the name is already in use in /home/arunapic/public_html/wp-admin/includes/class-wp-importer.php on line 5
