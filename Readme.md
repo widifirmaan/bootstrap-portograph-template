@@ -1,4 +1,4 @@
-# 📽️ Portograph — Cinematic Wedding Portfolio Bootstrap Template
+# 📽️ Portograph - Cinematic Wedding Portfolio Bootstrap Template
 
 **Portograph** is a zero-build, static HTML5 template engineered for wedding photography and cinematic services. It delivers a fully client-rendered, single-page experience with no server-side runtime dependency, making it trivially deployable to any static hosting provider (GitHub Pages, Vercel, Netlify, Cloudflare Pages).
 
