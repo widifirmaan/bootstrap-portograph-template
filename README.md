@@ -9,7 +9,6 @@ Portograph is a modern, media-first portfolio and client inquiry website templat
 [![Isotope](https://img.shields.io/badge/Filter-Isotope_Masonry-EA4335?style=flat-square)](#features)
 [![GLightbox](https://img.shields.io/badge/Lightbox-GLightbox-4285F4?style=flat-square)](#features)
 [![Swiper](https://img.shields.io/badge/Carousel-Swiper_Bundle-6366F1?style=flat-square&logo=swiper&logoColor=white)](https://swiperjs.com/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 
 ---
 
@@ -35,10 +34,12 @@ Portograph is a modern, media-first portfolio and client inquiry website templat
 
 ## Features
 
-- **Dynamic Animated Typewriter Header**: Hero section headline dynamically cycling through artistic creative roles (Photographer, Videographer, Director) via `Typed.js`.
+- **Dynamic Animated Typewriter Header**: Hero section headline dynamically cycling through creative roles (Photographer, Videographer, Director) via `Typed.js`.
 - **Hardware-Accelerated Isotope Masonry Gallery**: Zero-jank portfolio grid with instantaneous category sorting (All, App, Card, Web) using CSS GPU transform transitions.
 - **GLightbox Responsive Media Modal**: Touch-friendly high-resolution image preview lightbox with zoom controls, swipe navigation, and metadata captions.
 - **Dedicated Project Case Study Route (`portfolio-details.html`)**: Deep-dive layout detailing client briefs, project completion dates, high-resolution Swiper sliders, and client testimonials.
+- **Animated PureCounter Telemetry**: Real-time numerical counter animation displaying completed client projects, satisfied partners, and support metrics.
+- **Client Testimonials Carousel**: Touch-swipe testimonial carousel powered by Swiper with pagination bullets and auto-play transitions.
 - **Tiered Commercial Service Packages**: Structured comparison pricing cards (Bronze, Silver, Gold, Platinum) with feature checklist tags and direct booking triggers.
 - **Validated Client Inquiry Form**: Form markup with client-side field validation ready for backend email submission endpoints.
 
@@ -102,9 +103,3 @@ Open [http://localhost:8080](http://localhost:8080) in your web browser.
 ## Author
 
 Developed by **[Widi Firmansyah](https://widifirmaan.web.id)**.
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
