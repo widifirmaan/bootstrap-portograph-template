@@ -37,7 +37,7 @@ Portograph is a responsive Bootstrap 5 template designed for wedding photography
 - **Dynamic Typewriter Headline**: Hero section headline cycling through creative studio specialties (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) powered by Typed.js 2.0.12 with looping typing and deleting transitions.
 - **Live Instagram Portfolio Feed**: Dynamic social gallery embed via EmbedSocial hashtag widget (`#portfolio`) pulling real-time photography shoots directly from Instagram without manual static markup maintenance.
 - **Service Package Catalog**: Visual showcase of studio service tiers featuring 5 comprehensive brochures covering Prewedding Basic, Prewedding Premium, Prewedding Exclusive, Wedding Silver, Wedding Gold, and Platinum Exclusive tiers, with bundled PDF download links (`paket_compressed.pdf` and `paket.pdf`).
-- **Direct WhatsApp Booking Engine**: Interactive order form (`#contact`) with client name input and dropdown package selection that dynamically builds and launches a pre-filled booking inquiry via WhatsApp API (`gotowhatsapp()` routing directly to `+6281904111898`).
+- **Direct WhatsApp Booking Engine**: Interactive order form (`#contact`) with client name input and dropdown package selection that dynamically builds and launches a pre-filled booking inquiry via WhatsApp Click-to-Chat API (`gotowhatsapp()`).
 - **Case Study Detail Template (`portfolio-details.html`)**: Dedicated multi-image project showcase featuring an auto-playing Swiper 7.3.0 carousel with pagination bullets, project metadata sidebar (Category, Client, Date, URL), and project narrative container.
 - **Responsive Sidebar Navigation**: Vertical left-aligned desktop icon menu (`#header`) with smooth scroll-spy offset tracking, collapsible mobile off-canvas drawer toggled via `bi-list`/`bi-x` icon triggers, and a persistent back-to-top floating button.
 - **Studio Contact & Social Channels**: Quick-access social connections in header and footer linking to official YouTube channel, Instagram (`@aruna_daydream`), WhatsApp hotline, and physical studio address in Logandeng, Playen, Gunungkidul, Yogyakarta.
@@ -55,7 +55,7 @@ Portograph is a responsive Bootstrap 5 template designed for wedding photography
 | **Live Social Embed** | EmbedSocial Universal Hashtag Widget | Real-time Instagram portfolio grid rendering |
 | **Touch Sliders** | Swiper `7.3.0` | Touch-swipe auto-play image carousel for single project case studies |
 | **Motion & Animation** | Typed.js `2.0.12`, AOS `2.3.4` | Animated hero headline typing simulation and scroll-triggered element transitions |
-| **Direct Communication** | WhatsApp Click-to-Chat API | Pre-formatted booking lead redirection (`https://wa.me/6281904111898`) |
+| **Direct Communication** | WhatsApp Click-to-Chat API | Pre-formatted booking inquiry redirection via WhatsApp API endpoint |
 | **Hosting & Edge Delivery** | GitHub Pages, Fastly / Varnish CDN | Static site hosting under custom domain `widifirmaan.web.id` |
 
 ---
