@@ -15,8 +15,7 @@ Portograph is a photography and creative studio portfolio template built with Bo
 ## Live Production
 
 - **URL:** [http://widifirmaan.web.id/bootstrap-portograph-template/](http://widifirmaan.web.id/bootstrap-portograph-template/)
-- **Hosting:** Apache Web Server / Cloudflare Proxy
-- **Design Aesthetic:** Minimalist editorial dark mode, generous negative space, and responsive typography
+- **Deployment:** Apache Web Server / Cloudflare Proxy
 
 ---
 
