@@ -52,7 +52,6 @@ Portograph is a responsive Bootstrap 5 template designed for wedding photography
 | **Live Social Embed** | EmbedSocial Universal Hashtag Widget | Real-time Instagram portfolio grid rendering |
 | **Motion & Animation** | Typed.js `2.0.12`, AOS `2.3.4` | Animated hero headline typing simulation and scroll-triggered element transitions |
 | **Direct Communication** | WhatsApp Click-to-Chat API | Pre-formatted booking inquiry redirection via WhatsApp API endpoint |
-| **Hosting & Edge Delivery** | GitHub Pages, Fastly / Varnish CDN | Static site hosting under custom domain `widifirmaan.web.id` |
 
 ---
 
