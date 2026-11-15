@@ -1,6 +1,6 @@
 # Portograph
 
-> Elegant, responsive portfolio and studio showcase template built for professional photographers and creative directors.
+> Modern portfolio and studio showcase template built for professional photographers and creative directors.
 
 Portograph is a modern, media-first portfolio and client inquiry website template powered by Bootstrap 5. Designed specifically for commercial photographers, wedding cinematographers, and studio artists, Portograph features dynamic typing hero headers, an interactive Isotope masonry gallery with category filtering, GLightbox full-resolution modal previews, responsive tiered pricing tables, and dedicated case study detail pages.
 
@@ -17,7 +17,7 @@ Portograph is a modern, media-first portfolio and client inquiry website templat
 
 - **URL:** [http://widifirmaan.web.id/bootstrap-portograph-template/](http://widifirmaan.web.id/bootstrap-portograph-template/)
 - **Hosting:** Apache Web Server / Cloudflare Proxy
-- **Design Aesthetic:** High-fashion dark typography, minimalist grid systems, and subtle micro-interactions
+- **Design Aesthetic:** Minimalist editorial dark mode, generous negative space, and responsive typography
 
 ---
 
@@ -33,34 +33,34 @@ Portograph is a modern, media-first portfolio and client inquiry website templat
 
 ---
 
-## Core Features
+## Features
 
-- **Dynamic Animated Hero Header**: Engaging typing effect cycling through artistic specialties (Photographer, Videographer, Director) via `Typed.js`.
-- **Masonry Gallery with Instant Filtering**: Seamless portfolio categorization (All, Portraits, Weddings, Commercial) powered by Isotope layout engine.
-- **Full-Resolution GLightbox Previews**: Touch-friendly lightbox overlays supporting high-res zoom, keyboard navigation, and caption viewing.
-- **Structured Project Case Study (`portfolio-details.html`)**: Deep-dive layout highlighting project metadata (Client, Date, Project URL), client testimonials, and multi-slide image carousels.
-- **Service Pricing Packages**: High-converting tiered pricing comparison tables (Bronze, Silver, Gold, Platinum) with feature checklist tags.
-- **Interactive Booking & Contact**: Form markup with client validation ready for server-side mailing endpoints.
+- **Dynamic Animated Typewriter Header**: Hero section headline dynamically cycling through artistic creative roles (Photographer, Videographer, Director) via `Typed.js`.
+- **Hardware-Accelerated Isotope Masonry Gallery**: Zero-jank portfolio grid with instantaneous category sorting (All, App, Card, Web) using CSS GPU transform transitions.
+- **GLightbox Responsive Media Modal**: Touch-friendly high-resolution image preview lightbox with zoom controls, swipe navigation, and metadata captions.
+- **Dedicated Project Case Study Route (`portfolio-details.html`)**: Deep-dive layout detailing client briefs, project completion dates, high-resolution Swiper sliders, and client testimonials.
+- **Tiered Commercial Service Packages**: Structured comparison pricing cards (Bronze, Silver, Gold, Platinum) with feature checklist tags and direct booking triggers.
+- **Validated Client Inquiry Form**: Form markup with client-side field validation ready for backend email submission endpoints.
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology | Details |
+| Category | Technologies | Purpose |
 | :--- | :--- | :--- |
-| **CSS Framework** | Bootstrap `5.x` | Responsive grid, utility classes, and accessible components |
-| **Layout Filtering** | Isotope Masonry | Hardware-accelerated CSS transforms for seamless sorting |
-| **Media Modal** | GLightbox | Ultra-responsive lightbox gallery for images and video |
-| **Carousel Engine** | Swiper Bundle | Touch-swipe slider for multi-image project case studies |
-| **Text Animation** | Typed.js | Configurable typewriter text animation in hero viewport |
-| **Scroll Animation** | AOS (Animate on Scroll) | Lightweight CSS3-driven scroll entrance effects |
+| **UI Framework** | Bootstrap `5.x`, Bootstrap Icons | Accessible mobile-first responsive layout grid and vector icons |
+| **Layout & Filtering** | Isotope Masonry `3.0.6` | Animated masonry sorting and hardware-accelerated grid reorganization |
+| **Media Modal** | GLightbox `3.2.0` | Mobile touch-ready modal lightbox for high-resolution photo examination |
+| **Touch Sliders** | Swiper Bundle `8.4` | Smooth touch-swipe image carousel for project case study galleries |
+| **Motion & Animation** | Typed.js `2.0.12`, AOS `2.3.4` | Terminal-style header typing simulation and entrance scroll triggers |
+| **Hosting** | Static Web Server / Apache | Zero-backend static file hosting with client-side JavaScript execution |
 
 ---
 
 ## Project Structure
 
-```text
-bootstrap-portograph-template/
+```bash
+/
 ├── index.html              # Primary one-page showcase layout
 ├── portfolio-details.html  # Dedicated single project case study template
 ├── css/                    # Custom layout stylesheets and theme overrides
@@ -68,8 +68,8 @@ bootstrap-portograph-template/
 ├── img/                    # Photography demo assets and branding logos
 ├── assets/
 │   └── vendor/             # Bootstrap, Isotope, GLightbox, Swiper, AOS
-├── raw_screenshots/        # High-resolution production screen captures
-└── screenshots/            # MacBook Pro M4 & iPhone 16 Pro showcase mockups
+├── screenshots/            # MacBook Pro M4 & iPhone 16 Pro showcase mockups
+└── README.md
 ```
 
 ---
@@ -78,27 +78,30 @@ bootstrap-portograph-template/
 
 ### Prerequisites
 
-No build pipelines or node package installations required. All CSS and JavaScript vendor libraries are self-contained.
+No build tools, package managers, or server runtimes required. All styles and vendor assets are bundled locally.
 
-### Running Locally
+### Local Development
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/widifirmaan/bootstrap-portograph-template.git
-   cd bootstrap-portograph-template
-   ```
+> **Environment Variables:** No `.env` file or API keys are required. All layout filtering, lightbox modals, and typewriter animations run 100% client-side in the browser.
 
-2. **Serve with any local web server**:
-   ```bash
-   # Python 3
-   python3 -m http.server 8080
+```bash
+# 1. Clone the repository
+git clone https://github.com/widifirmaan/bootstrap-portograph-template.git
+cd bootstrap-portograph-template
 
-   # Or Node.js
-   npx serve .
-   ```
+# 2. Start any local static web server
+python3 -m http.server 8080
+# or using Node.js:
+npx serve .
+```
 
-3. **View in browser**:
-   Open [http://localhost:8080](http://localhost:8080).
+Open [http://localhost:8080](http://localhost:8080) in your web browser.
+
+---
+
+## Author
+
+Developed by **[Widi Firmansyah](https://widifirmaan.web.id)**.
 
 ---
 
