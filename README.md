@@ -1,8 +1,8 @@
 # Portograph
 
-> Wedding photography, cinematic videography, and event documentation studio showcase template.
+> Modern Bootstrap 5 template for wedding photography, cinematic videography, and creative studio showcases.
 
-Portograph is a responsive photography and creative studio portfolio template built with Bootstrap 5. It features a full-screen hero stage with dynamic Typed.js headline animation, an integrated EmbedSocial live Instagram portfolio feed, visual service catalogs across 5 wedding and pre-wedding package tiers with downloadable PDF brochures, an instant WhatsApp booking form, and a dedicated case study project detail page (`portfolio-details.html`).
+Portograph is a responsive Bootstrap 5 template designed for wedding photography, cinematic videography, and creative event documentation showcases. It features a full-screen hero stage with dynamic Typed.js headline animation, an integrated EmbedSocial live Instagram portfolio feed, visual service catalogs across 5 wedding and pre-wedding package tiers with downloadable PDF brochures, an instant WhatsApp booking form, and a dedicated case study project detail page (`portfolio-details.html`).
 
 [![Live Demo](https://img.shields.io/badge/Demo-widifirmaan.web.id%2Fbootstrap--portograph--template-10B981?style=flat-square&logo=googlechrome&logoColor=white)](https://widifirmaan.web.id/bootstrap-portograph-template/)
 [![Bootstrap 5.1.3](https://img.shields.io/badge/Bootstrap-5.1.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
