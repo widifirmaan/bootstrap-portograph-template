@@ -2,7 +2,7 @@
 
 > Modern portfolio and studio showcase template built for professional photographers and creative directors.
 
-Portograph is a modern, media-first portfolio and client inquiry website template powered by Bootstrap 5. Designed specifically for commercial photographers, wedding cinematographers, and studio artists, Portograph features dynamic typing hero headers, an interactive Isotope masonry gallery with category filtering, GLightbox full-resolution modal previews, responsive tiered pricing tables, and dedicated case study detail pages.
+Portograph is a photography and creative studio portfolio template built with Bootstrap 5. It features a hero section with dynamic typing animation, filterable Isotope masonry image gallery, GLightbox modal previews, client testimonials carousel, service pricing packages, and a dedicated project detail template (`portfolio-details.html`).
 
 [![Live Demo](https://img.shields.io/badge/Demo-widifirmaan.web.id%2Fportograph-10B981?style=flat-square&logo=googlechrome&logoColor=white)](http://widifirmaan.web.id/bootstrap-portograph-template/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
@@ -34,14 +34,14 @@ Portograph is a modern, media-first portfolio and client inquiry website templat
 
 ## Features
 
-- **Dynamic Animated Typewriter Header**: Hero section headline dynamically cycling through creative roles (Photographer, Videographer, Director) via `Typed.js`.
-- **Hardware-Accelerated Isotope Masonry Gallery**: Zero-jank portfolio grid with instantaneous category sorting (All, App, Card, Web) using CSS GPU transform transitions.
-- **GLightbox Responsive Media Modal**: Touch-friendly high-resolution image preview lightbox with zoom controls, swipe navigation, and metadata captions.
-- **Dedicated Project Case Study Route (`portfolio-details.html`)**: Deep-dive layout detailing client briefs, project completion dates, high-resolution Swiper sliders, and client testimonials.
-- **Animated PureCounter Telemetry**: Real-time numerical counter animation displaying completed client projects, satisfied partners, and support metrics.
+- **Dynamic Typewriter Header**: Hero section headline cycling through creative roles (Photographer, Videographer, Director) via `Typed.js`.
+- **Filterable Masonry Gallery**: Isotope grid with category filtering (All, App, Card, Web) and responsive column layouts.
+- **GLightbox Media Modal**: Mobile touch-friendly full-resolution photo preview lightbox with zoom and metadata captions.
+- **Project Detail Template (`portfolio-details.html`)**: Dedicated case study page layout with image carousel, project information card, and client overview.
+- **PureCounter Animated Metrics**: Number counter animation displaying completed projects, client totals, and service statistics.
 - **Client Testimonials Carousel**: Touch-swipe testimonial carousel powered by Swiper with pagination bullets and auto-play transitions.
-- **Tiered Commercial Service Packages**: Structured comparison pricing cards (Bronze, Silver, Gold, Platinum) with feature checklist tags and direct booking triggers.
-- **Validated Client Inquiry Form**: Form markup with client-side field validation ready for backend email submission endpoints.
+- **Commercial Service Packages**: Comparison pricing tables (Bronze, Silver, Gold, Platinum) with feature checklist tags.
+- **Client Inquiry Form**: Contact form layout with client-side field validation ready for email submission endpoints.
 
 ---
 
