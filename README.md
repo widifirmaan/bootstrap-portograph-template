@@ -1,92 +1,71 @@
 # Portograph
 
-> Responsive Bootstrap 5 template for wedding photography, videography, and creative studio showcases.
-
-Portograph is a responsive Bootstrap 5 web template designed for photography and videography studios. It features a hero section with Typed.js typewriter animations, an integrated EmbedSocial Instagram portfolio feed, service catalogs across wedding package tiers with downloadable PDF brochures, and a WhatsApp booking inquiry form.
+> Template portofolio studio fotografi dan sinematografi pernikahan berbasis Bootstrap 5 dengan integrasi feed Instagram dan formulir pemesanan WhatsApp.
 
 [![Bootstrap 5.1.3](https://img.shields.io/badge/Bootstrap-5.1.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![Typed.js](https://img.shields.io/badge/Animation-Typed.js-FF6F00?style=flat-square)](https://mattboldt.com/demos/typed-js/)
 [![HTML5 / CSS3](https://img.shields.io/badge/HTML5%20%2F%20CSS3-Modern_Web-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/)
+[![Live Demo](https://img.shields.io/badge/Demo-widifirmaan.web.id-10B981?style=flat-square)](https://widifirmaan.web.id/bootstrap-portograph-template/)
 
 ---
 
-## Showcase
+## Live URL
 
-### 1. Studio Stage, Philosophy & Works (`#hero`, `#about`, `#portfolio`)
-
-| Desktop Interface (MacBook Pro M4) | Mobile Interface (iPhone 16 Pro) |
-| :---: | :---: |
-| **Hero Stage with Typed.js Headline**<br>![Portograph Hero Stage Desktop](screenshots/Portograph%20Hero%20Stage%20Desktop.png) | **Hero Stage with Typed.js Headline**<br>![Portograph Hero Stage Mobile](screenshots/Portograph%20Hero%20Stage%20Mobile.png) |
-| **Studio Philosophy & About Section**<br>![Portograph Studio About Desktop](screenshots/Portograph%20Studio%20About%20Desktop.png) | **Studio Philosophy & About Section**<br>![Portograph Studio About Mobile](screenshots/Portograph%20Studio%20About%20Mobile.png) |
-| **Instagram Portfolio Gallery Grid**<br>![Portograph Portfolio Gallery Desktop](screenshots/Portograph%20Portfolio%20Gallery%20Desktop.png) | **Instagram Portfolio Gallery Grid**<br>![Portograph Portfolio Gallery Mobile](screenshots/Portograph%20Portfolio%20Gallery%20Mobile.png) |
-
-### 2. Pricing Packages, Client Reviews & Booking (`#services`, `#testimonials`, `#contact`)
-
-| Desktop Interface (MacBook Pro M4) | Mobile Interface (iPhone 16 Pro) |
-| :---: | :---: |
-| **Service Packages & PDF Brochure Catalog**<br>![Portograph Pricing Packages Desktop](screenshots/Portograph%20Pricing%20Packages%20Desktop.png) | **Service Packages & PDF Brochure Catalog**<br>![Portograph Pricing Packages Mobile](screenshots/Portograph%20Pricing%20Packages%20Mobile.png) |
-| **Client Testimonials & Reviews**<br>![Portograph Client Testimonials Desktop](screenshots/Portograph%20Client%20Testimonials%20Desktop.png) | **Client Testimonials & Reviews**<br>![Portograph Client Testimonials Mobile](screenshots/Portograph%20Client%20Testimonials%20Mobile.png) |
-| **WhatsApp Direct Booking Inquiry Form**<br>![Portograph WhatsApp Booking Form Desktop](screenshots/Portograph%20WhatsApp%20Booking%20Form%20Desktop.png) | **WhatsApp Direct Booking Inquiry Form**<br>![Portograph WhatsApp Booking Form Mobile](screenshots/Portograph%20WhatsApp%20Booking%20Form%20Mobile.png) |
-| **Studio Location Map & Contact Information**<br>![Portograph Location & Footer Desktop](screenshots/Portograph%20Location%20&%20Footer%20Desktop.png) | **Studio Location Map & Contact Information**<br>![Portograph Location & Footer Mobile](screenshots/Portograph%20Location%20&%20Footer%20Mobile.png) |
+- **Production URL**: [https://widifirmaan.web.id/bootstrap-portograph-template/](https://widifirmaan.web.id/bootstrap-portograph-template/)
 
 ---
 
-## Features
+## Screenshot
 
-- **Typewriter Headline**: Hero section headline cycling through creative studio specialties (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) powered by Typed.js 2.0.12.
-- **Instagram Portfolio Feed**: Social gallery embed via EmbedSocial hashtag widget (`#portfolio`) pulling photography shoots directly from Instagram.
-- **Service Package Catalog**: Visual showcase of studio service tiers featuring 5 brochures covering Prewedding and Wedding tiers with PDF download links (`paket_compressed.pdf` and `paket.pdf`).
-- **WhatsApp Booking Form**: Order form (`#contact`) with client name input and package selection building a pre-filled booking inquiry via WhatsApp Click-to-Chat (`gotowhatsapp()`).
-- **Sidebar Navigation**: Left-aligned icon menu with scroll-spy offset tracking, collapsible mobile drawer, and back-to-top button.
-- **Studio Contact Information**: Contact links for YouTube, Instagram (`@aruna_daydream`), WhatsApp hotline, and studio address.
-- **Scroll Animations**: AOS (Animate on Scroll) transitions across page sections paired with smooth scrolling navigation.
+| Desktop | Mobile |
+| :---: | :---: |
+| **Hero Stage & Animasi Judul Typed.js**<br>![Hero](screenshots/Hero%20Desktop.png) | **Hero Stage & Animasi Judul Typed.js**<br>![Hero](screenshots/Hero%20Mobile.png) |
+| **Profil Studio & Filosofi Karya**<br>![Tentang Studio](screenshots/Tentang%20Studio%20Desktop.png) | **Profil Studio & Filosofi Karya**<br>![Tentang Studio](screenshots/Tentang%20Studio%20Mobile.png) |
+| **Grid Galeri Portofolio Instagram**<br>![Galeri Portofolio](screenshots/Galeri%20Portofolio%20Desktop.png) | **Grid Galeri Portofolio Instagram**<br>![Galeri Portofolio](screenshots/Galeri%20Portofolio%20Mobile.png) |
+| **Katalog Paket Layanan & Unduh PDF**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Desktop.png) | **Katalog Paket Layanan & Unduh PDF**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Mobile.png) |
+| **Ulasan Klien & Testimoni Pasangan**<br>![Testimoni](screenshots/Testimoni%20Desktop.png) | **Ulasan Klien & Testimoni Pasangan**<br>![Testimoni](screenshots/Testimoni%20Mobile.png) |
+| **Formulir Pemesanan Langsung WhatsApp**<br>![Form Booking](screenshots/Form%20Booking%20Desktop.png) | **Formulir Pemesanan Langsung WhatsApp**<br>![Form Booking](screenshots/Form%20Booking%20Mobile.png) |
+
+---
+
+## Fitur
+
+- **Animasi Headline Mesin Tik**: Teks spesialisasi studio pada section hero berganti secara dinamis (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) didukung oleh Typed.js.
+- **Feed Portofolio Instagram Terintegrasi**: Galeri visual otomatis via widget EmbedSocial (`#portfolio`) yang menampilkan dokumentasi foto dan video terbaru dari Instagram studio.
+- **Katalog Brosur Paket Lengkap**: Tampilan visual 5 lembar brosur paket pernikahan dan prewedding yang dilengkapi tombol unduhan file PDF brosur cetak (`paket_compressed.pdf`).
+- **Formulir Pemesanan WhatsApp Instan**: Form reservasi jadwal tanggal dan pemilihan paket pada section kontak yang otomatis menyusun draf pesan WhatsApp resmi ke nomor admin (*Click-to-Chat*).
+- **Navigasi Sidebar Responsif**: Menu ikon di sisi kiri dengan pelacak posisi scroll (*scroll-spy*), drawer menu mobile tersembunyi, dan tombol pintas kembali ke atas (*back-to-top*).
+- **Animasi Halus Elemen (AOS)**: Transisi pemunculan kartu dan section berbasis Animate On Scroll (AOS) yang halus saat pengguna menggulir halaman.
+- **Informasi Kontak Terpadu**: Tautan langsung ke kanal media sosial (YouTube, Instagram `@aruna_daydream`, WhatsApp hotline) dan alamat studio fisik.
 
 ---
 
 ## Tech Stack
 
-| Category | Technologies | Purpose |
+| Kategori | Teknologi | Deskripsi / Peran |
 | :--- | :--- | :--- |
-| **UI Framework** | Bootstrap `5.1.3` | Mobile-first responsive layout grid and utilities (with Bootstrap `4.1.1` and jQuery `3.2.1` CDN includes) |
-| **Iconography** | Bootstrap Icons, Boxicons, Iconify | Vector icon suites for navigation menu, social channels, and contact badges |
-| **Typography & Styling** | Google Fonts (Open Sans, Raleway, Poppins), Custom CSS | Studio typography and responsive stylesheet (`assets/css/style.css`) |
-| **Live Social Embed** | EmbedSocial Universal Hashtag Widget | Real-time Instagram portfolio grid rendering |
-| **Motion & Animation** | Typed.js `2.0.12`, AOS `2.3.4` | Animated hero headline typing simulation and scroll-triggered element transitions |
-| **Direct Communication** | WhatsApp Click-to-Chat API | Pre-formatted booking inquiry redirection via WhatsApp API endpoint |
+| **UI Framework** | Bootstrap `5.1.3` | Grid layout mobile-first, styling responsif, dan utilitas tata letak |
+| **Ikonografi** | Bootstrap Icons, Boxicons, Iconify | Koleksi ikon vektor untuk menu navigasi dan tautan media sosial |
+| **Animasi & Interaktivitas** | Typed.js `2.0.12`, AOS `2.3.4` | Animasi teks mesin tik pada hero dan efek scroll-triggered |
+| **Integrasi Media Sosial** | Widget EmbedSocial | Rendering feed dokumentasi foto Instagram secara live |
+| **Komunikasi Langsung** | WhatsApp Click-to-Chat API | Pembuatan tautan chat pemesanan otomatis terformat |
+| **Tipografi & Desain** | Google Fonts (Open Sans, Raleway, Poppins) | Tipografi editorial modern dengan stylesheet custom |
 
 ---
 
-## Project Structure
+## Panduan Setup & Menjalankan Lokal
 
-```bash
-/
-├── index.html              # Main single-page studio showcase layout
-├── indextemp.html          # Legacy template archive
-├── paket.pdf               # Complete full-resolution service package catalog
-├── paket_compressed.pdf    # Compressed service package catalog
-├── assets/
-│   ├── css/                # Main stylesheet (style.css)
-│   ├── js/                 # Main JavaScript (main.js)
-│   ├── img/                # Package brochures (paket_compressed-1..5.jpg), hero bg, logos
-│   └── vendor/             # Bootstrap 5.1.3, AOS, GLightbox, Typed.js, PureCounter
-├── forms/
-│   └── contact.php         # Server-side PHP mailer stub
-├── screenshots/            # Showcase mockups
-└── README.md
-```
+### 1. Prasyarat Sistem
 
----
+- Browser web modern (Google Chrome, Firefox, Safari, Microsoft Edge).
+- Python 3 (`python3`) atau Node.js (`npx serve`) untuk menyajikan file statis.
+- Database: **Tidak membutuhkan database** (aplikasi statis client-side).
 
-## Local Setup & Deployment
+### 2. Environment Variables
 
-### 1. Prerequisites
+Tidak ada environment variable khusus yang dibutuhkan.
 
-- Any modern web browser (Google Chrome, Firefox, Safari, Edge).
-- Python 3 (`python3`) or Node.js (`npx serve`) to serve static HTML files locally.
-
-### 2. Menjalankan Server Lokal
-
-Template ini adalah website portofolio statis yang dapat langsung dijalankan tanpa database:
+### 3. Instalasi & Menjalankan Server Lokal
 
 ```bash
 # 1. Clone repository
@@ -94,25 +73,24 @@ git clone https://github.com/widifirmaan/bootstrap-portograph-template.git
 cd bootstrap-portograph-template
 
 # 2. Jalankan static server lokal
+# Menggunakan Python 3:
 python3 -m http.server 8080
 
-# Atau menggunakan npx serve (jika ada Node.js)
+# Atau menggunakan npx serve (jika ada Node.js):
 npx serve .
 ```
 
 Buka [http://localhost:8080](http://localhost:8080) di browser Anda.
 
-### 3. Panduan Uji Manual (Testing Checklist)
+### 4. Panduan Uji Manual (Testing Checklist)
 
-Lakukan verifikasi manual berikut di browser:
-
-| No | Fitur yang Diuji | Langkah Pengujian | Hasil yang Diharapkan |
+| No | Fitur | Langkah Pengujian | Hasil yang Diharapkan |
 | :---: | :--- | :--- | :--- |
-| 1 | **Animasi Typewriter Hero** | Buka `http://localhost:8080`, amati teks judul | Teks keahlian studio berganti secara dinamis dengan animasi ketik Typed.js |
-| 2 | **Navigasi Sidebar & Scrollspy** | Scroll halaman ke bawah | Menu navigasi samping berpindah sorotan aktif mengikuti section yang tampil |
-| 3 | **Katalog Paket & Download PDF** | Scroll ke section Paket Layanan, klik link unduh | File PDF brosur paket (`paket_compressed.pdf`) berhasil terunduh |
-| 4 | **Form Booking WhatsApp** | Isi nama klien, pilih paket prewedding, klik pesan | Browser membuka WhatsApp Click-to-Chat dengan draft pesan pemesanan terformat |
-| 5 | **Galeri Instagram** | Periksa kontainer galeri foto di section Portfolio | Grid visual foto tertampil rapi dengan filter kategori galeri |
+| 1 | **Animasi Teks Hero** | Buka `http://localhost:8080`, amati teks judul | Efek mesin tik Typed.js berganti secara berkala dengan lancar |
+| 2 | **Sidebar & Scroll-spy** | Scroll ke bawah melewati section Tentang Kami | Penanda aktif pada sidebar navigasi berpindah otomatis mengikuti posisi layar |
+| 3 | **Unduhan Brosur PDF** | Scroll ke section Paket Layanan, klik link unduh brosur | File PDF `paket_compressed.pdf` berhasil diunduh |
+| 4 | **Form Booking WhatsApp** | Isi nama klien, pilih paket prewedding, klik pesan | Browser membuka WhatsApp dengan draft teks pemesanan terformat rapi |
+| 5 | **Galeri Portofolio** | Periksa kontainer section Portofolio | Foto dokumentasi pernikahan dari feed Instagram tampil teratur |
 
 ---
 
