@@ -1,21 +1,20 @@
 # Portograph
 
-> Modern Bootstrap 5 template for wedding photography, cinematic videography, and creative studio showcases.
+> Responsive Bootstrap 5 template for wedding photography, videography, and creative studio showcases.
 
-Portograph is a responsive Bootstrap 5 template designed for wedding photography, cinematic videography, and creative event documentation showcases. It features a full-screen hero stage with dynamic Typed.js headline animation, an integrated EmbedSocial live Instagram portfolio feed, visual service catalogs across 5 wedding and pre-wedding package tiers with downloadable PDF brochures, and an instant WhatsApp booking form.
+Portograph is a responsive Bootstrap 5 web template designed for photography and videography studios. It features a hero section with Typed.js typewriter animations, an integrated EmbedSocial Instagram portfolio feed, service catalogs across wedding package tiers with downloadable PDF brochures, and a WhatsApp booking inquiry form.
 
 [![Live Demo](https://img.shields.io/badge/Demo-widifirmaan.web.id%2Fbootstrap--portograph--template-10B981?style=flat-square&logo=googlechrome&logoColor=white)](https://widifirmaan.web.id/bootstrap-portograph-template/)
 [![Bootstrap 5.1.3](https://img.shields.io/badge/Bootstrap-5.1.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![Instagram Feed](https://img.shields.io/badge/Feed-EmbedSocial_Widget-E4405F?style=flat-square&logo=instagram&logoColor=white)](#features)
-[![Typed.js](https://img.shields.io/badge/Animation-Typed.js_2.0.12-FF6F00?style=flat-square)](#features)
-[![Booking](https://img.shields.io/badge/Booking-WhatsApp_Direct_API-25D366?style=flat-square&logo=whatsapp&logoColor=white)](#features)
+[![Typed.js](https://img.shields.io/badge/Animation-Typed.js-FF6F00?style=flat-square)](https://mattboldt.com/demos/typed-js/)
+[![Deployment](https://img.shields.io/badge/Deployment-GitHub_Pages-black?style=flat-square&logo=github)](https://pages.github.com/)
 
 ---
 
 ## Live Production
 
 - **URL:** [https://widifirmaan.web.id/bootstrap-portograph-template/](https://widifirmaan.web.id/bootstrap-portograph-template/)
-- **Deployment:** GitHub Pages (Custom Domain with Fastly / Varnish Edge CDN)
+- **Deployment:** GitHub Pages
 
 ---
 
@@ -23,22 +22,22 @@ Portograph is a responsive Bootstrap 5 template designed for wedding photography
 
 | Desktop | Mobile |
 | :---: | :---: |
-| **Hero Stage & Dynamic Typed Header Desktop**<br>![Portograph Hero Desktop](screenshots/Portograph%20Hero%20Desktop.png) | **Hero Stage & Dynamic Typed Header Mobile**<br>![Portograph Hero Mobile](screenshots/Portograph%20Hero%20Mobile.png) |
-| **Live Instagram Portfolio Feed Desktop**<br>![Live Instagram Portfolio Feed Desktop](screenshots/Portograph%20Portfolio%20Gallery%20Desktop.png) | **Live Instagram Portfolio Feed Mobile**<br>![Live Instagram Portfolio Feed Mobile](screenshots/Portograph%20Portfolio%20Gallery%20Mobile.png) |
+| **Hero Stage Desktop**<br>![Portograph Hero Desktop](screenshots/Portograph%20Hero%20Desktop.png) | **Hero Stage Mobile**<br>![Portograph Hero Mobile](screenshots/Portograph%20Hero%20Mobile.png) |
+| **Instagram Portfolio Feed Desktop**<br>![Live Instagram Portfolio Feed Desktop](screenshots/Portograph%20Portfolio%20Gallery%20Desktop.png) | **Instagram Portfolio Feed Mobile**<br>![Live Instagram Portfolio Feed Mobile](screenshots/Portograph%20Portfolio%20Gallery%20Mobile.png) |
 | **Service Packages Catalog Desktop**<br>![Service Packages Catalog Desktop](screenshots/Portograph%20Pricing%20Packages%20Desktop.png) | **Service Packages Catalog Mobile**<br>![Service Packages Catalog Mobile](screenshots/Portograph%20Pricing%20Packages%20Mobile.png) |
-| **Order Now WhatsApp Booking Desktop**<br>![Order Now WhatsApp Booking Desktop](screenshots/Portograph%20Contact%20Section%20Desktop.png) | **Order Now WhatsApp Booking Mobile**<br>![Order Now WhatsApp Booking Mobile](screenshots/Portograph%20Contact%20Section%20Mobile.png) |
+| **WhatsApp Booking Form Desktop**<br>![Order Now WhatsApp Booking Desktop](screenshots/Portograph%20Contact%20Section%20Desktop.png) | **WhatsApp Booking Form Mobile**<br>![Order Now WhatsApp Booking Mobile](screenshots/Portograph%20Contact%20Section%20Mobile.png) |
 
 ---
 
 ## Features
 
-- **Dynamic Typewriter Headline**: Hero section headline cycling through creative studio specialties (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) powered by Typed.js 2.0.12 with looping typing and deleting transitions.
-- **Live Instagram Portfolio Feed**: Dynamic social gallery embed via EmbedSocial hashtag widget (`#portfolio`) pulling real-time photography shoots directly from Instagram without manual static markup maintenance.
-- **Service Package Catalog**: Visual showcase of studio service tiers featuring 5 comprehensive brochures covering Prewedding Basic, Prewedding Premium, Prewedding Exclusive, Wedding Silver, Wedding Gold, and Platinum Exclusive tiers, with bundled PDF download links (`paket_compressed.pdf` and `paket.pdf`).
-- **Direct WhatsApp Booking Engine**: Interactive order form (`#contact`) with client name input and dropdown package selection that dynamically builds and launches a pre-filled booking inquiry via WhatsApp Click-to-Chat API (`gotowhatsapp()`).
-- **Responsive Sidebar Navigation**: Vertical left-aligned desktop icon menu (`#header`) with smooth scroll-spy offset tracking, collapsible mobile off-canvas drawer toggled via `bi-list`/`bi-x` icon triggers, and a persistent back-to-top floating button.
-- **Studio Contact & Social Channels**: Quick-access social connections in header and footer linking to official YouTube channel, Instagram (`@aruna_daydream`), WhatsApp hotline, and physical studio address in Logandeng, Playen, Gunungkidul, Yogyakarta.
-- **Smooth Scroll & Viewport Animations**: AOS (Animate on Scroll) transitions across page sections paired with native smooth scrolling navigation.
+- **Typewriter Headline**: Hero section headline cycling through creative studio specialties (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) powered by Typed.js 2.0.12.
+- **Instagram Portfolio Feed**: Social gallery embed via EmbedSocial hashtag widget (`#portfolio`) pulling photography shoots directly from Instagram.
+- **Service Package Catalog**: Visual showcase of studio service tiers featuring 5 brochures covering Prewedding and Wedding tiers with PDF download links (`paket_compressed.pdf` and `paket.pdf`).
+- **WhatsApp Booking Form**: Order form (`#contact`) with client name input and package selection building a pre-filled booking inquiry via WhatsApp Click-to-Chat (`gotowhatsapp()`).
+- **Sidebar Navigation**: Left-aligned icon menu with scroll-spy offset tracking, collapsible mobile drawer, and back-to-top button.
+- **Studio Contact Information**: Contact links for YouTube, Instagram (`@aruna_daydream`), WhatsApp hotline, and studio address.
+- **Scroll Animations**: AOS (Animate on Scroll) transitions across page sections paired with smooth scrolling navigation.
 
 ---
 
