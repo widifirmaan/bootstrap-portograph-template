@@ -12,12 +12,22 @@ Portograph is a responsive Bootstrap 5 web template designed for photography and
 
 ## Showcase
 
-| Desktop | Mobile |
+### 1. Studio Stage, Philosophy & Works (`#hero`, `#about`, `#portfolio`)
+
+| Desktop Interface (MacBook Pro M4) | Mobile Interface (iPhone 16 Pro) |
 | :---: | :---: |
-| **Hero Stage Desktop**<br>![Portograph Hero Desktop](screenshots/Portograph%20Hero%20Desktop.png) | **Hero Stage Mobile**<br>![Portograph Hero Mobile](screenshots/Portograph%20Hero%20Mobile.png) |
-| **Instagram Portfolio Feed Desktop**<br>![Live Instagram Portfolio Feed Desktop](screenshots/Portograph%20Portfolio%20Gallery%20Desktop.png) | **Instagram Portfolio Feed Mobile**<br>![Live Instagram Portfolio Feed Mobile](screenshots/Portograph%20Portfolio%20Gallery%20Mobile.png) |
-| **Service Packages Catalog Desktop**<br>![Service Packages Catalog Desktop](screenshots/Portograph%20Pricing%20Packages%20Desktop.png) | **Service Packages Catalog Mobile**<br>![Service Packages Catalog Mobile](screenshots/Portograph%20Pricing%20Packages%20Mobile.png) |
-| **WhatsApp Booking Form Desktop**<br>![Order Now WhatsApp Booking Desktop](screenshots/Portograph%20Contact%20Section%20Desktop.png) | **WhatsApp Booking Form Mobile**<br>![Order Now WhatsApp Booking Mobile](screenshots/Portograph%20Contact%20Section%20Mobile.png) |
+| **Hero Stage with Typed.js Headline**<br>![Portograph Hero Stage Desktop](screenshots/Portograph%20Hero%20Stage%20Desktop.png) | **Hero Stage with Typed.js Headline**<br>![Portograph Hero Stage Mobile](screenshots/Portograph%20Hero%20Stage%20Mobile.png) |
+| **Studio Philosophy & About Section**<br>![Portograph Studio About Desktop](screenshots/Portograph%20Studio%20About%20Desktop.png) | **Studio Philosophy & About Section**<br>![Portograph Studio About Mobile](screenshots/Portograph%20Studio%20About%20Mobile.png) |
+| **Instagram Portfolio Gallery Grid**<br>![Portograph Portfolio Gallery Desktop](screenshots/Portograph%20Portfolio%20Gallery%20Desktop.png) | **Instagram Portfolio Gallery Grid**<br>![Portograph Portfolio Gallery Mobile](screenshots/Portograph%20Portfolio%20Gallery%20Mobile.png) |
+
+### 2. Pricing Packages, Client Reviews & Booking (`#services`, `#testimonials`, `#contact`)
+
+| Desktop Interface (MacBook Pro M4) | Mobile Interface (iPhone 16 Pro) |
+| :---: | :---: |
+| **Service Packages & PDF Brochure Catalog**<br>![Portograph Pricing Packages Desktop](screenshots/Portograph%20Pricing%20Packages%20Desktop.png) | **Service Packages & PDF Brochure Catalog**<br>![Portograph Pricing Packages Mobile](screenshots/Portograph%20Pricing%20Packages%20Mobile.png) |
+| **Client Testimonials & Reviews**<br>![Portograph Client Testimonials Desktop](screenshots/Portograph%20Client%20Testimonials%20Desktop.png) | **Client Testimonials & Reviews**<br>![Portograph Client Testimonials Mobile](screenshots/Portograph%20Client%20Testimonials%20Mobile.png) |
+| **WhatsApp Direct Booking Inquiry Form**<br>![Portograph WhatsApp Booking Form Desktop](screenshots/Portograph%20WhatsApp%20Booking%20Form%20Desktop.png) | **WhatsApp Direct Booking Inquiry Form**<br>![Portograph WhatsApp Booking Form Mobile](screenshots/Portograph%20WhatsApp%20Booking%20Form%20Mobile.png) |
+| **Studio Location Map & Contact Information**<br>![Portograph Location & Footer Desktop](screenshots/Portograph%20Location%20&%20Footer%20Desktop.png) | **Studio Location Map & Contact Information**<br>![Portograph Location & Footer Mobile](screenshots/Portograph%20Location%20&%20Footer%20Mobile.png) |
 
 ---
 
