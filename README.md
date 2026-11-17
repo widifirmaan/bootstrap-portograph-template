@@ -4,17 +4,9 @@
 
 Portograph is a responsive Bootstrap 5 web template designed for photography and videography studios. It features a hero section with Typed.js typewriter animations, an integrated EmbedSocial Instagram portfolio feed, service catalogs across wedding package tiers with downloadable PDF brochures, and a WhatsApp booking inquiry form.
 
-[![Live Demo](https://img.shields.io/badge/Demo-widifirmaan.web.id%2Fbootstrap--portograph--template-10B981?style=flat-square&logo=googlechrome&logoColor=white)](https://widifirmaan.web.id/bootstrap-portograph-template/)
 [![Bootstrap 5.1.3](https://img.shields.io/badge/Bootstrap-5.1.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![Typed.js](https://img.shields.io/badge/Animation-Typed.js-FF6F00?style=flat-square)](https://mattboldt.com/demos/typed-js/)
-[![Deployment](https://img.shields.io/badge/Deployment-GitHub_Pages-black?style=flat-square&logo=github)](https://pages.github.com/)
-
----
-
-## Live Production
-
-- **URL:** [https://widifirmaan.web.id/bootstrap-portograph-template/](https://widifirmaan.web.id/bootstrap-portograph-template/)
-- **Deployment:** GitHub Pages
+[![HTML5 / CSS3](https://img.shields.io/badge/HTML5%20%2F%20CSS3-Modern_Web-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/)
 
 ---
 
@@ -69,34 +61,48 @@ Portograph is a responsive Bootstrap 5 web template designed for photography and
 │   └── vendor/             # Bootstrap 5.1.3, AOS, GLightbox, Typed.js, PureCounter
 ├── forms/
 │   └── contact.php         # Server-side PHP mailer stub
-├── screenshots/            # MacBook Pro M4 & iPhone 16 Pro showcase mockups
+├── screenshots/            # Showcase mockups
 └── README.md
 ```
 
 ---
 
-## Getting Started & Local Development
+## Local Setup & Deployment
 
-### Prerequisites
+### 1. Prerequisites
 
-No build tools, package managers, or server runtimes are required. All core styles and vendor assets are bundled locally within the repository.
+- Any modern web browser (Google Chrome, Firefox, Safari, Edge).
+- Python 3 (`python3`) or Node.js (`npx serve`) to serve static HTML files locally.
 
-### Local Development
+### 2. Menjalankan Server Lokal
 
-> **Environment Variables:** No `.env` file or API keys are required. All typewriter animations, scroll triggers, and WhatsApp booking actions run 100% client-side in the browser.
+Template ini adalah website portofolio statis yang dapat langsung dijalankan tanpa database:
 
 ```bash
-# 1. Clone the repository
+# 1. Clone repository
 git clone https://github.com/widifirmaan/bootstrap-portograph-template.git
 cd bootstrap-portograph-template
 
-# 2. Start any local static web server
+# 2. Jalankan static server lokal
 python3 -m http.server 8080
-# or using Node.js:
+
+# Atau menggunakan npx serve (jika ada Node.js)
 npx serve .
 ```
 
-Open [http://localhost:8080](http://localhost:8080) in your web browser.
+Buka [http://localhost:8080](http://localhost:8080) di browser Anda.
+
+### 3. Panduan Uji Manual (Testing Checklist)
+
+Lakukan verifikasi manual berikut di browser:
+
+| No | Fitur yang Diuji | Langkah Pengujian | Hasil yang Diharapkan |
+| :---: | :--- | :--- | :--- |
+| 1 | **Animasi Typewriter Hero** | Buka `http://localhost:8080`, amati teks judul | Teks keahlian studio berganti secara dinamis dengan animasi ketik Typed.js |
+| 2 | **Navigasi Sidebar & Scrollspy** | Scroll halaman ke bawah | Menu navigasi samping berpindah sorotan aktif mengikuti section yang tampil |
+| 3 | **Katalog Paket & Download PDF** | Scroll ke section Paket Layanan, klik link unduh | File PDF brosur paket (`paket_compressed.pdf`) berhasil terunduh |
+| 4 | **Form Booking WhatsApp** | Isi nama klien, pilih paket prewedding, klik pesan | Browser membuka WhatsApp Click-to-Chat dengan draft pesan pemesanan terformat |
+| 5 | **Galeri Instagram** | Periksa kontainer galeri foto di section Portfolio | Grid visual foto tertampil rapi dengan filter kategori galeri |
 
 ---
 
