@@ -21,8 +21,7 @@
 | **Hero Stage & Typed.js Animated Headline**<br>![Hero](screenshots/Hero%20Desktop.png) | **Hero Stage & Typed.js Animated Headline**<br>![Hero](screenshots/Hero%20Mobile.png) |
 | **Live Instagram Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Desktop.png) | **Live Instagram Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Mobile.png) |
 | **Service Package Catalog & Brochures**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Desktop.png) | **Service Package Catalog & Brochures**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Mobile.png) |
-| **WhatsApp Direct Booking Inquiry Form**<br>![Form Booking](screenshots/Form%20Booking%20Desktop.png) | **WhatsApp Direct Booking Inquiry Form**<br>![Form Booking](screenshots/Form%20Booking%20Mobile.png) |
-| **Studio Contact, Social Links & Footer**<br>![Footer & Kontak](screenshots/Footer%20%26%20Kontak%20Desktop.png) | **Studio Contact, Social Links & Footer**<br>![Footer & Kontak](screenshots/Footer%20%26%20Kontak%20Mobile.png) |
+| **WhatsApp Direct Booking Inquiry & Studio Contact**<br>![Form Booking](screenshots/Form%20Booking%20Desktop.png) | **WhatsApp Direct Booking Inquiry & Studio Contact**<br>![Form Booking](screenshots/Form%20Booking%20Mobile.png) |
 
 ---
 
