@@ -1,4 +1,4 @@
-# Portograph 📷
+# Portograph
 
 > Responsive Bootstrap 5 portfolio template for wedding photography and videography studios featuring an integrated Instagram feed and WhatsApp booking inquiries.
 
