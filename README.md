@@ -20,11 +20,10 @@
 | Desktop | Mobile |
 | :---: | :---: |
 | **Hero Stage & Typed.js Animated Headline**<br>![Hero](screenshots/Hero%20Desktop.png) | **Hero Stage & Typed.js Animated Headline**<br>![Hero](screenshots/Hero%20Mobile.png) |
-| **Studio Philosophy & About Section**<br>![Tentang Studio](screenshots/Tentang%20Studio%20Desktop.png) | **Studio Philosophy & About Section**<br>![Tentang Studio](screenshots/Tentang%20Studio%20Mobile.png) |
-| **Live Instagram Portfolio Gallery Grid**<br>![Galeri Portofolio](screenshots/Galeri%20Portofolio%20Desktop.png) | **Live Instagram Portfolio Gallery Grid**<br>![Galeri Portofolio](screenshots/Galeri%20Portofolio%20Mobile.png) |
-| **Service Packages Catalog & PDF Download**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Desktop.png) | **Service Packages Catalog & PDF Download**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Mobile.png) |
-| **Client Testimonials & Couple Reviews**<br>![Testimoni](screenshots/Testimoni%20Desktop.png) | **Client Testimonials & Couple Reviews**<br>![Testimoni](screenshots/Testimoni%20Mobile.png) |
+| **Live Instagram Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Desktop.png) | **Live Instagram Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Mobile.png) |
+| **Service Package Catalog & Brochures**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Desktop.png) | **Service Package Catalog & Brochures**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Mobile.png) |
 | **WhatsApp Direct Booking Inquiry Form**<br>![Form Booking](screenshots/Form%20Booking%20Desktop.png) | **WhatsApp Direct Booking Inquiry Form**<br>![Form Booking](screenshots/Form%20Booking%20Mobile.png) |
+| **Studio Contact, Social Links & Footer**<br>![Footer & Kontak](screenshots/Footer%20%26%20Kontak%20Desktop.png) | **Studio Contact, Social Links & Footer**<br>![Footer & Kontak](screenshots/Footer%20%26%20Kontak%20Mobile.png) |
 
 ---
 
