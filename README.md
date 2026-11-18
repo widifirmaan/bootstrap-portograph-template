@@ -1,4 +1,4 @@
-# Portograph
+# Portograph 📷
 
 > Responsive Bootstrap 5 portfolio template for wedding photography and videography studios featuring an integrated Instagram feed and WhatsApp booking inquiries.
 
@@ -17,7 +17,7 @@
 
 ## Screenshots
 
-| Desktop | Mobile |
+| Desktop (MacBook Pro M4) | Mobile (iPhone 16 Pro) |
 | :---: | :---: |
 | **Hero Stage & Typed.js Animated Headline**<br>![Hero](screenshots/Hero%20Desktop.png) | **Hero Stage & Typed.js Animated Headline**<br>![Hero](screenshots/Hero%20Mobile.png) |
 | **Live Instagram Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Desktop.png) | **Live Instagram Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Mobile.png) |
@@ -27,7 +27,7 @@
 
 ---
 
-## Features
+## Fitur
 
 - **Typewriter Headline Simulation**: Hero section headline cycling through creative studio specialties (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) powered by Typed.js.
 - **Integrated Instagram Portfolio Feed**: Live gallery widget powered by EmbedSocial (`#portfolio`) pulling photography shoots directly from Instagram.
