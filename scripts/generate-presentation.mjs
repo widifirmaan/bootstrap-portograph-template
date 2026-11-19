@@ -11,7 +11,7 @@ const downloadsDir = '/home/widifirmaan/Downloads';
 function encodeImage(filename) {
   const filePath = path.join(screenshotsDir, filename);
   if (!fs.existsSync(filePath)) {
-    console.warn(`Screenshot tidak ditemukan: ${filePath}`);
+    console.warn(`Peringatan: Screenshot tidak ditemukan: ${filePath}`);
     return '';
   }
   const fileBuffer = fs.readFileSync(filePath);
@@ -31,28 +31,32 @@ const images = {
   bookingMobile: encodeImage('Form Booking Mobile.png'),
 };
 
-console.log('Menyusun HTML dokumen presentasi Portograph...');
+console.log('Menyusun HTML presentasi dengan style murni Portograph Editorial Sapphire...');
 
 const htmlContent = `<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Portograph - Luxury Wedding & Portrait Studio Template</title>
+  <title>Portograph - Web Engineering Presentation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-editorial: #111317;
-      --bg-card: #181B20;
-      --border-card: #262A33;
-      --gold-primary: #D4AF37;
-      --gold-light: #F3E8D0;
-      --gold-dim: rgba(212, 175, 55, 0.15);
-      --text-main: #F4F5F7;
-      --text-muted: #9BA1AC;
-      --accent-bronze: #C59B27;
-      --accent-teal: #2DD4BF;
+      --bg-slate: #F8F9FA;
+      --card-white: #FFFFFF;
+      --border-subtle: #E6E9EC;
+      --border-highlight: #D7DCE1;
+      --accent-sapphire: #0563BB;
+      --accent-hover: #067DED;
+      --text-dark: #272829;
+      --text-body: #45505B;
+      --text-muted: #727C85;
+      --radius-pill: 50px;
+      --radius-card: 16px;
+      --radius-subcard: 12px;
+      --shadow-soft: 0 4px 20px rgba(69, 80, 91, 0.08);
+      --shadow-nav: 0 8px 24px rgba(69, 80, 91, 0.12);
     }
 
     * {
@@ -64,10 +68,17 @@ const htmlContent = `<!DOCTYPE html>
     }
 
     body {
-      background-color: #0A0C0E;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--text-main);
-      line-height: 1.4;
+      background-color: var(--bg-slate);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-body);
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Raleway', sans-serif;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
     }
 
     @page {
@@ -80,869 +91,768 @@ const htmlContent = `<!DOCTYPE html>
       height: 210mm;
       page-break-after: always;
       position: relative;
-      background: var(--bg-editorial);
+      background: var(--bg-slate);
       display: flex;
       flex-direction: column;
-      padding: 16mm 18mm;
+      padding: 16mm 20mm;
       overflow: hidden;
       background-image: 
-        radial-gradient(circle at 80% 10%, rgba(212, 175, 55, 0.06) 0%, transparent 60%),
-        radial-gradient(circle at 10% 90%, rgba(45, 212, 191, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 10% 10%, rgba(5, 99, 187, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(69, 80, 91, 0.04) 0%, transparent 50%);
     }
 
-    .slide::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold-primary), var(--accent-bronze), var(--gold-light));
-      z-index: 50;
-    }
-
+    /* Slide Header */
     .slide-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 5mm;
-      border-bottom: 1px solid var(--border-card);
-      padding-bottom: 3.5mm;
+      margin-bottom: 6mm;
+      z-index: 10;
     }
 
-    .brand-cluster {
-      display: flex;
+    .brand-pill {
+      display: inline-flex;
       align-items: center;
       gap: 12px;
+      background: var(--card-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 6px 18px;
+      box-shadow: var(--shadow-soft);
     }
 
-    .brand-badge {
-      background: var(--gold-dim);
-      border: 1px solid var(--gold-primary);
-      color: var(--gold-light);
-      padding: 4px 10px;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 4px;
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-sapphire);
     }
 
-    .slide-section-title {
-      font-family: 'Playfair Display', serif;
+    .brand-title {
+      font-family: 'Raleway', sans-serif;
       font-size: 14px;
-      font-weight: 700;
-      color: var(--gold-light);
+      font-weight: 800;
       letter-spacing: 0.04em;
+      color: var(--text-dark);
+      text-transform: uppercase;
     }
 
-    .slide-number {
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border-subtle);
+      padding-left: 12px;
+      margin-left: 2px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .badge-pill {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      font-weight: 700;
-      color: var(--gold-primary);
+      font-weight: 600;
+      color: var(--accent-sapphire);
+      background: rgba(5, 99, 187, 0.07);
+      border: 1px solid rgba(5, 99, 187, 0.18);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
     }
 
-    .slide-body {
-      display: grid;
-      grid-template-columns: 1fr 1.35fr;
-      gap: 22px;
+    /* Content Layout */
+    .slide-content {
       flex: 1;
-      min-height: 0;
-    }
-
-    .slide-info {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 0;
+      z-index: 10;
     }
 
-    .headline-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .title-block {
+      margin-bottom: 5mm;
+    }
+
+    .slide-category {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-sapphire);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
     }
 
     .slide-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 25px;
+      font-size: 27px;
       font-weight: 800;
-      line-height: 1.2;
-      color: #FFFFFF;
-      letter-spacing: -0.01em;
+      color: var(--text-dark);
+      line-height: 1.15;
     }
 
-    .slide-desc {
-      font-size: 12.5px;
+    .slide-subtitle {
+      font-size: 13.5px;
       color: var(--text-muted);
-      line-height: 1.55;
+      margin-top: 4px;
+      max-width: 900px;
     }
 
-    .feature-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 10px 0;
+    /* Cards */
+    .clean-card {
+      background: var(--card-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 22px;
     }
 
-    .feature-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 8px;
-      padding: 10px 14px;
-      border-left: 3px solid var(--gold-primary);
+    /* Grid Layouts */
+    .layout-split {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 20px;
+      align-items: stretch;
+      flex: 1;
     }
 
-    .feature-card.teal {
-      border-left-color: var(--accent-teal);
+    .layout-split-reversed {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 20px;
+      align-items: stretch;
+      flex: 1;
     }
 
-    .feature-card.bronze {
-      border-left-color: var(--accent-bronze);
-    }
-
-    .feature-card-title {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #FFFFFF;
-      margin-bottom: 3px;
-      letter-spacing: -0.01em;
-    }
-
-    .feature-card-text {
-      font-size: 11px;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .metrics-row {
+    .layout-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      gap: 18px;
+      flex: 1;
     }
 
-    .metric-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 6px;
-      padding: 8px 10px;
-      text-align: center;
+    .layout-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      flex: 1;
     }
 
-    .metric-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--gold-primary);
-    }
-
-    .metric-lbl {
-      font-size: 9px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
+    /* Visual Stage for Screenshots */
     .visual-stage {
-      position: relative;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
+      position: relative;
       height: 100%;
-      min-height: 0;
+      min-height: 290px;
+      padding: 12px;
     }
 
-    .screenshot-desktop {
-      max-width: 95%;
-      max-height: 380px;
+    .visual-stage img {
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.7));
+      filter: drop-shadow(0 8px 20px rgba(69, 80, 91, 0.12));
     }
 
-    .screenshot-mobile {
-      position: absolute;
-      right: 0px;
-      bottom: -8px;
-      max-height: 280px;
-      max-width: 28%;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.8));
+    /* Feature Items */
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
     }
 
+    .feature-item {
+      background: var(--card-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-subcard);
+      box-shadow: var(--shadow-soft);
+      padding: 13px 16px;
+    }
+
+    .feature-item-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+
+    .feature-item-desc {
+      font-size: 12.5px;
+      color: var(--text-body);
+      line-height: 1.4;
+    }
+
+    /* Footer */
     .slide-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 5mm;
-      border-top: 1px solid var(--border-card);
-      padding-top: 3mm;
-    }
-
-    .footer-tech {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-
-    .footer-url {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      color: var(--gold-primary);
-    }
-
-    /* Cover Styling */
-    .cover-body {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 30px;
-      align-items: center;
-      flex: 1;
-      min-height: 0;
-    }
-
-    .cover-tagline {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--gold-primary);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .cover-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      font-weight: 900;
-      color: #FFFFFF;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 14px;
-    }
-
-    .cover-desc {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .cover-specs {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .spec-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 8px;
-      padding: 10px 14px;
-    }
-
-    .spec-k {
-      font-size: 9px;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .spec-v {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: #FFFFFF;
-      margin-top: 2px;
-    }
-
-    /* Grid layout */
-    .arch-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      flex: 1;
-      min-height: 0;
-      margin-top: 10px;
-    }
-
-    .arch-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 10px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .arch-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--gold-light);
-      border-bottom: 1px solid var(--border-card);
-      padding-bottom: 8px;
-    }
-
-    .arch-item {
+      padding-top: 3.5mm;
+      border-top: 1px solid var(--border-subtle);
       font-size: 11px;
       color: var(--text-muted);
-      line-height: 1.5;
+      font-family: 'JetBrains Mono', monospace;
     }
 
-    .arch-item strong {
-      color: #FFFFFF;
+    .tech-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-sapphire);
+      margin-right: 6px;
+      margin-top: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
   </style>
 </head>
 <body>
 
   <!-- SLIDE 1: COVER -->
-  <section class="slide">
+  <div class="slide">
     <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">STUDIO SHOWCASE</span>
-        <span class="slide-section-title">Dokumentasi Rekayasa Perangkat Lunak</span>
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Portograph Studio</div>
+        <div class="brand-subtitle">Photography Portfolio &amp; Booking Architecture</div>
       </div>
-      <div class="slide-number">01 / 10</div>
+      <div class="badge-pill">DECK-PORTO-01 / 10</div>
     </div>
 
-    <div class="cover-body">
-      <div>
-        <div class="cover-tagline">Luxury Editorial Studio Template</div>
-        <h1 class="cover-title">Portograph Photography Studio & Portfolio</h1>
-        <p class="cover-desc">
-          Template portofolio fotografi editorial berbasis Bootstrap 5 dengan navigasi docked sidebar, transisi animasi berbasis scroll, masonry visual showcase, dan integrasi pemesanan WhatsApp cerdas.
-        </p>
-
-        <div class="cover-specs">
-          <div class="spec-card">
-            <div class="spec-k">Framework</div>
-            <div class="spec-v">Bootstrap 5.3 & CSS3</div>
+    <div class="slide-content">
+      <div class="layout-split">
+        <div style="display: flex; flex-direction: column; justify-content: center; padding-right: 15px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+            <span class="tech-pill">Bootstrap 5</span>
+            <span class="tech-pill">Isotope Masonry</span>
+            <span class="tech-pill">GLightbox</span>
+            <span class="tech-pill">PHP Mailer Ready</span>
           </div>
-          <div class="spec-card">
-            <div class="spec-k">Scroll Animation</div>
-            <div class="spec-v">AOS (Animate On Scroll)</div>
-          </div>
-          <div class="spec-card">
-            <div class="spec-k">Typing Effect</div>
-            <div class="spec-v">Typed.js Dynamic Engine</div>
-          </div>
-          <div class="spec-card">
-            <div class="spec-k">Booking Integration</div>
-            <div class="spec-v">WhatsApp Dynamic Builder</div>
+          <h1 style="font-size: 40px; font-weight: 900; line-height: 1.1; margin-bottom: 16px;">
+            Arsitektur Web Portofolio &amp; Layanan Studio Fotografi
+          </h1>
+          <p style="font-size: 14.5px; color: var(--text-body); line-height: 1.55; margin-bottom: 24px;">
+            Sistem web editorial studio foto berbasis Bootstrap 5 dengan navigasi floating sidebar, galeri filter masonry dinamis, inspeksi media resolusi tinggi, dan alur reservasi terpadu.
+          </p>
+          <div class="clean-card" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 14px 18px;">
+            <div>
+              <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">DESAIN SISTEM</div>
+              <div style="font-size: 19px; font-weight: 800; color: var(--accent-sapphire); margin-top: 2px;">Editorial</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Sapphire Blue &amp; Slate</div>
+            </div>
+            <div>
+              <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">FILTER GRID</div>
+              <div style="font-size: 19px; font-weight: 800; color: var(--text-dark); margin-top: 2px;">Isotope.js</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Zero-Jank Sorting</div>
+            </div>
+            <div>
+              <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">MODAL VIEWER</div>
+              <div style="font-size: 19px; font-weight: 800; color: var(--text-dark); margin-top: 2px;">GLightbox</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Touch Gestures</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="visual-stage">
-        <img src="${images.heroDesktop}" class="screenshot-desktop" alt="Portograph Homepage">
-      </div>
-    </div>
-
-    <div class="slide-footer">
-      <span class="footer-tech">Bootstrap 5 + AOS Library + Typed.js + Custom CSS</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
-    </div>
-  </section>
-
-  <!-- SLIDE 2: ARSITEKTUR & DESAIN -->
-  <section class="slide">
-    <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">ARCHITECTURE</span>
-        <span class="slide-section-title">Fondasi Sistem & Struktur Visual</span>
-      </div>
-      <div class="slide-number">02 / 10</div>
-    </div>
-
-    <div class="headline-group" style="margin-bottom: 12px;">
-      <h2 class="slide-title">Arsitektur Visual & Estetika Editorial</h2>
-      <p class="slide-desc">Kombinasi tipografi klasik Playfair Display dan layout grid modern yang mengedepankan kualitas visual karya fotografi berkualitas tinggi.</p>
-    </div>
-
-    <div class="arch-grid">
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--gold-primary);">Layout & Dock Navigation</div>
-        <div class="arch-item"><strong>Dock Sidebar Navigation:</strong> Sidebar ikon vertikal dengan status aktif otomatis mengikuti posisi viewport scroll pengguna.</div>
-        <div class="arch-item"><strong>Offcanvas Mobile Drawer:</strong> Menu navigasi sentuh ergonomis yang meluncur halus dari sisi samping pada layar ponsel.</div>
-        <div class="arch-item"><strong>Hero Full-Bleed:</strong> Tampilan hero layar penuh dengan overlay kontras untuk keterbacaan teks maksimal di atas foto.</div>
-      </div>
-
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--gold-light);">Animasi & Efek Interaktif</div>
-        <div class="arch-item"><strong>Typed.js Dynamic Engine:</strong> Efek pengetikan teks dinamis pada sub-judul hero untuk menonjolkan ragam spesialisasi studio.</div>
-        <div class="arch-item"><strong>Scroll Entrance Reveal:</strong> Animasi masuk bertahap (AOS) saat elemen halaman digulir ke dalam bidang pandang.</div>
-        <div class="arch-item"><strong>Hover Micro-Interactions:</strong> Efek transisi halus pada kartu galeri dan paket layanan menggunakan CSS transform terakselerasi GPU.</div>
-      </div>
-
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--accent-teal);">Integrasi & Alur Konversi</div>
-        <div class="arch-item"><strong>Formulir Reservasi Mandiri:</strong> Validasi input tanggal sesi, paket pilihan, dan catatan tambahan di sisi klien.</div>
-        <div class="arch-item"><strong>WhatsApp URL Formatter:</strong> Generator pesan WhatsApp otomatis dengan format teks terstruktur siap kirim.</div>
-        <div class="arch-item"><strong>Optimasi Gambar:</strong> Penanganan pemuatan aset gambar dengan rasio aspek terjaga untuk mencegah layout shift.</div>
+        <div class="visual-stage">
+          <img src="${images.heroDesktop}" alt="Portograph Hero Desktop">
+        </div>
       </div>
     </div>
 
     <div class="slide-footer">
-      <span class="footer-tech">Portograph Architecture Blueprint</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+      <div>PORTOGRAPH &bull; PHOTOGRAPHY STUDIO TEMPLATE</div>
+      <div>WIDI FIRMANSYAH &bull; LEAD WEB DEVELOPER</div>
+      <div>01 / 10</div>
     </div>
-  </section>
+  </div>
 
-  <!-- SLIDE 3: CINEMATIC HERO -->
-  <section class="slide">
+  <!-- SLIDE 2: LATAR BELAKANG & TUJUAN REKAYASA -->
+  <div class="slide">
     <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">HERO STAGE</span>
-        <span class="slide-section-title">Bagian Hero & Teks Pengetikan Dinamis</span>
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Arsitektur &amp; Fondasi</div>
+        <div class="brand-subtitle">Spesifikasi Kebutuhan Web</div>
       </div>
-      <div class="slide-number">03 / 10</div>
+      <div class="badge-pill">DECK-PORTO-02 / 10</div>
     </div>
 
-    <div class="slide-body">
-      <div class="slide-info">
-        <div class="headline-group">
-          <h2 class="slide-title">Hero Sinematik & Spesialisasi Studio</h2>
-          <p class="slide-desc">Penyambutan pengunjung dengan latar fotografi resolusi tinggi, tipografi mewah, dan teks dinamis Typed.js yang menyorot bidang layanan.</p>
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Fondasi Rekayasa Web</div>
+        <h2 class="slide-title">Kebutuhan Display Editorial &amp; Konversi Reservasi Klien</h2>
+        <p class="slide-subtitle">Merancang platform visual bagi fotografer profesional dengan keseimbangan kualitas gambar tinggi dan performa loading responsif.</p>
+      </div>
+
+      <div class="layout-grid-3">
+        <div class="clean-card">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">01 &bull; KENDALA TEKNIS</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Beban Aset Gambar Berat</h3>
+          <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
+            Foto beresolusi tinggi rawan memperlambat First Contentful Paint dan memicu layout shift jika dimensi aspek rasio kontainer tidak didefinisikan secara presisi.
+          </p>
+        </div>
+
+        <div class="clean-card">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">02 &bull; SOLUSI ARSITEKTUR</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Masonry Terisolasi &amp; Lazy Loading</h3>
+          <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
+            Pengaturan container wrapper terstandarisasi dengan kalkulasi koordinat Isotope dan pemuatan bertahap berbasis intersection observer tanpa jeda.
+          </p>
+        </div>
+
+        <div class="clean-card">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">03 &bull; ERGONOMI NAVIGASI</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Navigasi Floating Pill 50px</h3>
+          <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
+            Bilah navigasi samping melayang dengan radius 50px yang mengekspansi label saat kursor melintas, menjaga kanvas galeri tetap luas dan leluasa dinikmati.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <div>PORTOGRAPH &bull; ARSITEKTUR SISTEM</div>
+      <div>STANDARISASI WEB EDITORIAL</div>
+      <div>02 / 10</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: FLOATING SIDEBAR NAVIGATION -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Sistem Navigasi</div>
+        <div class="brand-subtitle">Vertical Floating Pill Bar &amp; Mobile Drawer</div>
+      </div>
+      <div class="badge-pill">DECK-PORTO-03 / 10</div>
+    </div>
+
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Komponen Antarmuka Pengguna</div>
+        <h2 class="slide-title">Navigasi Mengambang Vertikal Berbentuk Kapsul</h2>
+        <p class="slide-subtitle">Implementasi navigasi samping modular dengan indikator segmen aktif otomatis dan mode drawer seluler bebas hambatan.</p>
+      </div>
+
+      <div class="layout-split">
+        <div class="visual-stage">
+          <img src="${images.heroMobile}" alt="Portograph Mobile View &amp; Navigation">
         </div>
 
         <div class="feature-list">
-          <div class="feature-card">
-            <div class="feature-card-title">Efek Pengetikan Typed.js</div>
-            <div class="feature-card-text">Rotasi teks otomatis yang menampilkan ragam layanan: Wedding, Pre-Wedding, Portrait, dan Editorial Moments.</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Icon Pill Radius 50px dengan Expandable Text</div>
+            <div class="feature-item-desc">
+              Menu desktop berukuran 56x56px yang melebar secara mulus menjadi teks lengkap dengan latar belakang warna Sapphire Blue (#0563bb) saat di-hover.
+            </div>
           </div>
-          <div class="feature-card teal">
-            <div class="feature-card-title">Tombol Aksi Cepat Terarah</div>
-            <div class="feature-card-text">CTA ganda yang menghubungkan calon klien langsung ke galeri portofolio atau formulir pemesanan jadwal.</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Scrollspy Segment Tracking</div>
+            <div class="feature-item-desc">
+              Deteksi posisi scroll pengguna yang secara dinamis memperbarui kelas aktif pada tautan menu menggunakan listener posisi vertikal window.
+            </div>
           </div>
-          <div class="feature-card bronze">
-            <div class="feature-card-title">Overlay Gradien Halus</div>
-            <div class="feature-card-text">Lapisan gradien gelap di atas latar visual untuk memastikan teks tetap kontras dan mudah dibaca.</div>
-          </div>
-        </div>
-
-        <div class="metrics-row">
-          <div class="metric-box">
-            <div class="metric-val">100vh</div>
-            <div class="metric-lbl">Hero Canvas</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Smooth</div>
-            <div class="metric-lbl">Typing Loop</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Zero CLS</div>
-            <div class="metric-lbl">Layout Shift</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Mobile Hamburger Drawer Terisolasi</div>
+            <div class="feature-item-desc">
+              Tombol toggler berlingkar 50px di sudut kanan atas layar seluler yang membuka menu off-canvas dengan transisi CSS transform hardware-accelerated.
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="visual-stage">
-        <img src="${images.heroDesktop}" class="screenshot-desktop" alt="Hero Desktop">
-        <img src="${images.heroMobile}" class="screenshot-mobile" alt="Hero Mobile">
       </div>
     </div>
 
     <div class="slide-footer">
-      <span class="footer-tech">Section: #hero & Typed.js initialization</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+      <div>PORTOGRAPH &bull; NAVIGATION MODULE</div>
+      <div>FLOATING SIDEBAR SYSTEM</div>
+      <div>03 / 10</div>
     </div>
-  </section>
+  </div>
 
-  <!-- SLIDE 4: GALERI PORTOFOLIO -->
-  <section class="slide">
+  <!-- SLIDE 4: ISOTOPE MASONRY PORTFOLIO GRID -->
+  <div class="slide">
     <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">PORTFOLIO</span>
-        <span class="slide-section-title">Galeri Karya & Showcase Fotografi</span>
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Modul Galeri</div>
+        <div class="brand-subtitle">Isotope.js Masonry &amp; Multi-Category Filter</div>
       </div>
-      <div class="slide-number">04 / 10</div>
+      <div class="badge-pill">DECK-PORTO-04 / 10</div>
     </div>
 
-    <div class="slide-body">
-      <div class="slide-info">
-        <div class="headline-group">
-          <h2 class="slide-title">Galeri Portofolio & Tampilan Visual</h2>
-          <p class="slide-desc">Kompilasi hasil karya pemotretan yang disajikan dalam susunan grid rapi dengan efek interaksi hover elegan dan informasi detail karya.</p>
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Mesin Filter Portofolio</div>
+        <h2 class="slide-title">Grid Portofolio Masonry dengan Filter Kategori Real-Time</h2>
+        <p class="slide-subtitle">Pengelompokan karya fotografi (Wedding, Portrait, Commercial) dengan animasi relokasi elemen tanpa kedipan layar.</p>
+      </div>
+
+      <div class="layout-split-reversed">
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-item-title">Filter Tab Kapsul Terisolasi</div>
+            <div class="feature-item-desc">
+              Kancing tab filter dengan gaya kapsul pill yang memicu seleksi selector kelas data-filter secara instan melalui callback Isotope layout.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-title">Corner Bracket Border Effect</div>
+            <div class="feature-item-desc">
+              Efek bingkai sudut dekoratif (3px solid #d7dce1) yang bertransisi ke posisi fokus saat kursor pengguna mendekati kartu karya fotografi.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-title">Zero Layout Thrashing Recalculation</div>
+            <div class="feature-item-desc">
+              Penetapan lebar persentase dan gambar responsif yang mencegah reflow berulang pada container galeri selama kalkulasi ulang koordinat.
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-stage">
+          <img src="${images.portfolioDesktop}" alt="Portograph Portfolio Masonry Grid">
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <div>PORTOGRAPH &bull; MASONRY ENGINE</div>
+      <div>ISOTOPE FILTERING</div>
+      <div>04 / 10</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: LIGHTBOX MODAL & MOBILE GALLERY -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Pratinjau Media</div>
+        <div class="brand-subtitle">GLightbox Modal &amp; Touch Gestures</div>
+      </div>
+      <div class="badge-pill">DECK-PORTO-05 / 10</div>
+    </div>
+
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Inspeksi Detail Foto</div>
+        <h2 class="slide-title">Pratinjau Foto Resolusi Tinggi dengan GLightbox</h2>
+        <p class="slide-subtitle">Modal penampil foto modern yang mendukung gestur cubit, usap layar sentuh, dan navigasi keyboard berkecepatan tinggi.</p>
+      </div>
+
+      <div class="layout-split">
+        <div class="visual-stage">
+          <img src="${images.portfolioMobile}" alt="Portograph Portfolio Mobile View">
         </div>
 
         <div class="feature-list">
-          <div class="feature-card">
-            <div class="feature-card-title">Tampilan Grid Responsif</div>
-            <div class="feature-card-text">Penyusunan kartu visual multi-kolom yang secara dinamis menyesuaikan lebar layar desktop, tablet, dan smartphone.</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Integrasi GLightbox Ringan</div>
+            <div class="feature-item-desc">
+              Pustaka modal murni tanpa dependensi jQuery yang menangani transisi zoom dan perpindahan antar foto dalam album secara mulus.
+            </div>
           </div>
-          <div class="feature-card teal">
-            <div class="feature-card-title">Efek Hover Interaktif</div>
-            <div class="feature-card-text">Transisi zoom halus dan kemunculan overlay deskripsi sesi pemotretan saat kartu disorot kursor.</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Dukungan Navigasi Sentuh &amp; Keyboard</div>
+            <div class="feature-item-desc">
+              Pengguna gawai layar sentuh dapat menggeser foto secara alami, sementara pengguna desktop dapat memanfaatkan tombol panah keyboard dan tombol Escape.
+            </div>
           </div>
-          <div class="feature-card bronze">
-            <div class="feature-card-title">Kategori Pemotretan Tematik</div>
-            <div class="feature-card-text">Pengelompokan karya berdasarkan genre foto untuk memudahkan klien mengevaluasi portofolio yang relevan.</div>
-          </div>
-        </div>
-
-        <div class="metrics-row">
-          <div class="metric-box">
-            <div class="metric-val">Grid 3-Col</div>
-            <div class="metric-lbl">Desktop Span</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">60fps</div>
-            <div class="metric-lbl">Hover Motion</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Curated</div>
-            <div class="metric-lbl">Asset Catalog</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Asynchronous High-Res Image Fetching</div>
+            <div class="feature-item-desc">
+              Thumbnail berbobot ringan ditampilkan di halaman utama, sementara file resolusi penuh hanya diunduh saat modal dibuka pengguna.
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="visual-stage">
-        <img src="${images.portfolioDesktop}" class="screenshot-desktop" alt="Portofolio Desktop">
-        <img src="${images.portfolioMobile}" class="screenshot-mobile" alt="Portofolio Mobile">
       </div>
     </div>
 
     <div class="slide-footer">
-      <span class="footer-tech">Section: #portfolio & CSS Grid</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+      <div>PORTOGRAPH &bull; LIGHTBOX MODULE</div>
+      <div>TOUCH-ENABLED INSPECTION</div>
+      <div>05 / 10</div>
     </div>
-  </section>
+  </div>
 
-  <!-- SLIDE 5: PAKET LAYANAN -->
-  <section class="slide">
+  <!-- SLIDE 6: PAKET LAYANAN & PERBANDINGAN HARGA -->
+  <div class="slide">
     <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">PACKAGES</span>
-        <span class="slide-section-title">Katalog Paket Layanan & Harga</span>
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Komersial &amp; Konversi</div>
+        <div class="brand-subtitle">Package Tiering &amp; Transparent Breakdown</div>
       </div>
-      <div class="slide-number">05 / 10</div>
+      <div class="badge-pill">DECK-PORTO-06 / 10</div>
     </div>
 
-    <div class="slide-body">
-      <div class="slide-info">
-        <div class="headline-group">
-          <h2 class="slide-title">Katalog Paket & Rincian Fasilitas</h2>
-          <p class="slide-desc">Penyajian transparansi paket pemotretan mencakup durasi sesi, jumlah foto teredit, album cetak fisik, dan hak cipta karya.</p>
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Struktur Paket Layanan</div>
+        <h2 class="slide-title">Daftar Paket Fotografi dengan Komparasi Transparan</h2>
+        <p class="slide-subtitle">Penyusunan tingkatan paket (Silver, Gold, Platinum) dengan daftar fitur terperinci dan tombol aksi reservasi instan.</p>
+      </div>
+
+      <div class="layout-split-reversed">
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-item-title">Kartu Bertingkat dengan Elevasi Visual</div>
+            <div class="feature-item-desc">
+              Penonjolan paket terfavorit dengan border Sapphire Blue dan bayangan elevasi soft 0 4px 20px untuk membimbing keputusan calon klien.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-title">Detail Spesifikasi Sesi &amp; Deliverables</div>
+            <div class="feature-item-desc">
+              Rincian jumlah fotografer, durasi sesi pemotretan, album cetak eksklusif, serta ketersediaan flash drive data digital beresolusi master.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-title">Deep-Linking Call to Action ke Formulir</div>
+            <div class="feature-item-desc">
+              Tautan tombol 'Pilih Paket' yang secara otomatis menggulir halus ke bagian reservasi dan mengisi pilihan paket pada formulir pemesanan.
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-stage">
+          <img src="${images.packagesDesktop}" alt="Portograph Service Packages Desktop">
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <div>PORTOGRAPH &bull; SERVICE TIERS</div>
+      <div>PRICING MATRIX</div>
+      <div>06 / 10</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: FORMULIR RESERVASI & VALIDASI -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Alur Reservasi</div>
+        <div class="brand-subtitle">Interactive Booking Flow &amp; Date Picker</div>
+      </div>
+      <div class="badge-pill">DECK-PORTO-07 / 10</div>
+    </div>
+
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Interaksi Pengguna</div>
+        <h2 class="slide-title">Formulir Pemesanan Sesi Foto dengan Validasi Klien</h2>
+        <p class="slide-subtitle">Antarmuka formulir pemesanan yang higienis dengan umpan balik validasi real-time dan penanganan asynchronous.</p>
+      </div>
+
+      <div class="layout-split">
+        <div class="visual-stage">
+          <img src="${images.bookingDesktop}" alt="Portograph Booking Form Desktop">
         </div>
 
         <div class="feature-list">
-          <div class="feature-card">
-            <div class="feature-card-title">Perbandingan Paket Bertingkat</div>
-            <div class="feature-card-text">Pilihan paket berjenjang (Silver, Gold, Platinum) dengan daftar centang fitur yang spesifik dan jelas.</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Validasi Sisi Klien Real-Time</div>
+            <div class="feature-item-desc">
+              Pemeriksaan format email, nomor telepon seluler, dan kelengkapan tanggal reservasi sebelum data dikirimkan ke endpoint pemrosesan.
+            </div>
           </div>
-          <div class="feature-card teal">
-            <div class="feature-card-title">Sorotan Paket Pilihan Favorit</div>
-            <div class="feature-card-text">Penanda visual aksen emas khusus pada paket terpopuler untuk memandu preferensi pemesanan klien.</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Styling Input Elegan &amp; Accessible</div>
+            <div class="feature-item-desc">
+              Kontrol formulir berlatar putih dengan border #e6e9ec, transisi fokus Sapphire Blue, serta label semantik ramah pembaca layar (screen reader).
+            </div>
           </div>
-          <div class="feature-card bronze">
-            <div class="feature-card-title">Keterkaitan Aksi Reservasi</div>
-            <div class="feature-card-text">Setiap kartu paket memiliki tombol pemesanan yang otomatis mengarahkan ke formulir dengan paket yang terpilih.</div>
-          </div>
-        </div>
-
-        <div class="metrics-row">
-          <div class="metric-box">
-            <div class="metric-val">3 Tiers</div>
-            <div class="metric-lbl">Service Cards</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Transparent</div>
-            <div class="metric-lbl">Pricing Display</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Direct</div>
-            <div class="metric-lbl">Booking Link</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Feedback State Loading &amp; Konfirmasi</div>
+            <div class="feature-item-desc">
+              Indikator proses pengiriman data yang jelas serta pesan status berhasil/gagal yang terisolasi tanpa memicu reload halaman penuh.
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="visual-stage">
-        <img src="${images.packagesDesktop}" class="screenshot-desktop" alt="Paket Layanan Desktop">
-        <img src="${images.packagesMobile}" class="screenshot-mobile" alt="Paket Layanan Mobile">
       </div>
     </div>
 
     <div class="slide-footer">
-      <span class="footer-tech">Section: #packages & Pricing Cards</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+      <div>PORTOGRAPH &bull; RESERVATION WORKFLOW</div>
+      <div>CLIENT-SIDE VALIDATION</div>
+      <div>07 / 10</div>
     </div>
-  </section>
+  </div>
 
-  <!-- SLIDE 6: FORM BOOKING -->
-  <section class="slide">
+  <!-- SLIDE 8: ADAPTASI ERGONOMI SELULER -->
+  <div class="slide">
     <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">RESERVATION</span>
-        <span class="slide-section-title">Formulir Reservasi & Integrasi Chat</span>
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Ergonomi Seluler</div>
+        <div class="brand-subtitle">Responsive Layout &amp; Touch Target</div>
       </div>
-      <div class="slide-number">06 / 10</div>
+      <div class="badge-pill">DECK-PORTO-08 / 10</div>
     </div>
 
-    <div class="slide-body">
-      <div class="slide-info">
-        <div class="headline-group">
-          <h2 class="slide-title">Form Pemesanan & Generator WhatsApp</h2>
-          <p class="slide-desc">Antarmuka reservasi jadwal pemotretan interaktif yang menyusun draf pesan otomatis ke akun WhatsApp resmi studio secara instan.</p>
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Pengalaman Pengguna Seluler</div>
+        <h2 class="slide-title">Optimasi Sentuhan &amp; Keterbacaan pada Layar Seluler</h2>
+        <p class="slide-subtitle">Penyesuaian tata letak grid satu kolom pada perangkat seluler demi kemudahan pengoperasian dengan satu jempol tangan.</p>
+      </div>
+
+      <div class="layout-split-reversed">
+        <div class="visual-stage">
+          <img src="${images.bookingMobile}" alt="Portograph Booking Mobile Ergonomics">
         </div>
 
         <div class="feature-list">
-          <div class="feature-card">
-            <div class="feature-card-title">Input Data Pemesan Lengkap</div>
-            <div class="feature-card-text">Formulir mencakup nama klien, nomor kontak, tanggal sesi yang diinginkan, pemilihan paket, dan lokasi pemotretan.</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Touch Target Minimum 48x48px</div>
+            <div class="feature-item-desc">
+              Seluruh tombol aksi dan bidang sentuh masukan formulir disesuaikan dengan pedoman ergonomi human interface seluler.
+            </div>
           </div>
-          <div class="feature-card teal">
-            <div class="feature-card-title">Penyusunan Format Pesan Otomatis</div>
-            <div class="feature-card-text">Script JavaScript merangkai seluruh input ke dalam format teks WhatsApp yang rapi dan terstruktur.</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Fluid Typography Scaling</div>
+            <div class="feature-item-desc">
+              Penyesuaian hierarki ukuran font Raleway dan Poppins menggunakan unit clamp responsif untuk menjaga harmoni visual di berbagai dimensi layar.
+            </div>
           </div>
-          <div class="feature-card bronze">
-            <div class="feature-card-title">Validasi Formulir di Sisi Klien</div>
-            <div class="feature-card-text">Pengecekan kelengkapan data sebelum pengalihan ke aplikasi chat guna mencegah pengiriman informasi yang tidak lengkap.</div>
-          </div>
-        </div>
-
-        <div class="metrics-row">
-          <div class="metric-box">
-            <div class="metric-val">1-Tap</div>
-            <div class="metric-lbl">WA Dispatch</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Zero Server</div>
-            <div class="metric-lbl">Serverless Form</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Realtime</div>
-            <div class="metric-lbl">Query Encode</div>
+          <div class="feature-item">
+            <div class="feature-item-title">Pencegahan Horizontal Overflow</div>
+            <div class="feature-item-desc">
+              Pengaturan box-sizing border-box dan margin komposit terkalibrasi yang mencegah pergeseran horizontal yang mengganggu pengguna.
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="visual-stage">
-        <img src="${images.bookingDesktop}" class="screenshot-desktop" alt="Form Booking Desktop">
-        <img src="${images.bookingMobile}" class="screenshot-mobile" alt="Form Booking Mobile">
       </div>
     </div>
 
     <div class="slide-footer">
-      <span class="footer-tech">Section: #booking & WhatsApp API Integration</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+      <div>PORTOGRAPH &bull; MOBILE ERGONOMICS</div>
+      <div>TOUCH INTERFACE OPTIMIZATION</div>
+      <div>08 / 10</div>
     </div>
-  </section>
+  </div>
 
-  <!-- SLIDE 7: RESPONSIVITAS MOBILE -->
-  <section class="slide">
+  <!-- SLIDE 9: REKAYASA KINERJA & CORE WEB VITALS -->
+  <div class="slide">
     <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">RESPONSIVE</span>
-        <span class="slide-section-title">Adaptasi Antarmuka Layar Sentuh Mobile</span>
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Rekayasa Kinerja</div>
+        <div class="brand-subtitle">Asset Loading &amp; Core Web Vitals</div>
       </div>
-      <div class="slide-number">07 / 10</div>
+      <div class="badge-pill">DECK-PORTO-09 / 10</div>
     </div>
 
-    <div class="slide-body">
-      <div class="slide-info">
-        <div class="headline-group">
-          <h2 class="slide-title">Desain Ergonomis & Pengalaman Mobile</h2>
-          <p class="slide-desc">Optimasi menyeluruh untuk perangkat seluler dengan penyesuaian tata letak kartu, jarak antar elemen sentuh, dan performa scrolling tinggi.</p>
-        </div>
-
-        <div class="feature-list">
-          <div class="feature-card">
-            <div class="feature-card-title">Menu Drawer Offcanvas</div>
-            <div class="feature-card-text">Navigasi yang mudah diakses dengan jempol melalui menu geser samping saat diakses dari perangkat mobile.</div>
-          </div>
-          <div class="feature-card teal">
-            <div class="feature-card-title">Target Sentuh Proporsional</div>
-            <div class="feature-card-text">Semua tombol dan field formulir memiliki area sentuh minimum 48px sesuai standar ergonomi antarmuka seluler.</div>
-          </div>
-          <div class="feature-card bronze">
-            <div class="feature-card-title">Penghematan Bandwidth Aset</div>
-            <div class="feature-card-text">Pemanfaatan kompresi visual yang membuat rendering halaman tetap mulus pada jaringan seluler 4G/5G.</div>
-          </div>
-        </div>
-
-        <div class="metrics-row">
-          <div class="metric-box">
-            <div class="metric-val">100%</div>
-            <div class="metric-lbl">Mobile Friendly</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Fluid</div>
-            <div class="metric-lbl">Touch Scroll</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Offcanvas</div>
-            <div class="metric-lbl">Navigation</div>
-          </div>
-        </div>
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Kecepatan &amp; Kualitas Kode</div>
+        <h2 class="slide-title">Efisiensi Distribusi Aset &amp; Skor Web Vitals Tinggi</h2>
+        <p class="slide-subtitle">Strategi pemuatan modular yang meminimalisasi render-blocking resource dan mengamankan nilai metrik LCP yang cepat.</p>
       </div>
 
-      <div class="visual-stage">
-        <img src="${images.packagesMobile}" class="screenshot-desktop" style="max-height: 380px; width: auto;" alt="Paket Mobile">
-        <img src="${images.bookingMobile}" class="screenshot-mobile" alt="Booking Mobile">
+      <div class="layout-grid-3">
+        <div class="clean-card">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">DISTRIBUSI ASSET</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">CSS &amp; JS Minified</h3>
+          <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
+            Pemisahan modul skrip inti dengan dependensi pihak ketiga, didukung kompresi berkas style.css untuk menghemat konsumsi kuota data klien.
+          </p>
+        </div>
+
+        <div class="clean-card">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">LAYOUT STABILITY</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Zero CLS Grid Skeleton</h3>
+          <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
+            Pemberian atribut width dan height eksplisit pada seluruh gambar portofolio untuk mencegah lonjakan layout saat gambar selesai dimuat.
+          </p>
+        </div>
+
+        <div class="clean-card">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">STANDAR W3C</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Semantic HTML5 Markup</h3>
+          <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
+            Struktur markup semantik yang rapi mempermudah pengindeksan mesin pencari Google (SEO) dan integrasi metadata Open Graph fotografi.
+          </p>
+        </div>
       </div>
     </div>
 
     <div class="slide-footer">
-      <span class="footer-tech">Mobile Viewport: Bootstrap 5 Breakpoints</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+      <div>PORTOGRAPH &bull; PERFORMANCE AUDIT</div>
+      <div>CORE WEB VITALS METRICS</div>
+      <div>09 / 10</div>
     </div>
-  </section>
+  </div>
 
-  <!-- SLIDE 8: SCROLL ANIMATIONS -->
-  <section class="slide">
+  <!-- SLIDE 10: RANGKUMAN ARSITEKTUR & PRODUKSI -->
+  <div class="slide">
     <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">INTERACTION</span>
-        <span class="slide-section-title">Animasi Pengguliran & Akselerasi GPU</span>
+      <div class="brand-pill">
+        <div class="brand-dot"></div>
+        <div class="brand-title">Ringkasan Proyek</div>
+        <div class="brand-subtitle">Spesifikasi Akhir &amp; Kesiapan Rilis</div>
       </div>
-      <div class="slide-number">08 / 10</div>
+      <div class="badge-pill">DECK-PORTO-10 / 10</div>
     </div>
 
-    <div class="slide-body">
-      <div class="slide-info">
-        <div class="headline-group">
-          <h2 class="slide-title">Transisi Halus Animate On Scroll</h2>
-          <p class="slide-desc">Penerapan library AOS untuk menghadirkan efek kemunculan elemen yang sinematik dan berirama saat pengunjung menelusuri halaman.</p>
+    <div class="slide-content">
+      <div class="title-block">
+        <div class="slide-category">Rangkuman Akhir Rekayasa</div>
+        <h2 class="slide-title">Kesimpulan Implementasi Portograph Studio</h2>
+        <p class="slide-subtitle">Platform web portofolio fotografi yang menggabungkan estetika editorial modern dengan arsitektur teknis yang stabil.</p>
+      </div>
+
+      <div class="layout-grid-4">
+        <div class="clean-card">
+          <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">FRAMEWORK</div>
+          <div style="font-size: 18px; font-weight: 800; color: var(--accent-sapphire); margin-top: 4px; margin-bottom: 4px;">Bootstrap 5</div>
+          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Grid fleksibel 12 kolom dengan utility class terstandarisasi.</p>
         </div>
 
-        <div class="feature-list">
-          <div class="feature-card">
-            <div class="feature-card-title">Staggered Delay Animation</div>
-            <div class="feature-card-text">Kemunculan kartu layanan dan portofolio secara bertahap dengan jeda waktu teratur untuk efek visual berkelas.</div>
-          </div>
-          <div class="feature-card teal">
-            <div class="feature-card-title">Akselerasi Perangkat Keras</div>
-            <div class="feature-card-text">Semua efek transform CSS diterjemahkan ke GPU untuk menjaga frame rate tetap stabil di 60fps tanpa lagging.</div>
-          </div>
-          <div class="feature-card bronze">
-            <div class="feature-card-title">Aktivasi Berbasis Viewport</div>
-            <div class="feature-card-text">Animasi hanya dipicu saat elemen berada dalam jarak pandang mata pengguna untuk menghemat pemrosesan browser.</div>
-          </div>
+        <div class="clean-card">
+          <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">INTERACTION</div>
+          <div style="font-size: 18px; font-weight: 800; color: var(--accent-sapphire); margin-top: 4px; margin-bottom: 4px;">Isotope.js</div>
+          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Penyaringan kategori karya foto instan tanpa reload.</p>
         </div>
 
-        <div class="metrics-row">
-          <div class="metric-box">
-            <div class="metric-val">AOS</div>
-            <div class="metric-lbl">Scroll Engine</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">60 FPS</div>
-            <div class="metric-lbl">Frame Rate</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">CSS3</div>
-            <div class="metric-lbl">Hardware Accel</div>
-          </div>
+        <div class="clean-card">
+          <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">INSPECTION</div>
+          <div style="font-size: 18px; font-weight: 800; color: var(--accent-sapphire); margin-top: 4px; margin-bottom: 4px;">GLightbox</div>
+          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Pratinjau visual resolusi tinggi dengan navigasi sentuh.</p>
+        </div>
+
+        <div class="clean-card">
+          <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">STATUS</div>
+          <div style="font-size: 18px; font-weight: 800; color: #16A34A; margin-top: 4px; margin-bottom: 4px;">Siap Produksi</div>
+          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Teruji pada seluruh breakpoint layar perangkat modern.</p>
         </div>
       </div>
 
-      <div class="visual-stage">
-        <img src="${images.portfolioDesktop}" class="screenshot-desktop" alt="Portofolio Desktop">
+      <div class="visual-stage" style="min-height: 160px; max-height: 180px; margin-top: 15px;">
+        <img src="${images.packagesMobile}" alt="Portograph Packages Mobile Final View">
       </div>
     </div>
 
     <div class="slide-footer">
-      <span class="footer-tech">Engine: AOS (Animate on Scroll) v2.3.4</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+      <div>PORTOGRAPH &bull; KESIMPULAN REKAYASA WEB</div>
+      <div>WIDI FIRMANSYAH &bull; LEAD DEVELOPER</div>
+      <div>10 / 10</div>
     </div>
-  </section>
-
-  <!-- SLIDE 9: ARSITEKTUR KODE & INTEGRASI -->
-  <section class="slide">
-    <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">CODEBASE</span>
-        <span class="slide-section-title">Struktur Kode & Integrasi Pustaka</span>
-      </div>
-      <div class="slide-number">09 / 10</div>
-    </div>
-
-    <div class="headline-group" style="margin-bottom: 12px;">
-      <h2 class="slide-title">Organisasi Kode Bersih & Efisiensi Aset</h2>
-      <p class="slide-desc">Pemisahan logika skrip, gaya modular, dan standarisasi penulisan markup untuk kemudahan pemeliharaan dan kustomisasi branding studio.</p>
-    </div>
-
-    <div class="arch-grid">
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--gold-primary);">Markup Semantik & SEO</div>
-        <div class="arch-item"><strong>HTML5 Semantic Tags:</strong> Penggunaan elemen section, article, dan nav yang tepat untuk struktur dokumen yang jelas.</div>
-        <div class="arch-item"><strong>Optimasi Meta Tags:</strong> Konfigurasi Open Graph dan meta deskripsi lengkap untuk pratinjau tautan media sosial.</div>
-        <div class="arch-item"><strong>Aksesibilitas Visual:</strong> Rasio kontras teks dan atribut alt lengkap pada seluruh elemen gambar portofolio.</div>
-      </div>
-
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--gold-light);">Variabel Desain Terpusat</div>
-        <div class="arch-item"><strong>CSS Custom Properties:</strong> Palet warna emas, latar belakang gelap, dan ukuran font dikelola dalam token variabel tunggal.</div>
-        <div class="arch-item"><strong>Modular Style System:</strong> Pembagian aturan styling khusus komponen untuk memudahkan penggantian skema warna.</div>
-        <div class="arch-item"><strong>Zero External Bloat:</strong> Menggunakan library esensial tanpa overhead framework monolitik yang berlebihan.</div>
-      </div>
-
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--accent-teal);">Manajemen Interaksi Skrip</div>
-        <div class="arch-item"><strong>Event Listener Mandiri:</strong> Pengikatan aksi form submit dan scrollspy menggunakan vanilla JavaScript modern.</div>
-        <div class="arch-item"><strong>Pencegahan Memory Leak:</strong> Handler event diinisialisasi secara efisien setelah DOM selesai dimuat sempurna.</div>
-        <div class="arch-item"><strong>Kompatibilitas Lintas Browser:</strong> Diuji secara menyeluruh pada mesin rendering Chrome, Safari, dan Firefox.</div>
-      </div>
-    </div>
-
-    <div class="slide-footer">
-      <span class="footer-tech">Portograph Codebase Quality Standard</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
-    </div>
-  </section>
-
-  <!-- SLIDE 10: SPESIFIKASI PRODUKSI -->
-  <section class="slide">
-    <div class="slide-header">
-      <div class="brand-cluster">
-        <span class="brand-badge">SPECIFICATION</span>
-        <span class="slide-section-title">Ringkasan Spesifikasi & Kesiapan Produksi</span>
-      </div>
-      <div class="slide-number">10 / 10</div>
-    </div>
-
-    <div class="headline-group" style="margin-bottom: 12px;">
-      <h2 class="slide-title">Spesifikasi Teknis & Kesiapan Produksi</h2>
-      <p class="slide-desc">Ringkasan performa web, kesiapan integrasi hosting statis, dan kepatuhan standar web modern untuk platform studio komersial.</p>
-    </div>
-
-    <div class="arch-grid">
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--gold-primary);">Metrik Performa & Audit Web</div>
-        <div class="arch-item"><strong>Lighthouse Score:</strong> Nilai 96+ pada indikator Best Practices, SEO, dan Accessibility.</div>
-        <div class="arch-item"><strong>Pemuatan Cepat:</strong> Aset CSS dan JS yang terkompresi memastikan First Paint di bawah 0.8 detik.</div>
-        <div class="arch-item"><strong>Render Tree Ringan:</strong> Struktur DOM yang teroptimasi tanpa nesting elemen berlebihan.</div>
-      </div>
-
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--gold-light);">Standar Responsif & Desain</div>
-        <div class="arch-item"><strong>Layar Ultrawide & Retina:</strong> Skalabilitas gambar tajam pada monitor beresolusi tinggi hingga 4K.</div>
-        <div class="arch-item"><strong>Ergonomi Seluler:</strong> Transisi navigasi instan yang memberikan rasa aplikasi native pada browser seluler.</div>
-        <div class="arch-item"><strong>Tipografi Berkelas:</strong> Pasangan font Playfair Display dan Plus Jakarta Sans yang proporsional.</div>
-      </div>
-
-      <div class="arch-card">
-        <div class="arch-title" style="color: var(--accent-teal);">Kesiapan Distribusi & Hosting</div>
-        <div class="arch-item"><strong>Static Web Hosting:</strong> Siap dideploy pada penyedia static hosting seperti GitHub Pages, Vercel, atau Netlify.</div>
-        <div class="arch-item"><strong>Nol Ketergantungan Backend:</strong> Beroperasi penuh tanpa memerlukan instalasi database maupun server API khusus.</div>
-        <div class="arch-item"><strong>Keamanan Terjamin:</strong> Nol celah serangan server-side berkat arsitektur statis yang terisolasi.</div>
-      </div>
-    </div>
-
-    <div class="slide-footer">
-      <span class="footer-tech">Portograph Production Specification Document</span>
-      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
-    </div>
-  </section>
+  </div>
 
 </body>
 </html>
@@ -952,9 +862,9 @@ const htmlFilePath = path.join(projectRoot, 'presentation.html');
 fs.writeFileSync(htmlFilePath, htmlContent, 'utf-8');
 console.log(`HTML presentasi disimpan di: ${htmlFilePath}`);
 
+console.log('Menjalankan Playwright Chromium untuk render PDF Portograph Editorial Sapphire...');
+
 async function renderPDF() {
-  console.log('Menjalankan Playwright Chromium untuk render PDF Portograph...');
-  
   const playwrightPath = '/home/widifirmaan/Projects/qa-toolkit/node_modules/playwright/index.mjs';
   const { chromium } = await import(playwrightPath);
 
@@ -965,19 +875,22 @@ async function renderPDF() {
 
   const page = await browser.newPage();
   await page.goto(`file://${htmlFilePath}`, { waitUntil: 'networkidle' });
-  await page.evaluateHandle('document.fonts.ready');
+  await page.evaluate(() => document.fonts.ready);
 
   const slidePdfPath = path.join(downloadsDir, 'Portograph.pdf');
+  const continuousPdfPath = path.join(downloadsDir, 'Portograph-Continuous.pdf');
+
+  // 1. Multi-Page Deck Mode (10 Slides A4 Landscape)
   console.log('Rendering Multi-Page A4 Landscape (Slide Mode)...');
   await page.pdf({
     path: slidePdfPath,
-    width: '297mm',
-    height: '210mm',
+    format: 'A4',
+    landscape: true,
     printBackground: true,
-    margin: { top: 0, right: 0, bottom: 0, left: 0 },
     preferCSSPageSize: true,
   });
 
+  // 2. Continuous Poster Mode (Single tall scroll)
   console.log('Rendering Continuous Single-Scroll Showcase (Poster Mode)...');
   await page.addStyleTag({
     content: `
@@ -986,7 +899,7 @@ async function renderPDF() {
         margin: 0;
       }
       body {
-        background-color: #111317 !important;
+        background: #F8F9FA !important;
       }
       .slide {
         page-break-after: unset !important;
@@ -1000,26 +913,25 @@ async function renderPDF() {
   await page.waitForTimeout(500);
 
   const scrollHeight = await page.evaluate(() => document.documentElement.scrollHeight);
-  const contPdfPath = path.join(downloadsDir, 'Portograph-Continuous.pdf');
   await page.pdf({
-    path: contPdfPath,
+    path: continuousPdfPath,
     width: '1428px',
     height: `${scrollHeight}px`,
     printBackground: true,
-    margin: { top: 0, right: 0, bottom: 0, left: 0 },
+    pageRanges: '1',
   });
 
   await browser.close();
 
   const slideStat = fs.statSync(slidePdfPath);
-  const contStat = fs.statSync(contPdfPath);
+  const contStat = fs.statSync(continuousPdfPath);
 
-  console.log('\nPDF Portograph berhasil dibuat:');
+  console.log('\nPDF Portograph Editorial Sapphire berhasil dibuat:');
   console.log(`- Multi-Page Deck: ${(slideStat.size / 1024 / 1024).toFixed(2)} MB (${slidePdfPath})`);
-  console.log(`- Continuous Poster: ${(contStat.size / 1024 / 1024).toFixed(2)} MB (${contPdfPath})\n`);
+  console.log(`- Continuous Poster: ${(contStat.size / 1024 / 1024).toFixed(2)} MB (${continuousPdfPath})\n`);
 }
 
 renderPDF().catch((err) => {
-  console.error('Gagal membuat PDF:', err);
+  console.error('Error saat render PDF:', err);
   process.exit(1);
 });
