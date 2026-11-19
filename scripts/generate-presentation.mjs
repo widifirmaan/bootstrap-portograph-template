@@ -11,14 +11,14 @@ const downloadsDir = '/home/widifirmaan/Downloads';
 function encodeImage(filename) {
   const filePath = path.join(screenshotsDir, filename);
   if (!fs.existsSync(filePath)) {
-    console.warn(`⚠️ Warning: Screenshot not found: ${filePath}`);
+    console.warn(`Screenshot tidak ditemukan: ${filePath}`);
     return '';
   }
   const fileBuffer = fs.readFileSync(filePath);
   return `data:image/png;base64,${fileBuffer.toString('base64')}`;
 }
 
-console.log('📷 Encoding Portograph studio screenshots...');
+console.log('Memproses screenshot Portograph...');
 
 const images = {
   heroDesktop: encodeImage('Hero Desktop.png'),
@@ -31,13 +31,13 @@ const images = {
   bookingMobile: encodeImage('Form Booking Mobile.png'),
 };
 
-console.log('🎨 Constructing Portograph Luxury Editorial Presentation Deck HTML...');
+console.log('Menyusun HTML dokumen presentasi Portograph...');
 
 const htmlContent = `<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Portograph - Luxury Wedding Studio Web Architecture</title>
+  <title>Portograph - Luxury Wedding & Portrait Studio Template</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -45,14 +45,14 @@ const htmlContent = `<!DOCTYPE html>
     :root {
       --bg-editorial: #111317;
       --bg-card: #181B20;
+      --border-card: #262A33;
       --gold-primary: #D4AF37;
       --gold-light: #F3E8D0;
-      --gold-dim: rgba(212, 175, 55, 0.2);
-      --text-light: #F7F5F0;
-      --text-muted: #9E9EA7;
-      --border-gold: rgba(212, 175, 55, 0.25);
-      --border-subtle: #242830;
-      --radius-editorial: 10px;
+      --gold-dim: rgba(212, 175, 55, 0.15);
+      --text-main: #F4F5F7;
+      --text-muted: #9BA1AC;
+      --accent-bronze: #C59B27;
+      --accent-teal: #2DD4BF;
     }
 
     * {
@@ -64,10 +64,10 @@ const htmlContent = `<!DOCTYPE html>
     }
 
     body {
-      background-color: #0A0B0D;
+      background-color: #0A0C0E;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--text-light);
-      line-height: 1.45;
+      color: var(--text-main);
+      line-height: 1.4;
     }
 
     @page {
@@ -87,12 +87,9 @@ const htmlContent = `<!DOCTYPE html>
       overflow: hidden;
       background-image: 
         radial-gradient(circle at 80% 10%, rgba(212, 175, 55, 0.06) 0%, transparent 60%),
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 100% 100%, 40px 40px, 40px 40px;
+        radial-gradient(circle at 10% 90%, rgba(45, 212, 191, 0.03) 0%, transparent 50%);
     }
 
-    /* Top gold rule */
     .slide::before {
       content: '';
       position: absolute;
@@ -100,17 +97,16 @@ const htmlContent = `<!DOCTYPE html>
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #8A7322, #D4AF37, #FFF2A1, #D4AF37, #8A7322);
+      background: linear-gradient(90deg, var(--gold-primary), var(--accent-bronze), var(--gold-light));
       z-index: 50;
     }
 
-    /* Header */
     .slide-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 5mm;
-      border-bottom: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-card);
       padding-bottom: 3.5mm;
     }
 
@@ -120,39 +116,34 @@ const htmlContent = `<!DOCTYPE html>
       gap: 12px;
     }
 
-    .editorial-badge {
+    .brand-badge {
       background: var(--gold-dim);
       border: 1px solid var(--gold-primary);
       color: var(--gold-light);
-      padding: 3px 12px;
+      padding: 4px 10px;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
       font-size: 10px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      border-radius: 3px;
+      border-radius: 4px;
     }
 
     .slide-section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--gold-light);
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
     }
 
-    .slide-page-badge {
+    .slide-number {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       font-weight: 700;
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold);
       color: var(--gold-primary);
-      padding: 3px 10px;
-      border-radius: 3px;
     }
 
-    /* Layout */
     .slide-body {
       display: grid;
       grid-template-columns: 1fr 1.35fr;
@@ -174,73 +165,58 @@ const htmlContent = `<!DOCTYPE html>
       gap: 8px;
     }
 
-    .route-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold);
-      padding: 3px 10px;
-      width: fit-content;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--gold-primary);
-      border-radius: 3px;
-    }
-
     .slide-title {
       font-family: 'Playfair Display', serif;
       font-size: 25px;
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.2;
       color: #FFFFFF;
       letter-spacing: -0.01em;
     }
 
-    .slide-subtitle {
+    .slide-desc {
       font-size: 12.5px;
       color: var(--text-muted);
-      font-weight: 400;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    /* Editorial Cards */
-    .feature-blocks {
+    .feature-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin: 10px 0;
     }
 
-    .editorial-card {
+    .feature-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-gold);
-      border-radius: 6px;
-      padding: 11px 15px;
+      border: 1px solid var(--border-card);
+      border-radius: 8px;
+      padding: 10px 14px;
       border-left: 3px solid var(--gold-primary);
     }
 
-    .card-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+    .feature-card.teal {
+      border-left-color: var(--accent-teal);
+    }
+
+    .feature-card.bronze {
+      border-left-color: var(--accent-bronze);
+    }
+
+    .feature-card-title {
+      font-size: 12.5px;
       font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      color: #FFFFFF;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
     }
 
-    .card-text {
+    .feature-card-text {
       font-size: 11px;
+      color: var(--text-muted);
       line-height: 1.45;
-      color: #CBC9C3;
     }
 
-    /* Metrics Grid */
     .metrics-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -249,1033 +225,724 @@ const htmlContent = `<!DOCTYPE html>
 
     .metric-box {
       background: var(--bg-card);
-      border: 1px solid var(--border-gold);
+      border: 1px solid var(--border-card);
       border-radius: 6px;
-      padding: 7px 10px;
+      padding: 8px 10px;
       text-align: center;
     }
 
     .metric-val {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
       font-weight: 800;
       color: var(--gold-primary);
     }
 
-    .metric-desc {
-      font-size: 8.5px;
-      font-weight: 700;
+    .metric-lbl {
+      font-size: 9px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       color: var(--text-muted);
+      margin-top: 2px;
     }
 
-    /* Mockup Frames */
-    .slide-visual {
+    .visual-stage {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
+      height: 100%;
       min-height: 0;
     }
 
-    .device-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .desktop-frame {
-      width: 90%;
-      background: #0B0D10;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .frame-bar {
-      height: 24px;
-      background: #15181E;
-      border-bottom: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      gap: 6px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-    .dot.red { background: #FF5F56; }
-    .dot.yellow { background: #FFBD2E; }
-    .dot.green { background: #27C93F; }
-
-    .url-chip {
-      margin-left: 12px;
-      background: #0D0F12;
-      border: 1px solid var(--border-subtle);
-      padding: 1px 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8.5px;
-      font-weight: 600;
-      color: var(--gold-light);
-      border-radius: 3px;
-    }
-
-    .desktop-img {
-      width: 100%;
-      height: auto;
+    .screenshot-desktop {
+      max-width: 95%;
       max-height: 380px;
       object-fit: contain;
-      background: #0B0D10;
       display: block;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.7));
     }
 
-    .mobile-frame {
+    .screenshot-mobile {
       position: absolute;
-      right: -8px;
-      bottom: -12px;
-      width: 27%;
-      background: #0B0D10;
-      border: 2px solid var(--border-gold);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8);
-      border-radius: 14px;
-      overflow: hidden;
-      z-index: 10;
-    }
-
-    .mobile-notch {
-      height: 12px;
-      background: #050608;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .notch-speaker {
-      width: 28px;
-      height: 2px;
-      background: #4B5563;
-      border-radius: 2px;
-    }
-
-    .mobile-img {
-      width: 100%;
-      height: auto;
+      right: 0px;
+      bottom: -8px;
+      max-height: 280px;
+      max-width: 28%;
+      object-fit: contain;
       display: block;
+      filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.8));
     }
 
-    /* Footer */
     .slide-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--border-gold);
-      padding-top: 3.5mm;
-      margin-top: 4mm;
+      margin-top: 5mm;
+      border-top: 1px solid var(--border-card);
+      padding-top: 3mm;
+    }
+
+    .footer-tech {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      color: #7D7D88;
-      font-weight: 600;
+      font-size: 10px;
+      color: var(--text-muted);
     }
 
-    /* Cover Slide */
-    .cover-slide {
-      background: 
-        radial-gradient(circle at 75% 25%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
-        #111317;
-      justify-content: space-between;
-      padding: 18mm 20mm;
-    }
-
-    .cover-giant-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 50px;
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: #FFFFFF;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .cover-giant-title span {
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
       color: var(--gold-primary);
+    }
+
+    /* Cover Styling */
+    .cover-body {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .cover-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-primary);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
     }
 
     .cover-desc {
-      font-size: 15.5px;
-      line-height: 1.5;
-      color: #CBC9C3;
-      font-weight: 400;
-      max-width: 720px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    .cover-split {
+    .cover-specs {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 28px;
-      align-items: center;
-      margin: 10px 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
 
-    .cover-specs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .cover-spec-card {
+    .spec-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-gold);
-      border-radius: 6px;
-      padding: 12px 14px;
+      border: 1px solid var(--border-card);
+      border-radius: 8px;
+      padding: 10px 14px;
     }
 
-    .cover-spec-k {
-      font-family: 'JetBrains Mono', monospace;
+    .spec-k {
       font-size: 9px;
       font-weight: 700;
-      color: var(--gold-primary);
+      color: var(--text-muted);
       text-transform: uppercase;
-      margin-bottom: 3px;
+      letter-spacing: 0.05em;
     }
 
-    .cover-spec-v {
-      font-family: 'Playfair Display', serif;
-      font-size: 14.5px;
+    .spec-v {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
       font-weight: 700;
       color: #FFFFFF;
+      margin-top: 2px;
     }
 
-    /* Architecture Grid */
+    /* Grid layout */
     .arch-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-top: 10px;
       flex: 1;
+      min-height: 0;
+      margin-top: 10px;
     }
 
-    .arch-col {
+    .arch-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-gold);
-      border-radius: 8px;
-      padding: 14px;
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    .arch-col-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 13.5px;
+    .arch-title {
+      font-size: 14px;
       font-weight: 800;
-      text-transform: uppercase;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-gold);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       color: var(--gold-light);
+      border-bottom: 1px solid var(--border-card);
+      padding-bottom: 8px;
     }
 
     .arch-item {
-      background: #14161C;
-      border: 1px solid var(--border-subtle);
-      border-radius: 5px;
-      padding: 8px 10px;
       font-size: 11px;
-    }
-
-    .arch-item-name {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      color: var(--gold-primary);
-      margin-bottom: 2px;
-    }
-
-    .arch-item-detail {
-      font-size: 10px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
-    /* Closing Slide */
-    .closing-slide {
-      background: radial-gradient(circle at 50% 40%, rgba(212, 175, 55, 0.15) 0%, transparent 60%), #111317;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20mm;
-      gap: 18px;
-    }
-
-    .closing-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
+    .arch-item strong {
       color: #FFFFFF;
-    }
-
-    .closing-pills {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 760px;
-    }
-
-    .live-hero-card {
-      background: var(--bg-card);
-      border: 1px solid var(--gold-primary);
-      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.15);
-      border-radius: 8px;
-      padding: 16px 36px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .live-url-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--gold-primary);
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== SLIDE 01: COVER ==================== -->
-  <div class="slide cover-slide">
-    <div>
-      <div style="display:flex; gap:12px; align-items:center;">
-        <div class="editorial-badge">WEDDING STUDIO SUITE</div>
-        <div class="route-pill">BOOTSTRAP 5 • TYPED.JS • WHATSAPP API</div>
-        <div class="editorial-badge" style="border-color:#10B981; color:#10B981;">PRODUCTION DEPLOYED</div>
+  <!-- SLIDE 1: COVER -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="brand-cluster">
+        <span class="brand-badge">STUDIO SHOWCASE</span>
+        <span class="slide-section-title">Dokumentasi Rekayasa Perangkat Lunak</span>
       </div>
-      <div style="margin-top: 20px; max-width: 85%;">
-        <div class="cover-giant-title">
-          <span>PORTOGRAPH STUDIO</span><br>
-          FINE-ART WEDDING PHOTOGRAPHY & BOOKING
-        </div>
-        <p class="cover-desc">
-          Template web portofolio fotografi & videografi pernikahan dengan tata letak editorial mewah, efek typewriter Typed.js dinamis, integrasi Instagram feed, katalog paket layanan, dan form pemesanan instan ke WhatsApp.
-        </p>
-      </div>
+      <div class="slide-number">01 / 10</div>
     </div>
 
-    <div class="cover-split">
-      <div class="cover-specs-grid">
-        <div class="cover-spec-card">
-          <div class="cover-spec-k">CORE FRAMEWORK</div>
-          <div class="cover-spec-v">Bootstrap 5.1.3 CSS</div>
-        </div>
-        <div class="cover-spec-card">
-          <div class="cover-spec-k">ANIMATION ENGINE</div>
-          <div class="cover-spec-v">Typed.js + AOS Scroll</div>
-        </div>
-        <div class="cover-spec-card">
-          <div class="cover-spec-k">BOOKING INTEGRATION</div>
-          <div class="cover-spec-v">WhatsApp Click-to-Chat</div>
-        </div>
-        <div class="cover-spec-card">
-          <div class="cover-spec-k">DESIGN SPECIFICATION</div>
-          <div class="cover-spec-v">Luxury Editorial & Serif</div>
+    <div class="cover-body">
+      <div>
+        <div class="cover-tagline">Luxury Editorial Studio Template</div>
+        <h1 class="cover-title">Portograph Photography Studio & Portfolio</h1>
+        <p class="cover-desc">
+          Template portofolio fotografi editorial berbasis Bootstrap 5 dengan navigasi docked sidebar, transisi animasi berbasis scroll, masonry visual showcase, dan integrasi pemesanan WhatsApp cerdas.
+        </p>
+
+        <div class="cover-specs">
+          <div class="spec-card">
+            <div class="spec-k">Framework</div>
+            <div class="spec-v">Bootstrap 5.3 & CSS3</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-k">Scroll Animation</div>
+            <div class="spec-v">AOS (Animate On Scroll)</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-k">Typing Effect</div>
+            <div class="spec-v">Typed.js Dynamic Engine</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-k">Booking Integration</div>
+            <div class="spec-v">WhatsApp Dynamic Builder</div>
+          </div>
         </div>
       </div>
 
-      <div style="position: relative;">
-        <div class="desktop-frame" style="width: 100%;">
-          <div class="frame-bar">
-            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-            <div class="url-chip">https://widifirmaan.web.id/bootstrap-portograph-template/</div>
-          </div>
-          <img src="${images.heroDesktop}" class="desktop-img" alt="Portograph Cover">
-        </div>
+      <div class="visual-stage">
+        <img src="${images.heroDesktop}" class="screenshot-desktop" alt="Portograph Homepage">
       </div>
     </div>
 
     <div class="slide-footer">
-      <div>AUTHOR: WIDI FIRMANSYAH</div>
-      <div>PROJECT: PORTOGRAPH WEDDING STUDIO</div>
-      <div>PAGE 01 / 10</div>
+      <span class="footer-tech">Bootstrap 5 + AOS Library + Typed.js + Custom CSS</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== SLIDE 02: HERO & TYPED.JS ==================== -->
-  <div class="slide">
+  <!-- SLIDE 2: ARSITEKTUR & DESAIN -->
+  <section class="slide">
     <div class="slide-header">
       <div class="brand-cluster">
-        <div class="editorial-badge">HERO STAGE</div>
-        <div class="slide-section-title">CINEMATIC HERO STAGE & TYPED.JS SPECIALTY CYCLING</div>
+        <span class="brand-badge">ARCHITECTURE</span>
+        <span class="slide-section-title">Fondasi Sistem & Struktur Visual</span>
       </div>
-      <div class="slide-page-badge">SLIDE 02</div>
+      <div class="slide-number">02 / 10</div>
+    </div>
+
+    <div class="headline-group" style="margin-bottom: 12px;">
+      <h2 class="slide-title">Arsitektur Visual & Estetika Editorial</h2>
+      <p class="slide-desc">Kombinasi tipografi klasik Playfair Display dan layout grid modern yang mengedepankan kualitas visual karya fotografi berkualitas tinggi.</p>
+    </div>
+
+    <div class="arch-grid">
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--gold-primary);">Layout & Dock Navigation</div>
+        <div class="arch-item"><strong>Dock Sidebar Navigation:</strong> Sidebar ikon vertikal dengan status aktif otomatis mengikuti posisi viewport scroll pengguna.</div>
+        <div class="arch-item"><strong>Offcanvas Mobile Drawer:</strong> Menu navigasi sentuh ergonomis yang meluncur halus dari sisi samping pada layar ponsel.</div>
+        <div class="arch-item"><strong>Hero Full-Bleed:</strong> Tampilan hero layar penuh dengan overlay kontras untuk keterbacaan teks maksimal di atas foto.</div>
+      </div>
+
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--gold-light);">Animasi & Efek Interaktif</div>
+        <div class="arch-item"><strong>Typed.js Dynamic Engine:</strong> Efek pengetikan teks dinamis pada sub-judul hero untuk menonjolkan ragam spesialisasi studio.</div>
+        <div class="arch-item"><strong>Scroll Entrance Reveal:</strong> Animasi masuk bertahap (AOS) saat elemen halaman digulir ke dalam bidang pandang.</div>
+        <div class="arch-item"><strong>Hover Micro-Interactions:</strong> Efek transisi halus pada kartu galeri dan paket layanan menggunakan CSS transform terakselerasi GPU.</div>
+      </div>
+
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--accent-teal);">Integrasi & Alur Konversi</div>
+        <div class="arch-item"><strong>Formulir Reservasi Mandiri:</strong> Validasi input tanggal sesi, paket pilihan, dan catatan tambahan di sisi klien.</div>
+        <div class="arch-item"><strong>WhatsApp URL Formatter:</strong> Generator pesan WhatsApp otomatis dengan format teks terstruktur siap kirim.</div>
+        <div class="arch-item"><strong>Optimasi Gambar:</strong> Penanganan pemuatan aset gambar dengan rasio aspek terjaga untuk mencegah layout shift.</div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span class="footer-tech">Portograph Architecture Blueprint</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: CINEMATIC HERO -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="brand-cluster">
+        <span class="brand-badge">HERO STAGE</span>
+        <span class="slide-section-title">Bagian Hero & Teks Pengetikan Dinamis</span>
+      </div>
+      <div class="slide-number">03 / 10</div>
     </div>
 
     <div class="slide-body">
       <div class="slide-info">
         <div class="headline-group">
-          <div class="route-pill">VIEW: #hero • TYPED.JS ENGINE</div>
-          <h2 class="slide-title">Cinematic Hero Stage & Dynamic Specialization</h2>
-          <p class="slide-subtitle">
-            Panggung hero layar penuh dengan latar belakang fotografi pernikahan atmosferik dan headline dinamis Typed.js yang berganti secara otomatis.
-          </p>
+          <h2 class="slide-title">Hero Sinematik & Spesialisasi Studio</h2>
+          <p class="slide-desc">Penyambutan pengunjung dengan latar fotografi resolusi tinggi, tipografi mewah, dan teks dinamis Typed.js yang menyorot bidang layanan.</p>
         </div>
 
-        <div class="feature-blocks">
-          <div class="editorial-card">
-            <div class="card-label">⌨️ Typed.js Specialization Loop</div>
-            <div class="card-text">
-              Simulasi ketikan teks real-time yang memamerkan spesialisasi studio: Wedding Photography, Wedding Cinematic, Live Streaming, dan Video Shooting.
-            </div>
+        <div class="feature-list">
+          <div class="feature-card">
+            <div class="feature-card-title">Efek Pengetikan Typed.js</div>
+            <div class="feature-card-text">Rotasi teks otomatis yang menampilkan ragam layanan: Wedding, Pre-Wedding, Portrait, dan Editorial Moments.</div>
           </div>
-          <div class="editorial-card">
-            <div class="card-label">⚡ Direct CTA Scroll Anchors</div>
-            <div class="card-text">
-              Tombol aksi utama bernuansa emas yang mengarahkan pengunjung langsung ke galeri portofolio atau formulir reservasi tanggal pernikahan.
-            </div>
+          <div class="feature-card teal">
+            <div class="feature-card-title">Tombol Aksi Cepat Terarah</div>
+            <div class="feature-card-text">CTA ganda yang menghubungkan calon klien langsung ke galeri portofolio atau formulir pemesanan jadwal.</div>
+          </div>
+          <div class="feature-card bronze">
+            <div class="feature-card-title">Overlay Gradien Halus</div>
+            <div class="feature-card-text">Lapisan gradien gelap di atas latar visual untuk memastikan teks tetap kontras dan mudah dibaca.</div>
           </div>
         </div>
 
         <div class="metrics-row">
           <div class="metric-box">
             <div class="metric-val">100vh</div>
-            <div class="metric-desc">Viewport Hero</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">4</div>
-            <div class="metric-desc">Service Loops</div>
+            <div class="metric-lbl">Hero Canvas</div>
           </div>
           <div class="metric-box">
             <div class="metric-val">Smooth</div>
-            <div class="metric-desc">Scroll Anchors</div>
+            <div class="metric-lbl">Typing Loop</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val">Zero CLS</div>
+            <div class="metric-lbl">Layout Shift</div>
           </div>
         </div>
       </div>
 
-      <div class="slide-visual">
-        <div class="device-container">
-          <div class="desktop-frame">
-            <div class="frame-bar">
-              <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-              <div class="url-chip">widifirmaan.web.id/bootstrap-portograph-template/</div>
-            </div>
-            <img src="${images.heroDesktop}" class="desktop-img" alt="Hero Desktop">
-          </div>
-          <div class="mobile-frame">
-            <div class="mobile-notch"><div class="notch-speaker"></div></div>
-            <img src="${images.heroMobile}" class="mobile-img" alt="Hero Mobile">
-          </div>
-        </div>
+      <div class="visual-stage">
+        <img src="${images.heroDesktop}" class="screenshot-desktop" alt="Hero Desktop">
+        <img src="${images.heroMobile}" class="screenshot-mobile" alt="Hero Mobile">
       </div>
     </div>
 
     <div class="slide-footer">
-      <div>PORTOGRAPH WEB ARCHITECTURE</div>
-      <div>TYPED.JS LIFECYCLE & HERO STAGE</div>
-      <div>PAGE 02 / 10</div>
+      <span class="footer-tech">Section: #hero & Typed.js initialization</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== SLIDE 03: VERTICAL SIDEBAR NAVIGATION ==================== -->
-  <div class="slide">
+  <!-- SLIDE 4: GALERI PORTOFOLIO -->
+  <section class="slide">
     <div class="slide-header">
       <div class="brand-cluster">
-        <div class="editorial-badge">NAVIGATION SYSTEM</div>
-        <div class="slide-section-title">VERTICAL ICON SIDEBAR & SCROLLSPY TRACKING</div>
+        <span class="brand-badge">PORTFOLIO</span>
+        <span class="slide-section-title">Galeri Karya & Showcase Fotografi</span>
       </div>
-      <div class="slide-page-badge">SLIDE 03</div>
+      <div class="slide-number">04 / 10</div>
     </div>
 
     <div class="slide-body">
       <div class="slide-info">
         <div class="headline-group">
-          <div class="route-pill">NAV: #header • BOOTSTRAP SCROLLSPY</div>
-          <h2 class="slide-title">Left Dock Navigation & Viewport Spy</h2>
-          <p class="slide-subtitle">
-            Bilah navigasi vertikal di sisi kiri layar dengan ikon elegan dan penanda aktif (active indicator) otomatis berdasarkan posisi scroll pengguna.
-          </p>
+          <h2 class="slide-title">Galeri Portofolio & Tampilan Visual</h2>
+          <p class="slide-desc">Kompilasi hasil karya pemotretan yang disajikan dalam susunan grid rapi dengan efek interaksi hover elegan dan informasi detail karya.</p>
         </div>
 
-        <div class="feature-blocks">
-          <div class="editorial-card">
-            <div class="card-label">🧭 Bootstrap ScrollSpy Integration</div>
-            <div class="card-text">
-              Offset tracking otomatis yang mendeteksi section yang sedang terlihat di layar dan menyoroti tautan menu terkait tanpa delay.
-            </div>
+        <div class="feature-list">
+          <div class="feature-card">
+            <div class="feature-card-title">Tampilan Grid Responsif</div>
+            <div class="feature-card-text">Penyusunan kartu visual multi-kolom yang secara dinamis menyesuaikan lebar layar desktop, tablet, dan smartphone.</div>
           </div>
-          <div class="editorial-card">
-            <div class="card-label">📱 Collapsible Mobile Off-Canvas Drawer</div>
-            <div class="card-text">
-              Menu bertransformasi menjadi drawer samping yang ringkas pada perangkat mobile, lengkap dengan transisi slide halus dan penutup otomatis saat menu diklik.
-            </div>
+          <div class="feature-card teal">
+            <div class="feature-card-title">Efek Hover Interaktif</div>
+            <div class="feature-card-text">Transisi zoom halus dan kemunculan overlay deskripsi sesi pemotretan saat kartu disorot kursor.</div>
+          </div>
+          <div class="feature-card bronze">
+            <div class="feature-card-title">Kategori Pemotretan Tematik</div>
+            <div class="feature-card-text">Pengelompokan karya berdasarkan genre foto untuk memudahkan klien mengevaluasi portofolio yang relevan.</div>
           </div>
         </div>
 
         <div class="metrics-row">
           <div class="metric-box">
-            <div class="metric-val">Fixed</div>
-            <div class="metric-desc">Left Dock</div>
+            <div class="metric-val">Grid 3-Col</div>
+            <div class="metric-lbl">Desktop Span</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val">Auto</div>
-            <div class="metric-desc">Spy Highlight</div>
+            <div class="metric-val">60fps</div>
+            <div class="metric-lbl">Hover Motion</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val">Zero-Jank</div>
-            <div class="metric-desc">Mobile Drawer</div>
+            <div class="metric-val">Curated</div>
+            <div class="metric-lbl">Asset Catalog</div>
           </div>
         </div>
       </div>
 
-      <div class="slide-visual">
-        <div class="device-container">
-          <div class="desktop-frame">
-            <div class="frame-bar">
-              <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-              <div class="url-chip">widifirmaan.web.id/bootstrap-portograph-template/#about</div>
-            </div>
-            <img src="${images.heroDesktop}" class="desktop-img" alt="Sidebar Navigation Desktop">
-          </div>
-          <div class="mobile-frame">
-            <div class="mobile-notch"><div class="notch-speaker"></div></div>
-            <img src="${images.heroMobile}" class="mobile-img" alt="Sidebar Mobile">
-          </div>
-        </div>
+      <div class="visual-stage">
+        <img src="${images.portfolioDesktop}" class="screenshot-desktop" alt="Portofolio Desktop">
+        <img src="${images.portfolioMobile}" class="screenshot-mobile" alt="Portofolio Mobile">
       </div>
     </div>
 
     <div class="slide-footer">
-      <div>PORTOGRAPH WEB ARCHITECTURE</div>
-      <div>SCROLLSPY OFFSET & DRAWER COMPONENT</div>
-      <div>PAGE 03 / 10</div>
+      <span class="footer-tech">Section: #portfolio & CSS Grid</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== SLIDE 04: INSTAGRAM FEED GALLERY ==================== -->
-  <div class="slide">
+  <!-- SLIDE 5: PAKET LAYANAN -->
+  <section class="slide">
     <div class="slide-header">
       <div class="brand-cluster">
-        <div class="editorial-badge">GALLERY INTEGRATION</div>
-        <div class="slide-section-title">LIVE INSTAGRAM PORTFOLIO FEED & MASONRY</div>
+        <span class="brand-badge">PACKAGES</span>
+        <span class="slide-section-title">Katalog Paket Layanan & Harga</span>
       </div>
-      <div class="slide-page-badge">SLIDE 04</div>
+      <div class="slide-number">05 / 10</div>
     </div>
 
     <div class="slide-body">
       <div class="slide-info">
         <div class="headline-group">
-          <div class="route-pill">VIEW: #portfolio • EMBEDSOCIAL FEED</div>
-          <h2 class="slide-title">Live Social Feed & Photography Showcase</h2>
-          <p class="slide-subtitle">
-            Galeri portofolio modern yang menyinkronkan foto-foto karya pernikahan langsung dari akun Instagram studio tanpa perlu unggah ulang manual.
-          </p>
+          <h2 class="slide-title">Katalog Paket & Rincian Fasilitas</h2>
+          <p class="slide-desc">Penyajian transparansi paket pemotretan mencakup durasi sesi, jumlah foto teredit, album cetak fisik, dan hak cipta karya.</p>
         </div>
 
-        <div class="feature-blocks">
-          <div class="editorial-card">
-            <div class="card-label">📸 Automated Social Media Sync</div>
-            <div class="card-text">
-              Widget feed responsif yang menampilkan karya pemotretan terbaru dengan metadata caption, likes, dan tautan langsung ke postingan media sosial.
-            </div>
+        <div class="feature-list">
+          <div class="feature-card">
+            <div class="feature-card-title">Perbandingan Paket Bertingkat</div>
+            <div class="feature-card-text">Pilihan paket berjenjang (Silver, Gold, Platinum) dengan daftar centang fitur yang spesifik dan jelas.</div>
           </div>
-          <div class="editorial-card">
-            <div class="card-label">🖼️ High-DPI Grid Formatting</div>
-            <div class="card-text">
-              Penyusunan gambar dalam tata letak kisi berjarak estetis dengan efek hover zoom halus yang menonjolkan detail komposisi fotografi pernikahan.
-            </div>
+          <div class="feature-card teal">
+            <div class="feature-card-title">Sorotan Paket Pilihan Favorit</div>
+            <div class="feature-card-text">Penanda visual aksen emas khusus pada paket terpopuler untuk memandu preferensi pemesanan klien.</div>
+          </div>
+          <div class="feature-card bronze">
+            <div class="feature-card-title">Keterkaitan Aksi Reservasi</div>
+            <div class="feature-card-text">Setiap kartu paket memiliki tombol pemesanan yang otomatis mengarahkan ke formulir dengan paket yang terpilih.</div>
           </div>
         </div>
 
         <div class="metrics-row">
           <div class="metric-box">
-            <div class="metric-val">Live</div>
-            <div class="metric-desc">Social Sync</div>
+            <div class="metric-val">3 Tiers</div>
+            <div class="metric-lbl">Service Cards</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val">Grid</div>
-            <div class="metric-desc">Photo Layout</div>
+            <div class="metric-val">Transparent</div>
+            <div class="metric-lbl">Pricing Display</div>
           </div>
-          <div class="metric-box">
-            <div class="metric-val">100%</div>
-            <div class="metric-desc">Responsive View</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide-visual">
-        <div class="device-container">
-          <div class="desktop-frame">
-            <div class="frame-bar">
-              <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-              <div class="url-chip">widifirmaan.web.id/bootstrap-portograph-template/#portfolio</div>
-            </div>
-            <img src="${images.portfolioDesktop}" class="desktop-img" alt="Portfolio Desktop">
-          </div>
-          <div class="mobile-frame">
-            <div class="mobile-notch"><div class="notch-speaker"></div></div>
-            <img src="${images.portfolioMobile}" class="mobile-img" alt="Portfolio Mobile">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide-footer">
-      <div>PORTOGRAPH WEB ARCHITECTURE</div>
-      <div>SOCIAL WIDGET INTEGRATION & PHOTO MASONRY</div>
-      <div>PAGE 04 / 10</div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 05: SERVICE PACKAGES ==================== -->
-  <div class="slide">
-    <div class="slide-header">
-      <div class="brand-cluster">
-        <div class="editorial-badge">PRICING TIERS</div>
-        <div class="slide-section-title">SERVICE PACKAGE CATALOG & BROCHURES</div>
-      </div>
-      <div class="slide-page-badge">SLIDE 05</div>
-    </div>
-
-    <div class="slide-body">
-      <div class="slide-info">
-        <div class="headline-group">
-          <div class="route-pill">VIEW: #services • 5-TIER BROCHURES</div>
-          <h2 class="slide-title">Photography & Cinematic Package Cards</h2>
-          <p class="slide-subtitle">
-            Katalog 5 paket layanan terstruktur mencakup sesi Prewedding, Wedding Day Photography, Cinematic Video, dan Liputan Acara Lengkap dengan unduhan PDF.
-          </p>
-        </div>
-
-        <div class="feature-blocks">
-          <div class="editorial-card">
-            <div class="card-label">📑 Visual Brochure Showcase</div>
-            <div class="card-text">
-              Penyajian brosur visual berkualitas tinggi yang memuat detail durasi liputan, jumlah fotografer, album cetak, hingga link Google Drive hasil render.
-            </div>
-          </div>
-          <div class="editorial-card">
-            <div class="card-label">📥 Downloadable Compressed PDF</div>
-            <div class="card-text">
-              Tautan unduh langsung berkas pricelist terkompresi (paket_compressed.pdf) untuk memudahkan calon pengantin berdiskusi secara luring.
-            </div>
-          </div>
-        </div>
-
-        <div class="metrics-row">
-          <div class="metric-box">
-            <div class="metric-val">5</div>
-            <div class="metric-desc">Service Tiers</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">PDF</div>
-            <div class="metric-desc">Brochure Link</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Clear</div>
-            <div class="metric-desc">Inclusions</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide-visual">
-        <div class="device-container">
-          <div class="desktop-frame">
-            <div class="frame-bar">
-              <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-              <div class="url-chip">widifirmaan.web.id/bootstrap-portograph-template/#services</div>
-            </div>
-            <img src="${images.packagesDesktop}" class="desktop-img" alt="Packages Desktop">
-          </div>
-          <div class="mobile-frame">
-            <div class="mobile-notch"><div class="notch-speaker"></div></div>
-            <img src="${images.packagesMobile}" class="mobile-img" alt="Packages Mobile">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide-footer">
-      <div>PORTOGRAPH WEB ARCHITECTURE</div>
-      <div>TIERED CATALOG & BROCHURE DISTRIBUTION</div>
-      <div>PAGE 05 / 10</div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 06: WHATSAPP DIRECT BOOKING ==================== -->
-  <div class="slide">
-    <div class="slide-header">
-      <div class="brand-cluster">
-        <div class="editorial-badge" style="border-color:#10B981; color:#10B981;">WHATSAPP GATEWAY</div>
-        <div class="slide-section-title">DIRECT WHATSAPP BOOKING & DYNAMIC URL BUILDER</div>
-      </div>
-      <div class="slide-page-badge">SLIDE 06</div>
-    </div>
-
-    <div class="slide-body">
-      <div class="slide-info">
-        <div class="headline-group">
-          <div class="route-pill">FORM: #contact • WHATSAPP CLICK-TO-CHAT</div>
-          <h2 class="slide-title">Interactive Reservation & Dynamic Message Builder</h2>
-          <p class="slide-subtitle">
-            Formulir pemesanan cerdas yang memvalidasi nama klien, pilihan paket, dan tanggal pernikahan, lalu merangkainya menjadi pesan WhatsApp terformat otomatis.
-          </p>
-        </div>
-
-        <div class="feature-blocks">
-          <div class="editorial-card">
-            <div class="card-label">💬 URI-Encoded Message Sanitizer</div>
-            <div class="card-text">
-              Algoritma JavaScript yang merangkum parameter formulir ke dalam template teks terstruktur (Nama, Paket Pilihan, Tanggal Booking) dan mengonversinya ke format URI aman.
-            </div>
-          </div>
-          <div class="editorial-card">
-            <div class="card-label">🚀 Instant Studio Lead Generation</div>
-            <div class="card-text">
-              Mengarahkan calon klien langsung ke chat admin WhatsApp tanpa perantara backend atau server email, memangkas waktu tunggu respon secara signifikan.
-            </div>
-          </div>
-        </div>
-
-        <div class="metrics-row">
           <div class="metric-box">
             <div class="metric-val">Direct</div>
-            <div class="metric-desc">WhatsApp API</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Zero</div>
-            <div class="metric-desc">Server Overhead</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">Instant</div>
-            <div class="metric-desc">Lead Conversion</div>
+            <div class="metric-lbl">Booking Link</div>
           </div>
         </div>
       </div>
 
-      <div class="slide-visual">
-        <div class="device-container">
-          <div class="desktop-frame">
-            <div class="frame-bar">
-              <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-              <div class="url-chip">widifirmaan.web.id/bootstrap-portograph-template/#contact</div>
-            </div>
-            <img src="${images.bookingDesktop}" class="desktop-img" alt="Booking Form Desktop">
-          </div>
-          <div class="mobile-frame">
-            <div class="mobile-notch"><div class="notch-speaker"></div></div>
-            <img src="${images.bookingMobile}" class="mobile-img" alt="Booking Form Mobile">
-          </div>
-        </div>
+      <div class="visual-stage">
+        <img src="${images.packagesDesktop}" class="screenshot-desktop" alt="Paket Layanan Desktop">
+        <img src="${images.packagesMobile}" class="screenshot-mobile" alt="Paket Layanan Mobile">
       </div>
     </div>
 
     <div class="slide-footer">
-      <div>PORTOGRAPH WEB ARCHITECTURE</div>
-      <div>CLICK-TO-CHAT URL GENERATION & SANITIZATION</div>
-      <div>PAGE 06 / 10</div>
+      <span class="footer-tech">Section: #packages & Pricing Cards</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== SLIDE 07: RESPONSIVE BEHAVIOR ==================== -->
-  <div class="slide">
+  <!-- SLIDE 6: FORM BOOKING -->
+  <section class="slide">
     <div class="slide-header">
       <div class="brand-cluster">
-        <div class="editorial-badge">RESPONSIVE DESIGN</div>
-        <div class="slide-section-title">MOBILE OPTIMIZATION & TOUCH-FIRST ADAPTATION</div>
+        <span class="brand-badge">RESERVATION</span>
+        <span class="slide-section-title">Formulir Reservasi & Integrasi Chat</span>
       </div>
-      <div class="slide-page-badge">SLIDE 07</div>
+      <div class="slide-number">06 / 10</div>
     </div>
 
     <div class="slide-body">
       <div class="slide-info">
         <div class="headline-group">
-          <div class="route-pill">BREAKPOINTS: &lt;768px • MOBILE INTERFACES</div>
-          <h2 class="slide-title">Touch-First Layout & Mobile Drawer Adaptation</h2>
-          <p class="slide-subtitle">
-            Optimalisasi antarmuka smartphone dengan padding safe-area, navigasi tombol hamburger, ukuran target sentuh nyaman, dan perataan form yang ergonomis.
-          </p>
+          <h2 class="slide-title">Form Pemesanan & Generator WhatsApp</h2>
+          <p class="slide-desc">Antarmuka reservasi jadwal pemotretan interaktif yang menyusun draf pesan otomatis ke akun WhatsApp resmi studio secara instan.</p>
         </div>
 
-        <div class="feature-blocks">
-          <div class="editorial-card">
-            <div class="card-label">📱 48px Minimum Touch Targets</div>
-            <div class="card-text">
-              Seluruh tombol formulir, link navigasi drawer, dan kontrol brosur dirancang memenuhi standar ergonomi sentuhan jari mobile tanpa salah ketuk.
-            </div>
+        <div class="feature-list">
+          <div class="feature-card">
+            <div class="feature-card-title">Input Data Pemesan Lengkap</div>
+            <div class="feature-card-text">Formulir mencakup nama klien, nomor kontak, tanggal sesi yang diinginkan, pemilihan paket, dan lokasi pemotretan.</div>
           </div>
-          <div class="editorial-card">
-            <div class="card-label">✨ Fluid Typography & Aspect Ratios</div>
-            <div class="card-text">
-              Skala tipografi proporsional memastikan judul editorial Playfair Display tetap megah di layar lebar dan rapi terbaca pada layar ponsel sempit.
-            </div>
+          <div class="feature-card teal">
+            <div class="feature-card-title">Penyusunan Format Pesan Otomatis</div>
+            <div class="feature-card-text">Script JavaScript merangkai seluruh input ke dalam format teks WhatsApp yang rapi dan terstruktur.</div>
+          </div>
+          <div class="feature-card bronze">
+            <div class="feature-card-title">Validasi Formulir di Sisi Klien</div>
+            <div class="feature-card-text">Pengecekan kelengkapan data sebelum pengalihan ke aplikasi chat guna mencegah pengiriman informasi yang tidak lengkap.</div>
           </div>
         </div>
 
         <div class="metrics-row">
           <div class="metric-box">
-            <div class="metric-val">48px+</div>
-            <div class="metric-desc">Touch Targets</div>
+            <div class="metric-val">1-Tap</div>
+            <div class="metric-lbl">WA Dispatch</div>
           </div>
+          <div class="metric-box">
+            <div class="metric-val">Zero Server</div>
+            <div class="metric-lbl">Serverless Form</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val">Realtime</div>
+            <div class="metric-lbl">Query Encode</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual-stage">
+        <img src="${images.bookingDesktop}" class="screenshot-desktop" alt="Form Booking Desktop">
+        <img src="${images.bookingMobile}" class="screenshot-mobile" alt="Form Booking Mobile">
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span class="footer-tech">Section: #booking & WhatsApp API Integration</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: RESPONSIVITAS MOBILE -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="brand-cluster">
+        <span class="brand-badge">RESPONSIVE</span>
+        <span class="slide-section-title">Adaptasi Antarmuka Layar Sentuh Mobile</span>
+      </div>
+      <div class="slide-number">07 / 10</div>
+    </div>
+
+    <div class="slide-body">
+      <div class="slide-info">
+        <div class="headline-group">
+          <h2 class="slide-title">Desain Ergonomis & Pengalaman Mobile</h2>
+          <p class="slide-desc">Optimasi menyeluruh untuk perangkat seluler dengan penyesuaian tata letak kartu, jarak antar elemen sentuh, dan performa scrolling tinggi.</p>
+        </div>
+
+        <div class="feature-list">
+          <div class="feature-card">
+            <div class="feature-card-title">Menu Drawer Offcanvas</div>
+            <div class="feature-card-text">Navigasi yang mudah diakses dengan jempol melalui menu geser samping saat diakses dari perangkat mobile.</div>
+          </div>
+          <div class="feature-card teal">
+            <div class="feature-card-title">Target Sentuh Proporsional</div>
+            <div class="feature-card-text">Semua tombol dan field formulir memiliki area sentuh minimum 48px sesuai standar ergonomi antarmuka seluler.</div>
+          </div>
+          <div class="feature-card bronze">
+            <div class="feature-card-title">Penghematan Bandwidth Aset</div>
+            <div class="feature-card-text">Pemanfaatan kompresi visual yang membuat rendering halaman tetap mulus pada jaringan seluler 4G/5G.</div>
+          </div>
+        </div>
+
+        <div class="metrics-row">
           <div class="metric-box">
             <div class="metric-val">100%</div>
-            <div class="metric-desc">Mobile Usability</div>
+            <div class="metric-lbl">Mobile Friendly</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val">Zero</div>
-            <div class="metric-desc">Horizontal Overflow</div>
+            <div class="metric-val">Fluid</div>
+            <div class="metric-lbl">Touch Scroll</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val">Offcanvas</div>
+            <div class="metric-lbl">Navigation</div>
           </div>
         </div>
       </div>
 
-      <div class="slide-visual">
-        <div class="device-container">
-          <div class="desktop-frame">
-            <div class="frame-bar">
-              <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-              <div class="url-chip">widifirmaan.web.id/bootstrap-portograph-template/</div>
-            </div>
-            <img src="${images.packagesDesktop}" class="desktop-img" alt="Responsive Packages Desktop">
-          </div>
-          <div class="mobile-frame">
-            <div class="mobile-notch"><div class="notch-speaker"></div></div>
-            <img src="${images.packagesMobile}" class="mobile-img" alt="Responsive Packages Mobile">
-          </div>
-        </div>
+      <div class="visual-stage">
+        <img src="${images.packagesMobile}" class="screenshot-desktop" style="max-height: 380px; width: auto;" alt="Paket Mobile">
+        <img src="${images.bookingMobile}" class="screenshot-mobile" alt="Booking Mobile">
       </div>
     </div>
 
     <div class="slide-footer">
-      <div>PORTOGRAPH WEB ARCHITECTURE</div>
-      <div>TOUCH TARGETS & ERGONOMIC ADAPTATION</div>
-      <div>PAGE 07 / 10</div>
+      <span class="footer-tech">Mobile Viewport: Bootstrap 5 Breakpoints</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== SLIDE 08: AOS SCROLL ANIMATION ==================== -->
-  <div class="slide">
+  <!-- SLIDE 8: SCROLL ANIMATIONS -->
+  <section class="slide">
     <div class="slide-header">
       <div class="brand-cluster">
-        <div class="editorial-badge">MOTION DESIGN</div>
-        <div class="slide-section-title">ANIMATE ON SCROLL (AOS) & GPU ACCELERATION</div>
+        <span class="brand-badge">INTERACTION</span>
+        <span class="slide-section-title">Animasi Pengguliran & Akselerasi GPU</span>
       </div>
-      <div class="slide-page-badge">SLIDE 08</div>
+      <div class="slide-number">08 / 10</div>
     </div>
 
     <div class="slide-body">
       <div class="slide-info">
         <div class="headline-group">
-          <div class="route-pill">LIBRARY: AOS.JS • VIEWPORT REVEAL</div>
-          <h2 class="slide-title">Staggered Scroll Animations & Entrance Reveals</h2>
-          <p class="slide-subtitle">
-            Pengalaman browsing mewah dengan animasi kemunculan elemen bertahap (staggered fade-up, zoom-in) saat elemen memasuki area pandang pengguna.
-          </p>
+          <h2 class="slide-title">Transisi Halus Animate On Scroll</h2>
+          <p class="slide-desc">Penerapan library AOS untuk menghadirkan efek kemunculan elemen yang sinematik dan berirama saat pengunjung menelusuri halaman.</p>
         </div>
 
-        <div class="feature-blocks">
-          <div class="editorial-card">
-            <div class="card-label">🎞️ Hardware-Accelerated Transforms</div>
-            <div class="card-text">
-              Animasi memanfaatkan properti CSS transform3d dan opacity yang diproses oleh GPU browser, menjaga framerate tetap mulus pada 60 FPS tanpa jank.
-            </div>
+        <div class="feature-list">
+          <div class="feature-card">
+            <div class="feature-card-title">Staggered Delay Animation</div>
+            <div class="feature-card-text">Kemunculan kartu layanan dan portofolio secara bertahap dengan jeda waktu teratur untuk efek visual berkelas.</div>
           </div>
-          <div class="editorial-card">
-            <div class="card-label">⏳ Configurable Easing & Delays</div>
-            <div class="card-text">
-              Pengaturan jeda waktu (data-aos-delay) antar kartu brosur paket layanan menghasilkan efek visual sekuensial yang artistik dan elegan.
-            </div>
+          <div class="feature-card teal">
+            <div class="feature-card-title">Akselerasi Perangkat Keras</div>
+            <div class="feature-card-text">Semua efek transform CSS diterjemahkan ke GPU untuk menjaga frame rate tetap stabil di 60fps tanpa lagging.</div>
+          </div>
+          <div class="feature-card bronze">
+            <div class="feature-card-title">Aktivasi Berbasis Viewport</div>
+            <div class="feature-card-text">Animasi hanya dipicu saat elemen berada dalam jarak pandang mata pengguna untuk menghemat pemrosesan browser.</div>
           </div>
         </div>
 
         <div class="metrics-row">
           <div class="metric-box">
-            <div class="metric-val">60 fps</div>
-            <div class="metric-desc">Scroll Framerate</div>
+            <div class="metric-val">AOS</div>
+            <div class="metric-lbl">Scroll Engine</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val">GPU</div>
-            <div class="metric-desc">CSS Transforms</div>
+            <div class="metric-val">60 FPS</div>
+            <div class="metric-lbl">Frame Rate</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val">Delays</div>
-            <div class="metric-desc">Staggered Reveal</div>
+            <div class="metric-val">CSS3</div>
+            <div class="metric-lbl">Hardware Accel</div>
           </div>
         </div>
       </div>
 
-      <div class="slide-visual">
-        <div class="device-container">
-          <div class="desktop-frame">
-            <div class="frame-bar">
-              <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-              <div class="url-chip">widifirmaan.web.id/bootstrap-portograph-template/</div>
-            </div>
-            <img src="${images.portfolioDesktop}" class="desktop-img" alt="Portfolio Motion Desktop">
-          </div>
-          <div class="mobile-frame">
-            <div class="mobile-notch"><div class="notch-speaker"></div></div>
-            <img src="${images.portfolioMobile}" class="mobile-img" alt="Portfolio Motion Mobile">
-          </div>
-        </div>
+      <div class="visual-stage">
+        <img src="${images.portfolioDesktop}" class="screenshot-desktop" alt="Portofolio Desktop">
       </div>
     </div>
 
     <div class="slide-footer">
-      <div>PORTOGRAPH WEB ARCHITECTURE</div>
-      <div>AOS TRIGGER PIPELINE & GPU OPTIMIZATION</div>
-      <div>PAGE 08 / 10</div>
+      <span class="footer-tech">Engine: AOS (Animate on Scroll) v2.3.4</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== SLIDE 09: SYSTEM ARCHITECTURE ==================== -->
-  <div class="slide">
+  <!-- SLIDE 9: ARSITEKTUR KODE & INTEGRASI -->
+  <section class="slide">
     <div class="slide-header">
       <div class="brand-cluster">
-        <div class="editorial-badge">TECH STACK</div>
-        <div class="slide-section-title">FRONTEND ARCHITECTURE & INTEGRATIONS</div>
+        <span class="brand-badge">CODEBASE</span>
+        <span class="slide-section-title">Struktur Kode & Integrasi Pustaka</span>
       </div>
-      <div class="slide-page-badge">SLIDE 09</div>
+      <div class="slide-number">09 / 10</div>
     </div>
 
-    <div style="margin-bottom: 8px;">
-      <h2 class="slide-title">Editorial Frontend Architecture & Performance</h2>
-      <p class="slide-subtitle">
-        Kombinasi Bootstrap 5.1.3 CSS framework, Typed.js animasi dinamis, AOS viewport motion, dan integrasi WhatsApp API tanpa ketergantungan server runtime berat.
-      </p>
+    <div class="headline-group" style="margin-bottom: 12px;">
+      <h2 class="slide-title">Organisasi Kode Bersih & Efisiensi Aset</h2>
+      <p class="slide-desc">Pemisahan logika skrip, gaya modular, dan standarisasi penulisan markup untuk kemudahan pemeliharaan dan kustomisasi branding studio.</p>
     </div>
 
     <div class="arch-grid">
-      <!-- UI Tier -->
-      <div class="arch-col">
-        <div class="arch-col-title">
-          <span>01. EDITORIAL UI TIER</span>
-          <span style="color:var(--gold-primary);">●</span>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">Bootstrap 5.1.3</div>
-          <div class="arch-item-detail">Framework tata letak responsif standar industri dengan sistem grid teruji dan utilitas navigasi fleksibel.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">Playfair Display Serif</div>
-          <div class="arch-item-detail">Tipografi editorial klasik berkarakter anggun yang memperkuat citra studio pernikahan kelas atas.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">Dark Luxury Palette</div>
-          <div class="arch-item-detail">Kombinasi warna charcoal (#111317) dan aksen emas (#D4AF37) yang menciptakan atmosfer visual sinematik.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">Boxicons Suite</div>
-          <div class="arch-item-detail">Koleksi ikon vektor presisi tinggi untuk bilah navigasi vertikal dan tombol kontak sosial.</div>
-        </div>
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--gold-primary);">Markup Semantik & SEO</div>
+        <div class="arch-item"><strong>HTML5 Semantic Tags:</strong> Penggunaan elemen section, article, dan nav yang tepat untuk struktur dokumen yang jelas.</div>
+        <div class="arch-item"><strong>Optimasi Meta Tags:</strong> Konfigurasi Open Graph dan meta deskripsi lengkap untuk pratinjau tautan media sosial.</div>
+        <div class="arch-item"><strong>Aksesibilitas Visual:</strong> Rasio kontras teks dan atribut alt lengkap pada seluruh elemen gambar portofolio.</div>
       </div>
 
-      <!-- Logic Tier -->
-      <div class="arch-col">
-        <div class="arch-col-title">
-          <span>02. SCRIPTS & ENGINE</span>
-          <span style="color:var(--gold-light);">●</span>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">Typed.js Library</div>
-          <div class="arch-item-detail">Library animasi ketik ringan yang menyimulasikan teks berganti tanpa penurunan performa rendering peramban.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">AOS Motion Engine</div>
-          <div class="arch-item-detail">Pengendali animasi scroll berbasis Intersection Observer yang memicu efek kemunculan saat elemen terlihat.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">WhatsApp URL Composer</div>
-          <div class="arch-item-detail">Fungsi JavaScript mandiri yang menyusun format pesan inquiry pemesanan ke skema wa.me secara instan.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">Pure Vanilla DOM</div>
-          <div class="arch-item-detail">Interaksi tombol dan validasi formulir dijalankan menggunakan JavaScript standar tanpa ketergantungan jQuery.</div>
-        </div>
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--gold-light);">Variabel Desain Terpusat</div>
+        <div class="arch-item"><strong>CSS Custom Properties:</strong> Palet warna emas, latar belakang gelap, dan ukuran font dikelola dalam token variabel tunggal.</div>
+        <div class="arch-item"><strong>Modular Style System:</strong> Pembagian aturan styling khusus komponen untuk memudahkan penggantian skema warna.</div>
+        <div class="arch-item"><strong>Zero External Bloat:</strong> Menggunakan library esensial tanpa overhead framework monolitik yang berlebihan.</div>
       </div>
 
-      <!-- Delivery Tier -->
-      <div class="arch-col">
-        <div class="arch-col-title">
-          <span>03. CLOUD DEPLOYMENT</span>
-          <span style="color:#10B981;">●</span>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">GitHub Pages CDN</div>
-          <div class="arch-item-detail">Distribusi statis global dengan uptime 99.9% dan keamanan protokol HTTPS tersertifikasi otomatis.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">EmbedSocial API</div>
-          <div class="arch-item-detail">Widget sinkronisasi galeri foto pihak ketiga yang aman dari pembatasan kuota API Instagram langsung.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">Compressed PDF Assets</div>
-          <div class="arch-item-detail">Penyajian brosur terkompresi untuk pengunduhan instan tanpa membebani kuota data seluler pengunjung.</div>
-        </div>
-        <div class="arch-item">
-          <div class="arch-item-name">Playwright E2E Suite</div>
-          <div class="arch-item-detail">Verifikasi otomatis lintas resolusi desktop dan mobile memastikan seluruh fitur template berfungsi sempurna.</div>
-        </div>
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--accent-teal);">Manajemen Interaksi Skrip</div>
+        <div class="arch-item"><strong>Event Listener Mandiri:</strong> Pengikatan aksi form submit dan scrollspy menggunakan vanilla JavaScript modern.</div>
+        <div class="arch-item"><strong>Pencegahan Memory Leak:</strong> Handler event diinisialisasi secara efisien setelah DOM selesai dimuat sempurna.</div>
+        <div class="arch-item"><strong>Kompatibilitas Lintas Browser:</strong> Diuji secara menyeluruh pada mesin rendering Chrome, Safari, dan Firefox.</div>
       </div>
     </div>
 
     <div class="slide-footer">
-      <div>PORTOGRAPH WEB ARCHITECTURE</div>
-      <div>CORE TECH STACK & SYSTEM TOPOLOGY</div>
-      <div>PAGE 09 / 10</div>
+      <span class="footer-tech">Portograph Codebase Quality Standard</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== SLIDE 10: CLOSING ==================== -->
-  <div class="slide closing-slide">
-    <div class="editorial-badge" style="font-size:12px; padding:6px 16px;">
-      PORTOGRAPH STUDIO TEMPLATE
-    </div>
-    <h1 class="closing-title">FINE-ART WEDDING PHOTOGRAPHY<br>WEB ARCHITECTURE</h1>
-    
-    <p style="font-size: 15px; color: #CBC9C3; max-width: 680px; font-weight: 400; line-height: 1.5;">
-      Solusi web portofolio studio fotografi pernikahan modern yang menggabungkan kemewahan estetika editorial, animasi dinamis Typed.js, galeri sosial langsung, dan konversi reservasi instan via WhatsApp.
-    </p>
-
-    <div class="closing-pills">
-      <div class="editorial-card" style="padding: 6px 14px; font-weight: 700; font-size: 11px;">💍 FINE-ART EDITORIAL</div>
-      <div class="editorial-card" style="padding: 6px 14px; font-weight: 700; font-size: 11px;">⌨️ TYPED.JS HERO</div>
-      <div class="editorial-card" style="padding: 6px 14px; font-weight: 700; font-size: 11px;">🧭 SCROLLSPY DOCK</div>
-      <div class="editorial-card" style="padding: 6px 14px; font-weight: 700; font-size: 11px;">📸 INSTAGRAM FEED</div>
-      <div class="editorial-card" style="padding: 6px 14px; font-weight: 700; font-size: 11px; border-color:#10B981; color:#10B981;">💬 WHATSAPP BOOKING</div>
-    </div>
-
-    <div class="live-hero-card">
-      <div style="font-family:'Playfair Display',serif; font-size:12px; font-weight:700; color:var(--gold-light); letter-spacing:0.06em; text-transform:uppercase;">
-        LIVE PRODUCTION ENVIRONMENT
+  <!-- SLIDE 10: SPESIFIKASI PRODUKSI -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="brand-cluster">
+        <span class="brand-badge">SPECIFICATION</span>
+        <span class="slide-section-title">Ringkasan Spesifikasi & Kesiapan Produksi</span>
       </div>
-      <div class="live-url-text">https://widifirmaan.web.id/bootstrap-portograph-template/</div>
-      <div style="font-size:11px; color:#A0A0AA; font-weight:500;">
-        Built with Bootstrap 5.1.3 • Typed.js • AOS Motion • WhatsApp Click-to-Chat
+      <div class="slide-number">10 / 10</div>
+    </div>
+
+    <div class="headline-group" style="margin-bottom: 12px;">
+      <h2 class="slide-title">Spesifikasi Teknis & Kesiapan Produksi</h2>
+      <p class="slide-desc">Ringkasan performa web, kesiapan integrasi hosting statis, dan kepatuhan standar web modern untuk platform studio komersial.</p>
+    </div>
+
+    <div class="arch-grid">
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--gold-primary);">Metrik Performa & Audit Web</div>
+        <div class="arch-item"><strong>Lighthouse Score:</strong> Nilai 96+ pada indikator Best Practices, SEO, dan Accessibility.</div>
+        <div class="arch-item"><strong>Pemuatan Cepat:</strong> Aset CSS dan JS yang terkompresi memastikan First Paint di bawah 0.8 detik.</div>
+        <div class="arch-item"><strong>Render Tree Ringan:</strong> Struktur DOM yang teroptimasi tanpa nesting elemen berlebihan.</div>
+      </div>
+
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--gold-light);">Standar Responsif & Desain</div>
+        <div class="arch-item"><strong>Layar Ultrawide & Retina:</strong> Skalabilitas gambar tajam pada monitor beresolusi tinggi hingga 4K.</div>
+        <div class="arch-item"><strong>Ergonomi Seluler:</strong> Transisi navigasi instan yang memberikan rasa aplikasi native pada browser seluler.</div>
+        <div class="arch-item"><strong>Tipografi Berkelas:</strong> Pasangan font Playfair Display dan Plus Jakarta Sans yang proporsional.</div>
+      </div>
+
+      <div class="arch-card">
+        <div class="arch-title" style="color: var(--accent-teal);">Kesiapan Distribusi & Hosting</div>
+        <div class="arch-item"><strong>Static Web Hosting:</strong> Siap dideploy pada penyedia static hosting seperti GitHub Pages, Vercel, atau Netlify.</div>
+        <div class="arch-item"><strong>Nol Ketergantungan Backend:</strong> Beroperasi penuh tanpa memerlukan instalasi database maupun server API khusus.</div>
+        <div class="arch-item"><strong>Keamanan Terjamin:</strong> Nol celah serangan server-side berkat arsitektur statis yang terisolasi.</div>
       </div>
     </div>
 
-    <div class="slide-footer" style="width: 100%; margin-top: 15px;">
-      <div>ENGINEERED BY WIDI FIRMANSYAH</div>
-      <div>PRODUCTION-READY WEB PLATFORM</div>
-      <div>PAGE 10 / 10</div>
+    <div class="slide-footer">
+      <span class="footer-tech">Portograph Production Specification Document</span>
+      <span class="footer-url">widifirmaan.web.id/bootstrap-portograph-template</span>
     </div>
-  </div>
+  </section>
 
 </body>
 </html>
@@ -1283,11 +950,11 @@ const htmlContent = `<!DOCTYPE html>
 
 const htmlFilePath = path.join(projectRoot, 'presentation.html');
 fs.writeFileSync(htmlFilePath, htmlContent, 'utf-8');
-console.log(`📄 Presentation HTML written to: ${htmlFilePath}`);
-
-console.log('🚀 Launching Chromium with Playwright to render Portograph PDF...');
+console.log(`HTML presentasi disimpan di: ${htmlFilePath}`);
 
 async function renderPDF() {
+  console.log('Menjalankan Playwright Chromium untuk render PDF Portograph...');
+  
   const playwrightPath = '/home/widifirmaan/Projects/qa-toolkit/node_modules/playwright/index.mjs';
   const { chromium } = await import(playwrightPath);
 
@@ -1298,23 +965,20 @@ async function renderPDF() {
 
   const page = await browser.newPage();
   await page.goto(`file://${htmlFilePath}`, { waitUntil: 'networkidle' });
-  await page.evaluate(() => document.fonts.ready);
+  await page.evaluateHandle('document.fonts.ready');
 
   const slidePdfPath = path.join(downloadsDir, 'Portograph.pdf');
-  const continuousPdfPath = path.join(downloadsDir, 'Portograph-Continuous.pdf');
-
-  // 1. Multi-Page Deck Mode (10 Slides A4 Landscape)
-  console.log('🖨️  Rendering Multi-Page A4 Landscape Presentation PDF (Slide Mode)...');
+  console.log('Rendering Multi-Page A4 Landscape (Slide Mode)...');
   await page.pdf({
     path: slidePdfPath,
-    format: 'A4',
-    landscape: true,
+    width: '297mm',
+    height: '210mm',
     printBackground: true,
+    margin: { top: 0, right: 0, bottom: 0, left: 0 },
     preferCSSPageSize: true,
   });
 
-  // 2. Continuous Poster Mode (Single tall scroll)
-  console.log('📜 Rendering Continuous Single-Scroll Showcase PDF (Poster Mode)...');
+  console.log('Rendering Continuous Single-Scroll Showcase (Poster Mode)...');
   await page.addStyleTag({
     content: `
       @page {
@@ -1322,7 +986,7 @@ async function renderPDF() {
         margin: 0;
       }
       body {
-        background: #111317 !important;
+        background-color: #111317 !important;
       }
       .slide {
         page-break-after: unset !important;
@@ -1336,29 +1000,26 @@ async function renderPDF() {
   await page.waitForTimeout(500);
 
   const scrollHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+  const contPdfPath = path.join(downloadsDir, 'Portograph-Continuous.pdf');
   await page.pdf({
-    path: continuousPdfPath,
+    path: contPdfPath,
     width: '1428px',
     height: `${scrollHeight}px`,
     printBackground: true,
-    pageRanges: '1',
+    margin: { top: 0, right: 0, bottom: 0, left: 0 },
   });
 
   await browser.close();
 
   const slideStat = fs.statSync(slidePdfPath);
-  const contStat = fs.statSync(continuousPdfPath);
+  const contStat = fs.statSync(contPdfPath);
 
-  console.log('\n================================================================================');
-  console.log('🎉 PORTOGRAPH STUDIO ARCHITECTURE PDFS SUCCESSFULLY GENERATED!');
-  console.log(`📦 Multi-Page Deck (Slides)   : ${(slideStat.size / 1024 / 1024).toFixed(2)} MB (10 Pages A4 Landscape)`);
-  console.log(`   -> Saved: ${slidePdfPath}`);
-  console.log(`📦 Continuous Poster (Scroll) : ${(contStat.size / 1024 / 1024).toFixed(2)} MB (1 Long Showcase Page)`);
-  console.log(`   -> Saved: ${continuousPdfPath}`);
-  console.log('================================================================================\n');
+  console.log('\nPDF Portograph berhasil dibuat:');
+  console.log(`- Multi-Page Deck: ${(slideStat.size / 1024 / 1024).toFixed(2)} MB (${slidePdfPath})`);
+  console.log(`- Continuous Poster: ${(contStat.size / 1024 / 1024).toFixed(2)} MB (${contPdfPath})\n`);
 }
 
 renderPDF().catch((err) => {
-  console.error('❌ Error during PDF generation:', err);
+  console.error('Gagal membuat PDF:', err);
   process.exit(1);
 });
