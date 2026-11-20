@@ -11,14 +11,14 @@ const downloadsDir = '/home/widifirmaan/Downloads';
 function encodeImage(filename) {
   const filePath = path.join(screenshotsDir, filename);
   if (!fs.existsSync(filePath)) {
-    console.warn(`Peringatan: Screenshot tidak ditemukan: ${filePath}`);
+    console.warn(`Warning: Screenshot not found: ${filePath}`);
     return '';
   }
   const fileBuffer = fs.readFileSync(filePath);
   return `data:image/png;base64,${fileBuffer.toString('base64')}`;
 }
 
-console.log('Memproses screenshot Portograph...');
+console.log('Encoding Portograph screenshots...');
 
 const images = {
   heroDesktop: encodeImage('Hero Desktop.png'),
@@ -31,10 +31,10 @@ const images = {
   bookingMobile: encodeImage('Form Booking Mobile.png'),
 };
 
-console.log('Menyusun HTML presentasi dengan style murni Portograph Editorial Sapphire...');
+console.log('Assembling English Portograph Editorial Sapphire Presentation Deck HTML...');
 
 const htmlContent = `<!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Portograph - Web Engineering Presentation</title>
@@ -336,17 +336,17 @@ const htmlContent = `<!DOCTYPE html>
             <span class="tech-pill">Bootstrap 5</span>
             <span class="tech-pill">Isotope Masonry</span>
             <span class="tech-pill">GLightbox</span>
-            <span class="tech-pill">PHP Mailer Ready</span>
+            <span class="tech-pill">Editorial Sapphire</span>
           </div>
           <h1 style="font-size: 40px; font-weight: 900; line-height: 1.1; margin-bottom: 16px;">
-            Arsitektur Web Portofolio &amp; Layanan Studio Fotografi
+            Photography Studio Portfolio &amp; Booking Web Architecture
           </h1>
           <p style="font-size: 14.5px; color: var(--text-body); line-height: 1.55; margin-bottom: 24px;">
-            Sistem web editorial studio foto berbasis Bootstrap 5 dengan navigasi floating sidebar, galeri filter masonry dinamis, inspeksi media resolusi tinggi, dan alur reservasi terpadu.
+            An editorial photography studio web platform engineered on Bootstrap 5 featuring a floating sidebar pill navigation, real-time Isotope masonry filtering, touch-optimized GLightbox media inspection, and an integrated reservation workflow.
           </p>
           <div class="clean-card" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 14px 18px;">
             <div>
-              <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">DESAIN SISTEM</div>
+              <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">DESIGN SYSTEM</div>
               <div style="font-size: 19px; font-weight: 800; color: var(--accent-sapphire); margin-top: 2px;">Editorial</div>
               <div style="font-size: 11px; color: var(--text-muted);">Sapphire Blue &amp; Slate</div>
             </div>
@@ -376,54 +376,54 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- SLIDE 2: LATAR BELAKANG & TUJUAN REKAYASA -->
+  <!-- SLIDE 2: ARCHITECTURE & TECHNICAL FOUNDATIONS -->
   <div class="slide">
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Arsitektur &amp; Fondasi</div>
-        <div class="brand-subtitle">Spesifikasi Kebutuhan Web</div>
+        <div class="brand-title">Architecture &amp; Foundations</div>
+        <div class="brand-subtitle">Editorial Web Specifications</div>
       </div>
       <div class="badge-pill">DECK-PORTO-02 / 10</div>
     </div>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Fondasi Rekayasa Web</div>
-        <h2 class="slide-title">Kebutuhan Display Editorial &amp; Konversi Reservasi Klien</h2>
-        <p class="slide-subtitle">Merancang platform visual bagi fotografer profesional dengan keseimbangan kualitas gambar tinggi dan performa loading responsif.</p>
+        <div class="slide-category">Web Engineering Foundations</div>
+        <h2 class="slide-title">Editorial Visual Display &amp; Client Booking Conversion</h2>
+        <p class="slide-subtitle">Balancing high-resolution studio imagery with rapid First Contentful Paint times and frictionless reservation flows.</p>
       </div>
 
       <div class="layout-grid-3">
         <div class="clean-card">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">01 &bull; KENDALA TEKNIS</div>
-          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Beban Aset Gambar Berat</h3>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">01 &bull; BOTTLENECK</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Heavy Visual Assets</h3>
           <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
-            Foto beresolusi tinggi rawan memperlambat First Contentful Paint dan memicu layout shift jika dimensi aspek rasio kontainer tidak didefinisikan secara presisi.
+            Master resolution photography assets risk degrading page load benchmarks and triggering layout shifts without strict dimensional containers.
           </p>
         </div>
 
         <div class="clean-card">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">02 &bull; SOLUSI ARSITEKTUR</div>
-          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Masonry Terisolasi &amp; Lazy Loading</h3>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">02 &bull; SOLUTION</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Masonry &amp; Lazy Loading</h3>
           <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
-            Pengaturan container wrapper terstandarisasi dengan kalkulasi koordinat Isotope dan pemuatan bertahap berbasis intersection observer tanpa jeda.
+            Structured wrapper containers paired with client-side Isotope coordinate calculation and Intersection Observer lazy-loading eliminate reflow stutter.
           </p>
         </div>
 
         <div class="clean-card">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">03 &bull; ERGONOMI NAVIGASI</div>
-          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Navigasi Floating Pill 50px</h3>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">03 &bull; ERGONOMICS</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">50px Floating Pill Nav</h3>
           <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
-            Bilah navigasi samping melayang dengan radius 50px yang mengekspansi label saat kursor melintas, menjaga kanvas galeri tetap luas dan leluasa dinikmati.
+            Floating vertical pill navigation bar expanding label text on hover maximizes canvas real estate while keeping section jumps within easy reach.
           </p>
         </div>
       </div>
     </div>
 
     <div class="slide-footer">
-      <div>PORTOGRAPH &bull; ARSITEKTUR SISTEM</div>
-      <div>STANDARISASI WEB EDITORIAL</div>
+      <div>PORTOGRAPH &bull; SYSTEM ARCHITECTURE</div>
+      <div>EDITORIAL WEB STANDARDS</div>
       <div>02 / 10</div>
     </div>
   </div>
@@ -433,7 +433,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Sistem Navigasi</div>
+        <div class="brand-title">Navigation System</div>
         <div class="brand-subtitle">Vertical Floating Pill Bar &amp; Mobile Drawer</div>
       </div>
       <div class="badge-pill">DECK-PORTO-03 / 10</div>
@@ -441,9 +441,9 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Komponen Antarmuka Pengguna</div>
-        <h2 class="slide-title">Navigasi Mengambang Vertikal Berbentuk Kapsul</h2>
-        <p class="slide-subtitle">Implementasi navigasi samping modular dengan indikator segmen aktif otomatis dan mode drawer seluler bebas hambatan.</p>
+        <div class="slide-category">User Interface Components</div>
+        <h2 class="slide-title">Vertical Floating Pill Bar with Dynamic Expansion</h2>
+        <p class="slide-subtitle">Modular sidebar navigation with automated active-section tracking and an isolated mobile off-canvas drawer.</p>
       </div>
 
       <div class="layout-split">
@@ -452,22 +452,22 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <div class="feature-list">
-          <div class="feature-item">
-            <div class="feature-item-title">Icon Pill Radius 50px dengan Expandable Text</div>
-            <div class="feature-item-desc">
-              Menu desktop berukuran 56x56px yang melebar secara mulus menjadi teks lengkap dengan latar belakang warna Sapphire Blue (#0563bb) saat di-hover.
+          <div class="feature-box">
+            <div class="feature-box-title">50px Radius Pill with Expandable Text</div>
+            <div class="feature-box-desc">
+              56x56px desktop icons expand smoothly into full label pills filled with Sapphire Blue (#0563bb) on hover, preserving clean visual space.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Scrollspy Segment Tracking</div>
-            <div class="feature-item-desc">
-              Deteksi posisi scroll pengguna yang secara dinamis memperbarui kelas aktif pada tautan menu menggunakan listener posisi vertikal window.
+          <div class="feature-box">
+            <div class="feature-box-title">Scrollspy Active Segment Tracking</div>
+            <div class="feature-box-desc">
+              Window scroll listeners continuously update active menu pill states as visitors glide through portfolio, services, and booking sections.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Mobile Hamburger Drawer Terisolasi</div>
-            <div class="feature-item-desc">
-              Tombol toggler berlingkar 50px di sudut kanan atas layar seluler yang membuka menu off-canvas dengan transisi CSS transform hardware-accelerated.
+          <div class="feature-box">
+            <div class="feature-box-title">Isolated Mobile Hamburger Drawer</div>
+            <div class="feature-box-desc">
+              Circular 50px toggler in the upper viewport triggers an off-canvas navigation drawer with hardware-accelerated CSS transforms.
             </div>
           </div>
         </div>
@@ -486,7 +486,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Modul Galeri</div>
+        <div class="brand-title">Gallery Module</div>
         <div class="brand-subtitle">Isotope.js Masonry &amp; Multi-Category Filter</div>
       </div>
       <div class="badge-pill">DECK-PORTO-04 / 10</div>
@@ -494,29 +494,29 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Mesin Filter Portofolio</div>
-        <h2 class="slide-title">Grid Portofolio Masonry dengan Filter Kategori Real-Time</h2>
-        <p class="slide-subtitle">Pengelompokan karya fotografi (Wedding, Portrait, Commercial) dengan animasi relokasi elemen tanpa kedipan layar.</p>
+        <div class="slide-category">Portfolio Filtering Engine</div>
+        <h2 class="slide-title">Masonry Portfolio Grid with Real-Time Filtering</h2>
+        <p class="slide-subtitle">Dynamic sorting across Wedding, Portrait, and Commercial albums with fluid element transitions and zero screen flicker.</p>
       </div>
 
       <div class="layout-split-reversed">
         <div class="feature-list">
-          <div class="feature-item">
-            <div class="feature-item-title">Filter Tab Kapsul Terisolasi</div>
-            <div class="feature-item-desc">
-              Kancing tab filter dengan gaya kapsul pill yang memicu seleksi selector kelas data-filter secara instan melalui callback Isotope layout.
+          <div class="feature-box">
+            <div class="feature-box-title">Isolated Capsule Filter Tabs</div>
+            <div class="feature-box-desc">
+              Pill filter buttons trigger class selector matches instantaneously via Isotope layout callbacks without requiring full-page reloads.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Corner Bracket Border Effect</div>
-            <div class="feature-item-desc">
-              Efek bingkai sudut dekoratif (3px solid #d7dce1) yang bertransisi ke posisi fokus saat kursor pengguna mendekati kartu karya fotografi.
+          <div class="feature-box">
+            <div class="feature-box-title">Corner Bracket Border Effect</div>
+            <div class="feature-box-desc">
+              Subtle decorative corner borders (3px solid #d7dce1) animate into sharp focal positions as cursor hovers over photograph cards.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Zero Layout Thrashing Recalculation</div>
-            <div class="feature-item-desc">
-              Penetapan lebar persentase dan gambar responsif yang mencegah reflow berulang pada container galeri selama kalkulasi ulang koordinat.
+          <div class="feature-box">
+            <div class="feature-box-title">Zero Layout Thrashing Recalculation</div>
+            <div class="feature-box-desc">
+              Percentage-based widths and responsive image wrappers prevent repeated reflows during coordinate repositioning cycles.
             </div>
           </div>
         </div>
@@ -539,7 +539,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Pratinjau Media</div>
+        <div class="brand-title">Media Inspection</div>
         <div class="brand-subtitle">GLightbox Modal &amp; Touch Gestures</div>
       </div>
       <div class="badge-pill">DECK-PORTO-05 / 10</div>
@@ -547,9 +547,9 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Inspeksi Detail Foto</div>
-        <h2 class="slide-title">Pratinjau Foto Resolusi Tinggi dengan GLightbox</h2>
-        <p class="slide-subtitle">Modal penampil foto modern yang mendukung gestur cubit, usap layar sentuh, dan navigasi keyboard berkecepatan tinggi.</p>
+        <div class="slide-category">High-Resolution Photo Inspection</div>
+        <h2 class="slide-title">Full-Resolution Media Viewer Powered by GLightbox</h2>
+        <p class="slide-subtitle">A modern, lightweight lightbox modal supporting touch gestures, smooth zooming, and desktop keyboard shortcuts.</p>
       </div>
 
       <div class="layout-split">
@@ -558,22 +558,22 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <div class="feature-list">
-          <div class="feature-item">
-            <div class="feature-item-title">Integrasi GLightbox Ringan</div>
-            <div class="feature-item-desc">
-              Pustaka modal murni tanpa dependensi jQuery yang menangani transisi zoom dan perpindahan antar foto dalam album secara mulus.
+          <div class="feature-box">
+            <div class="feature-box-title">Dependency-Free GLightbox Integration</div>
+            <div class="feature-box-desc">
+              Pure vanilla JavaScript modal lightbox handling smooth zoom transitions and image album cycling with zero jQuery baggage.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Dukungan Navigasi Sentuh &amp; Keyboard</div>
-            <div class="feature-item-desc">
-              Pengguna gawai layar sentuh dapat menggeser foto secara alami, sementara pengguna desktop dapat memanfaatkan tombol panah keyboard dan tombol Escape.
+          <div class="feature-box">
+            <div class="feature-box-title">Touch Swipe &amp; Keyboard Controls</div>
+            <div class="feature-box-desc">
+              Mobile users swipe naturally between photos, while desktop visitors navigate seamlessly using keyboard arrow keys and Escape.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Asynchronous High-Res Image Fetching</div>
-            <div class="feature-item-desc">
-              Thumbnail berbobot ringan ditampilkan di halaman utama, sementara file resolusi penuh hanya diunduh saat modal dibuka pengguna.
+          <div class="feature-box">
+            <div class="feature-box-title">Asynchronous High-Res Asset Fetching</div>
+            <div class="feature-box-desc">
+              Lightweight thumbnails display on the main page, while master-quality raw captures load on-demand only when the modal opens.
             </div>
           </div>
         </div>
@@ -587,12 +587,12 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- SLIDE 6: PAKET LAYANAN & PERBANDINGAN HARGA -->
+  <!-- SLIDE 6: SERVICE PACKAGES & PRICING MATRIX -->
   <div class="slide">
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Komersial &amp; Konversi</div>
+        <div class="brand-title">Commercial Conversion</div>
         <div class="brand-subtitle">Package Tiering &amp; Transparent Breakdown</div>
       </div>
       <div class="badge-pill">DECK-PORTO-06 / 10</div>
@@ -600,29 +600,29 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Struktur Paket Layanan</div>
-        <h2 class="slide-title">Daftar Paket Fotografi dengan Komparasi Transparan</h2>
-        <p class="slide-subtitle">Penyusunan tingkatan paket (Silver, Gold, Platinum) dengan daftar fitur terperinci dan tombol aksi reservasi instan.</p>
+        <div class="slide-category">Service Package Hierarchy</div>
+        <h2 class="slide-title">Transparent Photography Packages &amp; Deliverables</h2>
+        <p class="slide-subtitle">Tiered service cards (Silver, Gold, Platinum) with itemized deliverable breakdowns and direct booking action triggers.</p>
       </div>
 
       <div class="layout-split-reversed">
         <div class="feature-list">
-          <div class="feature-item">
-            <div class="feature-item-title">Kartu Bertingkat dengan Elevasi Visual</div>
-            <div class="feature-item-desc">
-              Penonjolan paket terfavorit dengan border Sapphire Blue dan bayangan elevasi soft 0 4px 20px untuk membimbing keputusan calon klien.
+          <div class="feature-box">
+            <div class="feature-box-title">Tiered Cards with Soft Elevation</div>
+            <div class="feature-box-desc">
+              Flagship packages highlighted with Sapphire Blue border highlights and soft elevation (0 4px 20px) to guide client decision making.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Detail Spesifikasi Sesi &amp; Deliverables</div>
-            <div class="feature-item-desc">
-              Rincian jumlah fotografer, durasi sesi pemotretan, album cetak eksklusif, serta ketersediaan flash drive data digital beresolusi master.
+          <div class="feature-box">
+            <div class="feature-box-title">Itemized Session Deliverables Breakdown</div>
+            <div class="feature-box-desc">
+              Clearly states photographer count, shooting duration, printed album specs, and master digital files delivered via USB.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Deep-Linking Call to Action ke Formulir</div>
-            <div class="feature-item-desc">
-              Tautan tombol 'Pilih Paket' yang secara otomatis menggulir halus ke bagian reservasi dan mengisi pilihan paket pada formulir pemesanan.
+          <div class="feature-box">
+            <div class="feature-box-title">Deep-Linking Call to Action to Booking Form</div>
+            <div class="feature-box-desc">
+              Selecting a package smoothly scrolls to the reservation form and pre-populates the chosen package tier in the booking dropdown.
             </div>
           </div>
         </div>
@@ -640,22 +640,22 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- SLIDE 7: FORMULIR RESERVASI & VALIDASI -->
+  <!-- SLIDE 7: RESERVATION WORKFLOW & VALIDATION -->
   <div class="slide">
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Alur Reservasi</div>
-        <div class="brand-subtitle">Interactive Booking Flow &amp; Date Picker</div>
+        <div class="brand-title">Reservation Flow</div>
+        <div class="brand-subtitle">Interactive Booking &amp; Client-Side Validation</div>
       </div>
       <div class="badge-pill">DECK-PORTO-07 / 10</div>
     </div>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Interaksi Pengguna</div>
-        <h2 class="slide-title">Formulir Pemesanan Sesi Foto dengan Validasi Klien</h2>
-        <p class="slide-subtitle">Antarmuka formulir pemesanan yang higienis dengan umpan balik validasi real-time dan penanganan asynchronous.</p>
+        <div class="slide-category">Client Reservation Flow</div>
+        <h2 class="slide-title">Photo Session Booking Form with Live Validation</h2>
+        <p class="slide-subtitle">A clean booking interface with real-time field validation, date selection, and asynchronous submission handling.</p>
       </div>
 
       <div class="layout-split">
@@ -664,22 +664,22 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <div class="feature-list">
-          <div class="feature-item">
-            <div class="feature-item-title">Validasi Sisi Klien Real-Time</div>
-            <div class="feature-item-desc">
-              Pemeriksaan format email, nomor telepon seluler, dan kelengkapan tanggal reservasi sebelum data dikirimkan ke endpoint pemrosesan.
+          <div class="feature-box">
+            <div class="feature-box-title">Real-Time Client-Side Validation</div>
+            <div class="feature-box-desc">
+              Validates email formats, mobile numbers, and event date selections before packaging payload for backend dispatch.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Styling Input Elegan &amp; Accessible</div>
-            <div class="feature-item-desc">
-              Kontrol formulir berlatar putih dengan border #e6e9ec, transisi fokus Sapphire Blue, serta label semantik ramah pembaca layar (screen reader).
+          <div class="feature-box">
+            <div class="feature-box-title">Accessible Clean Input Styling</div>
+            <div class="feature-box-desc">
+              Pure white input controls with subtle borders (#e6e9ec), Sapphire Blue focus rings, and screen-reader accessible label tags.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Feedback State Loading &amp; Konfirmasi</div>
-            <div class="feature-item-desc">
-              Indikator proses pengiriman data yang jelas serta pesan status berhasil/gagal yang terisolasi tanpa memicu reload halaman penuh.
+          <div class="feature-box">
+            <div class="feature-box-title">Loading States &amp; Confirmation Feedback</div>
+            <div class="feature-box-desc">
+              Clear visual feedback spinners and isolated confirmation banners communicate successful booking without refreshing the page.
             </div>
           </div>
         </div>
@@ -693,22 +693,22 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- SLIDE 8: ADAPTASI ERGONOMI SELULER -->
+  <!-- SLIDE 8: RESPONSIVE TOUCH & MOBILE ERGONOMICS -->
   <div class="slide">
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Ergonomi Seluler</div>
-        <div class="brand-subtitle">Responsive Layout &amp; Touch Target</div>
+        <div class="brand-title">Mobile Ergonomics</div>
+        <div class="brand-subtitle">Responsive Layout &amp; Touch Target Compliance</div>
       </div>
       <div class="badge-pill">DECK-PORTO-08 / 10</div>
     </div>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Pengalaman Pengguna Seluler</div>
-        <h2 class="slide-title">Optimasi Sentuhan &amp; Keterbacaan pada Layar Seluler</h2>
-        <p class="slide-subtitle">Penyesuaian tata letak grid satu kolom pada perangkat seluler demi kemudahan pengoperasian dengan satu jempol tangan.</p>
+        <div class="slide-category">Mobile User Experience</div>
+        <h2 class="slide-title">Touch Target Optimization &amp; Mobile Readability</h2>
+        <p class="slide-subtitle">Reconfiguring desktop multi-column layouts into single-column flows for effortless one-handed thumb browsing.</p>
       </div>
 
       <div class="layout-split-reversed">
@@ -717,22 +717,22 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <div class="feature-list">
-          <div class="feature-item">
-            <div class="feature-item-title">Touch Target Minimum 48x48px</div>
-            <div class="feature-item-desc">
-              Seluruh tombol aksi dan bidang sentuh masukan formulir disesuaikan dengan pedoman ergonomi human interface seluler.
+          <div class="feature-box">
+            <div class="feature-box-title">48x48px Minimum Touch Target Standard</div>
+            <div class="feature-box-desc">
+              Buttons and form input triggers adhere strictly to mobile human interface guidelines to eliminate misclicks on smaller touchscreens.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Fluid Typography Scaling</div>
-            <div class="feature-item-desc">
-              Penyesuaian hierarki ukuran font Raleway dan Poppins menggunakan unit clamp responsif untuk menjaga harmoni visual di berbagai dimensi layar.
+          <div class="feature-box">
+            <div class="feature-box-title">Fluid Typography Scaling</div>
+            <div class="feature-box-desc">
+              Raleway and Poppins font hierarchies scale responsively using CSS clamp formulas, preserving visual elegance on smartphones.
             </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-item-title">Pencegahan Horizontal Overflow</div>
-            <div class="feature-item-desc">
-              Pengaturan box-sizing border-box dan margin komposit terkalibrasi yang mencegah pergeseran horizontal yang mengganggu pengguna.
+          <div class="feature-box">
+            <div class="feature-box-title">Zero Horizontal Overflow Drift</div>
+            <div class="feature-box-desc">
+              Calibrated box-sizing and padding rules eliminate horizontal scroll drift, keeping the client focused on photography portfolio imagery.
             </div>
           </div>
         </div>
@@ -746,12 +746,12 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- SLIDE 9: REKAYASA KINERJA & CORE WEB VITALS -->
+  <!-- SLIDE 9: WEB PERFORMANCE & CORE WEB VITALS -->
   <div class="slide">
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Rekayasa Kinerja</div>
+        <div class="brand-title">Performance Engineering</div>
         <div class="brand-subtitle">Asset Loading &amp; Core Web Vitals</div>
       </div>
       <div class="badge-pill">DECK-PORTO-09 / 10</div>
@@ -759,33 +759,33 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Kecepatan &amp; Kualitas Kode</div>
-        <h2 class="slide-title">Efisiensi Distribusi Aset &amp; Skor Web Vitals Tinggi</h2>
-        <p class="slide-subtitle">Strategi pemuatan modular yang meminimalisasi render-blocking resource dan mengamankan nilai metrik LCP yang cepat.</p>
+        <div class="slide-category">Speed &amp; Code Quality</div>
+        <h2 class="slide-title">Asset Delivery Efficiency &amp; Core Web Vitals</h2>
+        <p class="slide-subtitle">Modular loading strategies minimizing render-blocking resources and sustaining rapid Largest Contentful Paint benchmarks.</p>
       </div>
 
       <div class="layout-grid-3">
         <div class="clean-card">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">DISTRIBUSI ASSET</div>
-          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">CSS &amp; JS Minified</h3>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">ASSET DELIVERY</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Minified CSS &amp; Bundling</h3>
           <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
-            Pemisahan modul skrip inti dengan dependensi pihak ketiga, didukung kompresi berkas style.css untuk menghemat konsumsi kuota data klien.
+            Separating core site logic from third-party libraries, supported by compressed stylesheets to conserve client mobile bandwidth.
           </p>
         </div>
 
         <div class="clean-card">
           <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">LAYOUT STABILITY</div>
-          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Zero CLS Grid Skeleton</h3>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Zero CLS Grid Containers</h3>
           <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
-            Pemberian atribut width dan height eksplisit pada seluruh gambar portofolio untuk mencegah lonjakan layout saat gambar selesai dimuat.
+            Explicit width and height aspect ratios across all portfolio images prevent unexpected layout jumps during image decoding.
           </p>
         </div>
 
         <div class="clean-card">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">STANDAR W3C</div>
-          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Semantic HTML5 Markup</h3>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-sapphire); margin-bottom: 8px;">W3C STANDARDS</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Semantic HTML5 &amp; Schema</h3>
           <p style="font-size: 12.5px; color: var(--text-body); line-height: 1.5;">
-            Struktur markup semantik yang rapi mempermudah pengindeksan mesin pencari Google (SEO) dan integrasi metadata Open Graph fotografi.
+            Clean semantic markup facilitates search engine indexing (SEO) and Open Graph rich preview cards for shared studio portfolios.
           </p>
         </div>
       </div>
@@ -798,47 +798,47 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- SLIDE 10: RANGKUMAN ARSITEKTUR & PRODUKSI -->
+  <!-- SLIDE 10: ARCHITECTURAL SUMMARY & DEPLOYMENT -->
   <div class="slide">
     <div class="slide-header">
       <div class="brand-pill">
         <div class="brand-dot"></div>
-        <div class="brand-title">Ringkasan Proyek</div>
-        <div class="brand-subtitle">Spesifikasi Akhir &amp; Kesiapan Rilis</div>
+        <div class="brand-title">Milestone Summary</div>
+        <div class="brand-subtitle">Production Specifications &amp; Quality Audit</div>
       </div>
       <div class="badge-pill">DECK-PORTO-10 / 10</div>
     </div>
 
     <div class="slide-content">
       <div class="title-block">
-        <div class="slide-category">Rangkuman Akhir Rekayasa</div>
-        <h2 class="slide-title">Kesimpulan Implementasi Portograph Studio</h2>
-        <p class="slide-subtitle">Platform web portofolio fotografi yang menggabungkan estetika editorial modern dengan arsitektur teknis yang stabil.</p>
+        <div class="slide-category">Production Readiness</div>
+        <h2 class="slide-title">Comprehensive Project Implementation Summary</h2>
+        <p class="slide-subtitle">A modern photography studio web platform uniting editorial aesthetic luxury with dependable technical architecture.</p>
       </div>
 
       <div class="layout-grid-4">
         <div class="clean-card">
           <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">FRAMEWORK</div>
           <div style="font-size: 18px; font-weight: 800; color: var(--accent-sapphire); margin-top: 4px; margin-bottom: 4px;">Bootstrap 5</div>
-          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Grid fleksibel 12 kolom dengan utility class terstandarisasi.</p>
+          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Flexible 12-column grid with standardized editorial utility classes.</p>
         </div>
 
         <div class="clean-card">
           <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">INTERACTION</div>
           <div style="font-size: 18px; font-weight: 800; color: var(--accent-sapphire); margin-top: 4px; margin-bottom: 4px;">Isotope.js</div>
-          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Penyaringan kategori karya foto instan tanpa reload.</p>
+          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Instant multi-category portfolio sorting with zero page reloads.</p>
         </div>
 
         <div class="clean-card">
           <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">INSPECTION</div>
           <div style="font-size: 18px; font-weight: 800; color: var(--accent-sapphire); margin-top: 4px; margin-bottom: 4px;">GLightbox</div>
-          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Pratinjau visual resolusi tinggi dengan navigasi sentuh.</p>
+          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Master resolution image viewer with touch swipe gestures.</p>
         </div>
 
         <div class="clean-card">
           <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">STATUS</div>
-          <div style="font-size: 18px; font-weight: 800; color: #16A34A; margin-top: 4px; margin-bottom: 4px;">Siap Produksi</div>
-          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Teruji pada seluruh breakpoint layar perangkat modern.</p>
+          <div style="font-size: 18px; font-weight: 800; color: #16A34A; margin-top: 4px; margin-bottom: 4px;">Production</div>
+          <p style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Fully verified across desktop, tablet, and mobile breakpoints.</p>
         </div>
       </div>
 
@@ -848,7 +848,7 @@ const htmlContent = `<!DOCTYPE html>
     </div>
 
     <div class="slide-footer">
-      <div>PORTOGRAPH &bull; KESIMPULAN REKAYASA WEB</div>
+      <div>PORTOGRAPH &bull; PROJECT COMPLETION</div>
       <div>WIDI FIRMANSYAH &bull; LEAD DEVELOPER</div>
       <div>10 / 10</div>
     </div>
@@ -860,9 +860,9 @@ const htmlContent = `<!DOCTYPE html>
 
 const htmlFilePath = path.join(projectRoot, 'presentation.html');
 fs.writeFileSync(htmlFilePath, htmlContent, 'utf-8');
-console.log(`HTML presentasi disimpan di: ${htmlFilePath}`);
+console.log(`Presentation HTML written to: ${htmlFilePath}`);
 
-console.log('Menjalankan Playwright Chromium untuk render PDF Portograph Editorial Sapphire...');
+console.log('Launching Chromium with Playwright to render English Portograph Editorial Sapphire PDFs...');
 
 async function renderPDF() {
   const playwrightPath = '/home/widifirmaan/Projects/qa-toolkit/node_modules/playwright/index.mjs';
@@ -899,7 +899,7 @@ async function renderPDF() {
         margin: 0;
       }
       body {
-        background: #F8F9FA !important;
+        background-color: #F8F9FA !important;
       }
       .slide {
         page-break-after: unset !important;
@@ -926,12 +926,12 @@ async function renderPDF() {
   const slideStat = fs.statSync(slidePdfPath);
   const contStat = fs.statSync(continuousPdfPath);
 
-  console.log('\nPDF Portograph Editorial Sapphire berhasil dibuat:');
+  console.log('\nPortograph English PDFs successfully generated:');
   console.log(`- Multi-Page Deck: ${(slideStat.size / 1024 / 1024).toFixed(2)} MB (${slidePdfPath})`);
   console.log(`- Continuous Poster: ${(contStat.size / 1024 / 1024).toFixed(2)} MB (${continuousPdfPath})\n`);
 }
 
 renderPDF().catch((err) => {
-  console.error('Error saat render PDF:', err);
+  console.error('Error rendering PDF:', err);
   process.exit(1);
 });
