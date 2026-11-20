@@ -29,7 +29,7 @@
 
 - **Typewriter Headline Simulation**: Hero section headline cycling through creative studio specialties (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) powered by Typed.js.
 - **Integrated Instagram Portfolio Feed**: Live gallery widget powered by EmbedSocial (`#portfolio`) pulling photography shoots directly from Instagram.
-- **Service Package Catalog & PDF Download**: Visual showcase of studio service tiers featuring 5 brochures covering Prewedding and Wedding packages with downloadable PDF brochures (`paket_compressed.pdf`).
+- **Service Package Catalog Showcase**: Visual showcase of studio service tiers featuring 5 high-resolution brochures covering Prewedding and Wedding packages.
 - **Direct WhatsApp Booking Form**: Booking reservation form (`#contact`) with client name input and package selection building pre-formatted inquiries via WhatsApp Click-to-Chat.
 - **Sidebar Navigation & Scrollspy**: Left-aligned icon menu with scroll-spy offset tracking, collapsible mobile drawer, and back-to-top button.
 - **Smooth Scroll Animations (AOS)**: Transitions and element reveals powered by Animate on Scroll (AOS) as users browse the page.
