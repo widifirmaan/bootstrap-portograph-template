@@ -46,7 +46,7 @@ Responsive Bootstrap 5 studio showcase and booking landing page for wedding phot
 - **Python 3** or **Node.js** (`npx serve`) to serve static HTML files locally
 - **No database or environment variables required**
 
-### Run Locally
+### Quick Start
 
 ```bash
 git clone https://github.com/widifirmaan/bootstrap-portograph-template.git
