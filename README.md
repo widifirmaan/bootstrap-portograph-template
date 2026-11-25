@@ -1,86 +1,66 @@
 # Portograph
 
-> Responsive Bootstrap 5 portfolio template for wedding photography and videography studios featuring an integrated Instagram feed and WhatsApp booking inquiries.
+Responsive Bootstrap 5 studio showcase and booking landing page for wedding photography and videography featuring an embedded Instagram hashtag feed and WhatsApp booking form.
 
-[![Bootstrap 5.1.3](https://img.shields.io/badge/Bootstrap-5.1.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![Typed.js](https://img.shields.io/badge/Animation-Typed.js-FF6F00?style=flat-square)](https://mattboldt.com/demos/typed-js/)
-[![HTML5 / CSS3](https://img.shields.io/badge/HTML5%20%2F%20CSS3-Modern_Web-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/)
-
----
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.1.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
+![Typed.js](https://img.shields.io/badge/Typed.js-2.0.12-FF6F00?style=flat-square)
+![HTML5](https://img.shields.io/badge/HTML5-CSS3-E34F26?style=flat-square&logo=html5&logoColor=white)
 
 ## Live URL
 
-- **Production URL**: [https://widifirmaan.web.id/bootstrap-portograph-template/](https://widifirmaan.web.id/bootstrap-portograph-template/)
+- **Production**: [https://widifirmaan.web.id/bootstrap-portograph-template/](https://widifirmaan.web.id/bootstrap-portograph-template/)
 
----
+## Features
 
-## Screenshots
-
-| Desktop (MacBook Pro M4) | Mobile (iPhone 16 Pro) |
-| :---: | :---: |
-| **Hero Stage & Typed.js Animated Headline**<br>![Hero](screenshots/Hero%20Desktop.png) | **Hero Stage & Typed.js Animated Headline**<br>![Hero](screenshots/Hero%20Mobile.png) |
-| **Live Instagram Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Desktop.png) | **Live Instagram Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Mobile.png) |
-| **Service Package Catalog & Brochures**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Desktop.png) | **Service Package Catalog & Brochures**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Mobile.png) |
-| **WhatsApp Direct Booking Inquiry & Studio Contact**<br>![Form Booking](screenshots/Form%20Booking%20Desktop.png) | **WhatsApp Direct Booking Inquiry & Studio Contact**<br>![Form Booking](screenshots/Form%20Booking%20Mobile.png) |
-
----
-
-## Fitur
-
-- **Typewriter Headline Simulation**: Hero section headline cycling through creative studio specialties (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) powered by Typed.js.
-- **Integrated Instagram Portfolio Feed**: Live gallery widget powered by EmbedSocial (`#portfolio`) pulling photography shoots directly from Instagram.
-- **Service Package Catalog Showcase**: Visual showcase of studio service tiers featuring 5 high-resolution brochures covering Prewedding and Wedding packages.
-- **Direct WhatsApp Booking Form**: Booking reservation form (`#contact`) with client name input and package selection building pre-formatted inquiries via WhatsApp Click-to-Chat.
-- **Sidebar Navigation & Scrollspy**: Left-aligned icon menu with scroll-spy offset tracking, collapsible mobile drawer, and back-to-top button.
-- **Smooth Scroll Animations (AOS)**: Transitions and element reveals powered by Animate on Scroll (AOS) as users browse the page.
-- **Studio Contact Information**: Direct links to social media channels (YouTube, Instagram `@aruna_daydream`, WhatsApp hotline) and studio physical address.
-
----
+- **Typewriter Hero Section (`#hero`)**: Animated role switcher cycling through studio services (`Wedding Photography`, `Wedding Cinematic`, `Live Streaming`, `Video Shooting`) powered by Typed.js.
+- **Instagram Hashtag Portfolio (`#portfolio`)**: Embedded EmbedSocial hashtag gallery widget (`embedsocial-hashtag`).
+- **Package Gallery (`#services`)**: Visual catalog displaying five studio package sheets (`paket_compressed-1.jpg` through `paket_compressed-5.jpg`).
+- **Direct WhatsApp Booking Form (`#contact`)**: Booking form validating client name and selected wedding/prewedding package (`7` package options) and opening a URL-encoded `wa.me` WhatsApp inquiry.
+- **Responsive Navigation & Scrollspy (`assets/css/style.css`, `assets/js/main.js`)**: Fixed desktop sidebar menu above `992px`, `d-lg-none` mobile drawer toggle, active scrollspy highlighting, and back-to-top button.
+- **Scroll Animations**: Element entrance transitions configured via Animate on Scroll (AOS).
 
 ## Tech Stack
 
-| Category | Technology | Description / Purpose |
+| Layer | Technology | Role |
 | :--- | :--- | :--- |
-| **UI Framework** | Bootstrap `5.1.3` | Mobile-first responsive layout grid and utilities |
-| **Iconography** | Bootstrap Icons, Boxicons, Iconify | Vector icon suites for navigation menu and social channel badges |
-| **Animation & Interactivity** | Typed.js `2.0.12`, AOS `2.3.4` | Hero typewriter headline simulation and scroll-triggered element transitions |
-| **Live Social Embed** | EmbedSocial Universal Widget | Real-time Instagram portfolio grid rendering |
-| **Direct Communication** | WhatsApp Click-to-Chat API | Pre-formatted booking inquiry redirection via WhatsApp API |
-| **Typography & Styling** | Google Fonts (Open Sans, Raleway, Poppins) | Modern editorial typography with custom responsive stylesheet |
+| **UI Framework** | Bootstrap `5.1.3` | Responsive layout grid and utilities |
+| **Icons** | Bootstrap Icons, Boxicons | Sidebar navigation, contact details, and social links |
+| **Animations** | Typed.js `2.0.12`, AOS | Typewriter hero headline and scroll reveal animations |
+| **Social & Messaging** | EmbedSocial Hashtag Script, WhatsApp `wa.me` | Portfolio gallery embed and Click-to-Chat booking URL |
+| **Typography & Styling** | Google Fonts (Open Sans, Raleway, Poppins), `assets/css/style.css` | Editorial typography and responsive navigation styles |
 
----
+## Screenshots
 
-## Tutorial Run Local & Setup
+| Desktop | Mobile |
+| :---: | :---: |
+| **Hero Stage & Animated Headline**<br>![Hero](screenshots/Hero%20Desktop.png) | **Hero Stage & Animated Headline**<br>![Hero](screenshots/Hero%20Mobile.png) |
+| **Instagram Hashtag Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Desktop.png) | **Instagram Hashtag Portfolio Feed**<br>![Portofolio](screenshots/Portofolio%20Mobile.png) |
+| **Service Package Brochures**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Desktop.png) | **Service Package Brochures**<br>![Paket Layanan](screenshots/Paket%20Layanan%20Mobile.png) |
+| **WhatsApp Booking Form & Contact Info**<br>![Form Booking](screenshots/Form%20Booking%20Desktop.png) | **WhatsApp Booking Form & Contact Info**<br>![Form Booking](screenshots/Form%20Booking%20Mobile.png) |
 
-### 1. Prerequisites
+## Local Setup
 
-- Any modern web browser (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge).
-- Python 3 (`python3`) or Node.js (`npx serve`) to serve static HTML files locally.
-- Database: **No database required** (100% static client-side website).
+### Prerequisites
 
-### 2. Environment Variables Setup
+- Any modern web browser
+- **Python 3** or **Node.js** (`npx serve`) to serve static HTML files locally
+- **No database or environment variables required**
 
-No environment variables are required.
-
-### 3. Installation & Running the Local Server
+### Run Locally
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/widifirmaan/bootstrap-portograph-template.git
 cd bootstrap-portograph-template
 
-# 2. Run local static web server
-# Option A: Using Python 3
+# Option A: Python 3
 python3 -m http.server 8080
 
-# Option B: Using npx serve (if Node.js is installed)
-npx serve .
+# Option B: npx serve
+npx serve -l 8080 .
 ```
 
-Open [http://localhost:8080](http://localhost:8080) in your browser.
-
----
+Open `http://localhost:8080` in your browser.
 
 ## Author
 
-Made with ❤️ by **Widi Firmansyah** / [widifirmaan.web.id](https://widifirmaan.web.id)
+**Widi Firmansyah** · [widifirmaan.web.id](https://widifirmaan.web.id)
